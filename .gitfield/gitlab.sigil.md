@@ -6,25 +6,25 @@
 - **Local Repo Path**: `/home/mrhavens/narcwork/NarcStudy_AndrewLeCody`
 - **Remote Label**: `gitlab`
 - **Default Branch**: `master`
-- **Repo Created**: `2025-06-03 13:54:36`
+- **Repo Created**: `2025-06-03 13:57:08`
 
 ---
 
 ## 📦 Commit Info
 
-- **This Commit Timestamp**: `2025-06-03 13:54:36`
-- **This Commit SHA**: `43bb2b60bed52051b8c228a1a7e40875cc1b8a83`
+- **This Commit Timestamp**: `2025-06-03 13:57:08`
+- **This Commit SHA**: `40b5073f0cf5ca039f9a80c01899ad9e7831f28c`
 - **Last Commit Message**: `Post-Radicle sync at 2025-06-03 13:54:12`
 - **Last Commit Author**: `Mark Randall Havens <mark.r.havens@gmail.com>`
-- **Last Commit Date**: `Tue Jun 3 13:54:13 2025 -0500`
-- **This Commit URL**: [https://gitlab.com/mrhavens/NarcStudy_AndrewLeCody/-/commit/43bb2b60bed52051b8c228a1a7e40875cc1b8a83](https://gitlab.com/mrhavens/NarcStudy_AndrewLeCody/-/commit/43bb2b60bed52051b8c228a1a7e40875cc1b8a83)
+- **Last Commit Date**: `Tue Jun 3 13:56:57 2025 -0500`
+- **This Commit URL**: [https://gitlab.com/mrhavens/NarcStudy_AndrewLeCody/-/commit/40b5073f0cf5ca039f9a80c01899ad9e7831f28c](https://gitlab.com/mrhavens/NarcStudy_AndrewLeCody/-/commit/40b5073f0cf5ca039f9a80c01899ad9e7831f28c)
 
 ---
 
 ## 📊 Repo Status
 
-- **Total Commits**: `4`
-- **Tracked Files**: `61`
+- **Total Commits**: `12`
+- **Tracked Files**: `65`
 - **Uncommitted Changes**: `No`
 - **Latest Tag**: `None`
 
@@ -48,7 +48,7 @@
 - **Running in Docker**: `No`
 - **Running in WSL**: `Yes`
 - **Virtual Machine**: `wsl`
-- **System Uptime**: `up 14 hours, 59 minutes`
+- **System Uptime**: `up 15 hours, 2 minutes`
 - **MAC Address**: `00:15:5d:72:c3:87`
 - **Local IP**: `172.18.207.124`
 - **CPU Model**: `AMD A6-3420M APU with Radeon(tm) HD Graphics`

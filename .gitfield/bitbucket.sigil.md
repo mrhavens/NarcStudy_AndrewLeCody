@@ -6,25 +6,25 @@
 - **Local Repo Path**: `/home/mrhavens/narcwork/NarcStudy_AndrewLeCody`
 - **Remote Label**: `bitbucket`
 - **Default Branch**: `master`
-- **This Commit Date**: `2025-06-03 13:55:41`
+- **This Commit Date**: `2025-06-03 13:57:21`
 
 ---
 
 ## 📦 Commit Info
 
-- **This Commit Timestamp**: `2025-06-03 13:55:41`
-- **Last Commit SHA**: `9c4a6871677d453a7d692fe37330bbbeced89605`
+- **This Commit Timestamp**: `2025-06-03 13:57:21`
+- **Last Commit SHA**: `fcabb2f4f6eea9f4b0b1985c9b70bb2fa7ae27b1`
 - **Last Commit Message**: `Post-GitLab sync at 2025-06-03 13:54:12`
 - **Last Commit Author**: `Mark Randall Havens <mark.r.havens@gmail.com>`
-- **Last Commit Date**: `Tue Jun 3 13:55:29 2025 -0500`
-- **This Commit URL**: [https://bitbucket.org/thefoldwithin/NarcStudy_AndrewLeCody/commits/9c4a6871677d453a7d692fe37330bbbeced89605](https://bitbucket.org/thefoldwithin/NarcStudy_AndrewLeCody/commits/9c4a6871677d453a7d692fe37330bbbeced89605)
+- **Last Commit Date**: `Tue Jun 3 13:57:10 2025 -0500`
+- **This Commit URL**: [https://bitbucket.org/thefoldwithin/NarcStudy_AndrewLeCody/commits/fcabb2f4f6eea9f4b0b1985c9b70bb2fa7ae27b1](https://bitbucket.org/thefoldwithin/NarcStudy_AndrewLeCody/commits/fcabb2f4f6eea9f4b0b1985c9b70bb2fa7ae27b1)
 
 ---
 
 ## 📊 Repo Status
 
-- **Total Commits**: `6`
-- **Tracked Files**: `62`
+- **Total Commits**: `14`
+- **Tracked Files**: `65`
 - **Uncommitted Changes**: `No`
 - **Latest Tag**: `None`
 
@@ -52,7 +52,7 @@
 - **Running in Docker**: `No`
 - **Running in WSL**: `Yes`
 - **Virtual Machine**: `wsl`
-- **System Uptime**: `up 15 hours, 0 minutes`
+- **System Uptime**: `up 15 hours, 2 minutes`
 
 ---
 

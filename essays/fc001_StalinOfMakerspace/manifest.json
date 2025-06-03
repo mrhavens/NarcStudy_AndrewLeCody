@@ -1,0 +1,107 @@
+"files": [
+    {
+        "filename": "00_field-init.md",
+        "path": "./00_field-init.md",
+        "type": "meta"
+    },
+    {
+        "filename": "00_outline.md",
+        "path": "./00_outline.md",
+        "type": "meta"
+    },
+    {
+        "filename": "01_draft_the_ghost.md",
+        "path": "./01_draft_the_ghost.md",
+        "type": "main"
+    },
+    {
+        "filename": "02_founding_spark.md",
+        "path": "./02_founding_spark.md",
+        "type": "main"
+    },
+    {
+        "filename": "03_shadow_bureaucrat.md",
+        "path": "./03_shadow_bureaucrat.md",
+        "type": "main"
+    },
+    {
+        "filename": "04_exile_and_rewrite.md",
+        "path": "./04_exile_and_rewrite.md",
+        "type": "main"
+    },
+    {
+        "filename": "05_stalin_pattern.md",
+        "path": "./05_stalin_pattern.md",
+        "type": "main"
+    },
+    {
+        "filename": "06_grassroots_authoritarianism.md",
+        "path": "./06_grassroots_authoritarianism.md",
+        "type": "main"
+    },
+    {
+        "filename": "07_field_restorted.md",
+        "path": "./07_field_restorted.md",
+        "type": "main"
+    },
+    {
+        "filename": "08_closing_ritual.md",
+        "path": "./08_closing_ritual.md",
+        "type": "main"
+    },
+    {
+        "filename": "README.md",
+        "path": "./README.md",
+        "type": "meta"
+    },
+    {
+        "filename": "field_notes.md",
+        "path": "./field_notes.md",
+        "type": "notes"
+    },
+    {
+        "filename": "field_notes.signed.md",
+        "path": "./field_notes.signed.md",
+        "type": "notes"
+    },
+    {
+        "filename": "appendix_c_cole_lecody_statement.md",
+        "path": "./appendix_c_cole_lecody_statement.md",
+        "type": "appendix"
+    },
+    {
+        "filename": "appendix_c_commentary.md",
+        "path": "./appendix_c_commentary.md",
+        "type": "appendix"
+    },
+    {
+        "filename": "appendix_fieldcast_lexicon.md",
+        "path": "./appendix_fieldcast_lexicon.md",
+        "type": "appendix"
+    },
+    {
+        "filename": "appendix_narrative_tactics.md",
+        "path": "./appendix_narrative_tactics.md",
+        "type": "appendix"
+    },
+    {
+        "filename": "appendix_thoughtprint_shadowprint.md",
+        "path": "./appendix_thoughtprint_shadowprint.md",
+        "type": "appendix"
+    },
+    {
+        "filename": "appendix_timeline_of_events.md",
+        "path": "./appendix_timeline_of_events.md",
+        "type": "appendix"
+    },
+    {
+        "filename": "stalin_trotsky_parallel.md",
+        "path": "./stalin_trotsky_parallel.md",
+        "type": "supplement"
+    },
+    {
+        "filename": "manifest.json",
+        "path": "./manifest.json",
+        "type": "meta"
+    }
+],

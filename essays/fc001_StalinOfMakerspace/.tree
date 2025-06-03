@@ -1,16 +1,23 @@
 fc001_StalinOfMakerspace/
 ├── 00_field-init.md
+├── 00_outline.md
 ├── 01_draft_the_ghost.md
 ├── 02_founding_spark.md
 ├── 03_shadow_bureaucrat.md
 ├── 04_exile_and_rewrite.md
 ├── 05_stalin_pattern.md
 ├── 06_grassroots_authoritarianism.md
-├── 07_field_restored.md
+├── 07_field_restorted.md
 ├── 08_closing_ritual.md
 ├── README.md
-├── cole_recruitment_excerpt.png
 ├── field_notes.md
 ├── field_notes.signed.md
-├── fieldcast_sigil.png
-└── stalin_trotsky_parallel.md
+├── appendix_c_cole_lecody_statement.md
+├── appendix_c_commentary.md
+├── appendix_fieldcast_lexicon.md
+├── appendix_narrative_tactics.md
+├── appendix_thoughtprint_shadowprint.md
+├── appendix_timeline_of_events.md
+├── stalin_trotsky_parallel.md
+├── manifest.json
+└── fieldcast_sigil/

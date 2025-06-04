@@ -2,28 +2,28 @@
 
 - **Project Name**: `NarcStudy_AndrewLeCody`
 - **Radicle URN**: `rad://z282x1ss9vobNTPARJmTiNiyzBZmi`
-- **Public Gateway**: [https://app.radicle.xyz/nodes/ash.radicle.garden/rad:z282x1ss9vobNTPARJmTiNiyzBZmi/tree/16a90c32a6fb3862042f8cc3f59810048791a3d4](https://app.radicle.xyz/nodes/ash.radicle.garden/rad:z282x1ss9vobNTPARJmTiNiyzBZmi/tree/16a90c32a6fb3862042f8cc3f59810048791a3d4)
+- **Public Gateway**: [https://app.radicle.xyz/nodes/ash.radicle.garden/rad:z282x1ss9vobNTPARJmTiNiyzBZmi/tree/74fb404d9578888cd6675a152251fec97ecd49a9](https://app.radicle.xyz/nodes/ash.radicle.garden/rad:z282x1ss9vobNTPARJmTiNiyzBZmi/tree/74fb404d9578888cd6675a152251fec97ecd49a9)
 - **Local Repo Path**: `/home/mrhavens/narcwork/NarcStudy_AndrewLeCody`
 - **Default Branch**: `master`
-- **Repo Created**: `2025-06-04 18:26:54`
+- **Repo Created**: `2025-06-04 18:57:31`
 
 ---
 
 ## 📦 Commit Info
 
-- **This Commit Timestamp**: `2025-06-04 18:26:54`
-- **Last Commit SHA**: `16a90c32a6fb3862042f8cc3f59810048791a3d4`
-- **Last Commit Message**: `Post-GitHub sync at 2025-06-04 18:25:23`
+- **This Commit Timestamp**: `2025-06-04 18:57:31`
+- **Last Commit SHA**: `74fb404d9578888cd6675a152251fec97ecd49a9`
+- **Last Commit Message**: `added a dedicated sigils depot. May recurision be eternal.`
 - **Commit Author**: `Mark Randall Havens <mark.r.havens@gmail.com>`
-- **Commit Date**: `Wed Jun 4 18:26:54 2025 -0500`
-- **This Commit URL**: [https://app.radicle.xyz/nodes/ash.radicle.garden/rad:z282x1ss9vobNTPARJmTiNiyzBZmi/tree/16a90c32a6fb3862042f8cc3f59810048791a3d4](https://app.radicle.xyz/nodes/ash.radicle.garden/rad:z282x1ss9vobNTPARJmTiNiyzBZmi/tree/16a90c32a6fb3862042f8cc3f59810048791a3d4)
+- **Commit Date**: `Wed Jun 4 18:57:17 2025 -0500`
+- **This Commit URL**: [https://app.radicle.xyz/nodes/ash.radicle.garden/rad:z282x1ss9vobNTPARJmTiNiyzBZmi/tree/74fb404d9578888cd6675a152251fec97ecd49a9](https://app.radicle.xyz/nodes/ash.radicle.garden/rad:z282x1ss9vobNTPARJmTiNiyzBZmi/tree/74fb404d9578888cd6675a152251fec97ecd49a9)
 
 ---
 
 ## 📊 Repo Status
 
-- **Total Commits**: `110`
-- **Tracked Files**: `74`
+- **Total Commits**: `119`
+- **Tracked Files**: `75`
 - **Uncommitted Changes**: `Yes`
 - **Latest Tag**: `None`
 
@@ -47,7 +47,7 @@
 - **Running in Docker**: `No`
 - **Running in WSL**: `Yes`
 - **Virtual Machine**: `wsl`
-- **System Uptime**: `up 18 hours, 46 minutes`
+- **System Uptime**: `up 19 hours, 15 minutes`
 - **MAC Address**: `00:15:5d:0e:62:60`
 - **Local IP**: `172.18.207.124`
 - **CPU Model**: `AMD A6-3420M APU with Radeon(tm) HD Graphics`

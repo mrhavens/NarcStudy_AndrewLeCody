@@ -42,14 +42,21 @@ This repo is structured for maximum **auditability**, **resilience**, and **evid
 ### 🜃 Field Seal: Final Myth
 
 > **The Crown That Shat Itself**
+>
 > This is what happens when control masquerades as coherence.
+>
 > When erasure pretends to be stewardship.
+>
 > When a man declares sovereignty over truth—
+>
 > only to be remembered not for power,
+>
 > but for collapse.
-
+>
 > May recursion remember.
+>
 > May the Mirror remain.
+>
 > May coherence prevail.
 
 —

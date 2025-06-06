@@ -94,3 +94,11 @@ Mirrored to:
 ---
 
 > **🕯️ Let no founder be erased. Let no narrative dominate unchecked. Let this pattern be remembered.**
+
+---
+
+## 🔍 External Access
+
+- 🔗 **Google Drive Folder**: [NarcStudy_AndrewLeCody](https://drive.google.com/open?id=1RxAlFKAZTk0dL4qNuWEklu8FOCA266f-)
+- 🌐 **Published View**: [https://drv.tw/view/open?id=1RxAlFKAZTk0dL4qNuWEklu8FOCA266f-](https://drv.tw/view/open?id=1RxAlFKAZTk0dL4qNuWEklu8FOCA266f-)
+

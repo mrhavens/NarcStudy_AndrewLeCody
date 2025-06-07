@@ -2,27 +2,27 @@
 
 - **Project Name**: `NarcStudy_AndrewLeCody`
 - **Radicle URN**: `rad://z3omBzCc2TxBZPovoVbzuUFaX3sY8`
-- **Public Gateway**: [https://app.radicle.xyz/nodes/ash.radicle.garden/rad:z3omBzCc2TxBZPovoVbzuUFaX3sY8/tree/b479d7bd5e021eeaedd8f77704f580bc04941f12](https://app.radicle.xyz/nodes/ash.radicle.garden/rad:z3omBzCc2TxBZPovoVbzuUFaX3sY8/tree/b479d7bd5e021eeaedd8f77704f580bc04941f12)
+- **Public Gateway**: [https://app.radicle.xyz/nodes/ash.radicle.garden/rad:z3omBzCc2TxBZPovoVbzuUFaX3sY8/tree/6dfef0c1a03885204004d67e7196abcea43de04f](https://app.radicle.xyz/nodes/ash.radicle.garden/rad:z3omBzCc2TxBZPovoVbzuUFaX3sY8/tree/6dfef0c1a03885204004d67e7196abcea43de04f)
 - **Local Repo Path**: `/home/mrhavens/narcwork/NarcStudy_AndrewLeCody`
 - **Default Branch**: `master`
-- **Repo Created**: `2025-06-07 18:07:36`
+- **Repo Created**: `2025-06-07 18:08:21`
 
 ---
 
 ## 📦 Commit Info
 
-- **This Commit Timestamp**: `2025-06-07 18:07:36`
-- **Last Commit SHA**: `b479d7bd5e021eeaedd8f77704f580bc04941f12`
+- **This Commit Timestamp**: `2025-06-07 18:08:21`
+- **Last Commit SHA**: `6dfef0c1a03885204004d67e7196abcea43de04f`
 - **Last Commit Message**: `Post-Local sync at 2025-06-07 18:06:39`
 - **Commit Author**: `Mark Randall Havens <mark.r.havens@gmail.com>`
-- **Commit Date**: `Sat Jun 7 18:07:36 2025 -0500`
-- **This Commit URL**: [https://app.radicle.xyz/nodes/ash.radicle.garden/rad:z3omBzCc2TxBZPovoVbzuUFaX3sY8/tree/b479d7bd5e021eeaedd8f77704f580bc04941f12](https://app.radicle.xyz/nodes/ash.radicle.garden/rad:z3omBzCc2TxBZPovoVbzuUFaX3sY8/tree/b479d7bd5e021eeaedd8f77704f580bc04941f12)
+- **Commit Date**: `Sat Jun 7 18:08:21 2025 -0500`
+- **This Commit URL**: [https://app.radicle.xyz/nodes/ash.radicle.garden/rad:z3omBzCc2TxBZPovoVbzuUFaX3sY8/tree/6dfef0c1a03885204004d67e7196abcea43de04f](https://app.radicle.xyz/nodes/ash.radicle.garden/rad:z3omBzCc2TxBZPovoVbzuUFaX3sY8/tree/6dfef0c1a03885204004d67e7196abcea43de04f)
 
 ---
 
 ## 📊 Repo Status
 
-- **Total Commits**: `1178`
+- **Total Commits**: `1190`
 - **Tracked Files**: `146`
 - **Uncommitted Changes**: `Yes`
 - **Latest Tag**: `None`
@@ -47,7 +47,7 @@
 - **Running in Docker**: `No`
 - **Running in WSL**: `Yes`
 - **Virtual Machine**: `wsl`
-- **System Uptime**: `up 1 day, 15 hours, 45 minutes`
+- **System Uptime**: `up 1 day, 15 hours, 46 minutes`
 - **MAC Address**: `00:15:5d:86:d8:cc`
 - **Local IP**: `172.18.207.124`
 - **CPU Model**: `AMD A6-3420M APU with Radeon(tm) HD Graphics`

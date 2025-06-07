@@ -6,45 +6,26 @@
 - **Local Repo Path**: `/mnt/c/Downloads/git-sigil`
 - **Remote Label**: `gitlab`
 - **Default Branch**: `master`
-<<<<<<< HEAD
-- **Repo Created**: `2025-06-07 00:14:50`
-=======
-- **Repo Created**: `2025-06-06 12:25:52`
->>>>>>> be7726405b6412ae5af5144f9e2cf4d13bd32aeb
+- **Repo Created**: `2025-06-07 01:35:05`
 
 ---
 
 ## 📦 Commit Info
 
-<<<<<<< HEAD
-- **This Commit Timestamp**: `2025-06-07 00:14:50`
-- **This Commit SHA**: `ac3616d769390092d59b246aed17a1038c211a7f`
-- **Last Commit Message**: `Post-Forgejo sync at 2025-06-07 00:07:23`
+- **This Commit Timestamp**: `2025-06-07 01:35:05`
+- **This Commit SHA**: `73e47b6f8c6d28c603794b868c8081134c30882d`
+- **Last Commit Message**: `Post-Forgejo sync at 2025-06-07 01:33:38`
 - **Last Commit Author**: `Mark Randall Havens <mark.r.havens@gmail.com>`
-- **Last Commit Date**: `Sat Jun 7 00:14:38 2025 -0500`
-- **This Commit URL**: [https://gitlab.com/mrhavens/git-sigil/-/commit/ac3616d769390092d59b246aed17a1038c211a7f](https://gitlab.com/mrhavens/git-sigil/-/commit/ac3616d769390092d59b246aed17a1038c211a7f)
-=======
-- **This Commit Timestamp**: `2025-06-06 12:25:52`
-- **This Commit SHA**: `e8fe71090f582b8025cf8f9fc80ecc958f8f0ea3`
-- **Last Commit Message**: `Post-Forgejo sync at 2025-06-06 12:19:09`
-- **Last Commit Author**: `Mark Randall Havens <mark.r.havens@gmail.com>`
-- **Last Commit Date**: `Fri Jun 6 12:25:42 2025 -0500`
-- **This Commit URL**: [https://gitlab.com/mrhavens/git-sigil/-/commit/e8fe71090f582b8025cf8f9fc80ecc958f8f0ea3](https://gitlab.com/mrhavens/git-sigil/-/commit/e8fe71090f582b8025cf8f9fc80ecc958f8f0ea3)
->>>>>>> be7726405b6412ae5af5144f9e2cf4d13bd32aeb
+- **Last Commit Date**: `Sat Jun 7 01:34:49 2025 -0500`
+- **This Commit URL**: [https://gitlab.com/mrhavens/git-sigil/-/commit/73e47b6f8c6d28c603794b868c8081134c30882d](https://gitlab.com/mrhavens/git-sigil/-/commit/73e47b6f8c6d28c603794b868c8081134c30882d)
 
 ---
 
 ## 📊 Repo Status
 
-<<<<<<< HEAD
-- **Total Commits**: `782`
-- **Tracked Files**: `113`
-- **Uncommitted Changes**: `Yes`
-=======
-- **Total Commits**: `754`
-- **Tracked Files**: `81`
+- **Total Commits**: `870`
+- **Tracked Files**: `115`
 - **Uncommitted Changes**: `No`
->>>>>>> be7726405b6412ae5af5144f9e2cf4d13bd32aeb
 - **Latest Tag**: `None`
 
 ---
@@ -67,7 +48,7 @@
 - **Running in Docker**: `No`
 - **Running in WSL**: `Yes`
 - **Virtual Machine**: `wsl`
-- **System Uptime**: `up 23 hours, 33 minutes`
+- **System Uptime**: `up 23 hours, 43 minutes`
 - **MAC Address**: `00:15:5d:86:d8:cc`
 - **Local IP**: `172.18.207.124`
 - **CPU Model**: `AMD A6-3420M APU with Radeon(tm) HD Graphics`

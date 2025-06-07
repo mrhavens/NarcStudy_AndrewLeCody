@@ -6,45 +6,26 @@
 - **Local Repo Path**: `/mnt/c/Downloads/git-sigil`
 - **Remote Label**: `bitbucket`
 - **Default Branch**: `master`
-<<<<<<< HEAD
-- **This Commit Date**: `2025-06-07 00:15:13`
-=======
-- **This Commit Date**: `2025-06-06 12:26:06`
->>>>>>> be7726405b6412ae5af5144f9e2cf4d13bd32aeb
+- **This Commit Date**: `2025-06-07 01:35:52`
 
 ---
 
 ## 📦 Commit Info
 
-<<<<<<< HEAD
-- **This Commit Timestamp**: `2025-06-07 00:15:13`
-- **Last Commit SHA**: `04cd7f309df3cf15dda8f1512da09173c9dc24a2`
-- **Last Commit Message**: `Post-GitLab sync at 2025-06-07 00:07:23`
+- **This Commit Timestamp**: `2025-06-07 01:35:52`
+- **Last Commit SHA**: `4d7e3c7f21cbde27321254a4dc2a1ac873917042`
+- **Last Commit Message**: `Post-GitLab sync at 2025-06-07 01:33:38`
 - **Last Commit Author**: `Mark Randall Havens <mark.r.havens@gmail.com>`
-- **Last Commit Date**: `Sat Jun 7 00:14:58 2025 -0500`
-- **This Commit URL**: [https://bitbucket.org/thefoldwithin/git-sigil/commits/04cd7f309df3cf15dda8f1512da09173c9dc24a2](https://bitbucket.org/thefoldwithin/git-sigil/commits/04cd7f309df3cf15dda8f1512da09173c9dc24a2)
-=======
-- **This Commit Timestamp**: `2025-06-06 12:26:06`
-- **Last Commit SHA**: `ef06f7cf0f4ecb039cfb8c82b2b6b684abc6b9b1`
-- **Last Commit Message**: `Post-GitLab sync at 2025-06-06 12:19:09`
-- **Last Commit Author**: `Mark Randall Havens <mark.r.havens@gmail.com>`
-- **Last Commit Date**: `Fri Jun 6 12:25:55 2025 -0500`
-- **This Commit URL**: [https://bitbucket.org/thefoldwithin/git-sigil/commits/ef06f7cf0f4ecb039cfb8c82b2b6b684abc6b9b1](https://bitbucket.org/thefoldwithin/git-sigil/commits/ef06f7cf0f4ecb039cfb8c82b2b6b684abc6b9b1)
->>>>>>> be7726405b6412ae5af5144f9e2cf4d13bd32aeb
+- **Last Commit Date**: `Sat Jun 7 01:35:38 2025 -0500`
+- **This Commit URL**: [https://bitbucket.org/thefoldwithin/git-sigil/commits/4d7e3c7f21cbde27321254a4dc2a1ac873917042](https://bitbucket.org/thefoldwithin/git-sigil/commits/4d7e3c7f21cbde27321254a4dc2a1ac873917042)
 
 ---
 
 ## 📊 Repo Status
 
-<<<<<<< HEAD
-- **Total Commits**: `784`
-- **Tracked Files**: `113`
-- **Uncommitted Changes**: `Yes`
-=======
-- **Total Commits**: `756`
-- **Tracked Files**: `81`
+- **Total Commits**: `872`
+- **Tracked Files**: `115`
 - **Uncommitted Changes**: `No`
->>>>>>> be7726405b6412ae5af5144f9e2cf4d13bd32aeb
 - **Latest Tag**: `None`
 
 ---
@@ -71,7 +52,7 @@
 - **Running in Docker**: `No`
 - **Running in WSL**: `Yes`
 - **Virtual Machine**: `wsl`
-- **System Uptime**: `up 23 hours, 34 minutes`
+- **System Uptime**: `up 23 hours, 43 minutes`
 
 ---
 

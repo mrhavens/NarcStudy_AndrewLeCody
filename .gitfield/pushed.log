@@ -154,3 +154,4 @@
   CLI: git ls-tree -r --name-only HEAD # View file structure
 [2025-06-07 01:38:41] Forgejo: https://remember.thefoldwithin.earth/mrhavens/git-sigil
 [2025-06-07 01:39:12] GitLab: https://gitlab.com/mrhavens/git-sigil
+[2025-06-07 01:39:52] Bitbucket: https://bitbucket.org/thefoldwithin/git-sigil

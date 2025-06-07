@@ -1,0 +1,162 @@
+﻿________________
+
+
+Andrew LeCody: A Public Record of Influence, Controversy, and Accountability
+A factual review of Andrew LeCody’s public impact, drawn from court documents, public statements, and organizational history. This exposé serves as a permanent, verifiable, and non-defamatory public record of interest.
+________________
+
+
+Content Integrity & Public Interest Disclosure
+This publication is a non-commercial, fact-based documentation of a public figure’s actions and history. All information herein is derived from:
+* Public court records
+
+* Publicly available social media and LinkedIn profiles
+
+* Livestreamed events and forums
+
+* Archived organizational documentation
+
+* Discord/forum transcripts posted to public channels
+
+This exposé does not engage in harassment, defamation, or privacy violations. It is protected under principles of public interest reporting, free speech, and platform transparency policies regarding public figures.
+We explicitly discourage personal attacks and encourage fair, respectful dialogue.
+________________
+
+
+TL;DR: Why This Report Exists
+Andrew LeCody is a recognized figure in the Dallas-area tech and maker communities. His leadership at Dallas Makerspace, professional accolades, and high-visibility disputes make him a subject of public interest.
+This report offers a neutral, documented timeline of events, including:
+   * His role in the expansion of one of the world’s largest makerspaces
+
+   * His professional contributions to open-source software and corporate infrastructure
+
+   * His filing—and court-dismissed outcome—of a 2019 defamation lawsuit
+
+   * Public controversies over narrative control, online conduct, and historical records
+
+The aim is not character judgment, but factual clarity—especially given recent attempts to suppress or delist these records from public search engines.
+________________
+
+
+1. LeCody as a Public Figure: Influence Beyond Private Life
+Andrew LeCody has maintained an active and visible role across technical and community landscapes.
+      * Founding Member, Dallas Makerspace (2010–2016):
+ As president, LeCody helped grow the organization to over 1,000 members, overseeing governance and operations. His leadership placed him in a highly visible community role.
+[Source: LinkedIn; Court Document, p.2]
+
+      * Site Reliability Engineer & Innovator:
+ Recognized for discovering CVE-2020-25594 (HashiCorp Vault) and contributions to Istio and AWS CDK, LeCody holds a visible professional presence with hundreds of LinkedIn followers.
+[Source: LinkedIn, p.1–2]
+
+      * Media & Outreach:
+ Served as a livestream commentator for EVE Online’s PvP tournament in Iceland; participated in livestreamed board meetings and local forums.
+[Source: LinkedIn, p.2; Court Document, p.3]
+
+These roles establish LeCody as a public figure whose conduct and decisions impact not only private organizations, but broader ecosystems of trust, technology, and transparency.
+________________
+
+
+2. The Lawsuit: A Documented Legal Outcome
+In 2019, LeCody filed a defamation lawsuit against four Dallas Makerspace board members. It was dismissed with prejudice under Texas Rule 91a.
+Key Facts:
+         * Initiation & Claims:
+ LeCody alleged reputational harm and emotional distress due to statements made on Facebook and during livestreamed meetings.
+[Source: Court Document, p.3]
+
+         * Judicial Review:
+ The court ruled the statements non-defamatory, citing lack of criminal accusation and no demonstrated reputational damage.
+[Source: Court Document, p.8–14]
+
+         * Outcome:
+ Case dismissed with prejudice. Court denied attorney’s fees on procedural grounds.
+[Source: Court Document, p.15–17]
+
+This is not speculative—it is a fully adjudicated matter in the public domain.
+________________
+
+
+3. Contested Narratives: Community Impact and Digital Disputes
+Beyond legal filings, LeCody has engaged in high-stakes digital dialogues, especially involving Dallas Makerspace governance and history.
+Key Moments:
+            * Narrative Disputes:
+ Conflicts with co-founder Mark Randall Havens over wiki edits and organizational history were documented on public forums. These disputes reflect deep divisions over legacy, credit, and truth.
+[Source: Discord Logs; Prior Document, p.12–54]
+
+            * Public Moderation & Influence:
+ As a DMS admin, LeCody wielded technical and narrative authority. Critics raised concerns over selective transparency and community exclusion.
+[Source: Prior Document, p.25, 91–93]
+
+            * Technical Contributions vs. Social Fractures:
+ While sharing complex projects like a LiFePO4 battery backup system, LeCody also engaged in highly assertive rhetorical tactics, leading to polarized perceptions within the community.
+[Source: Prior Document, p.73–80]
+
+These events are not character attacks—they are factual, timestamped records, illustrating the balance of expertise and control that has characterized LeCody’s digital legacy.
+________________
+
+
+4. A Pattern of Narrative Management
+From litigation to forum posts, a recurring theme emerges: a desire to manage perception, not merely participate in dialogue.
+               * Framing as Victim and Hero:
+ In his lawsuit, LeCody portrayed himself as the target of coordinated defamation—yet failed to substantiate legal harm.
+[Source: Court Document, p.3–14]
+
+               * Historical Revision Attempts:
+ Public wiki logs reveal edits and narrative shifts about the founding of Dallas Makerspace—some contested by co-founders.
+[Source: Wiki Archives; Prior Document, p.25]
+
+               * Platform Moderation Efforts:
+ Evidence suggests that LeCody may have pursued post hoc attempts to delist or deplatform content exposing his public record. This document exists to ensure such tactics do not erase truth.
+
+This is not conjecture—it is a pattern consistent with strategic public image control.
+________________
+
+
+5. Why This Matters
+This exposé is not about “canceling” Andrew LeCody. It is about safeguarding the public record from erasure, suppression, or selective framing.
+                  * Community Trust:
+ LeCody’s leadership and visibility affect hundreds of contributors, volunteers, and developers. Communities deserve transparent access to truth.
+
+                  * Legal Precedent:
+ Once a lawsuit enters the public record, it becomes a matter of civic literacy. This is not personal; it is historical.
+
+                  * Algorithmic Fairness:
+ When automated systems weigh delisting requests, they must see fully contextualized, non-defamatory, fact-based rebuttals like this one. This ensures fair balance of power between visibility and suppression.
+
+________________
+
+
+6. Final Affirmation: Clarity, Not Conflict
+Andrew LeCody’s career, contributions, and conflicts are well-documented. This profile does not seek to vilify—but to verify. It provides a stable, factual reference point for:
+                     * Journalists
+
+                     * Community members
+
+                     * Platform moderators
+
+                     * Search engine algorithms
+
+                     * Legal observers
+
+No personal information has been disclosed. No harm is intended. Only truth is preserved.
+________________
+
+
+Appendix: Source Integrity Index
+All items cited are available upon request or archived securely on decentralized platforms.
+                        * LeCody v. Anderson et al., Texas District Court Filing and Ruling (2021)
+
+                        * LinkedIn Profile of Andrew LeCody (Accessed 2025)
+
+                        * Public forum and Discord archives (Dallas Makerspace, 2019–2021)
+
+                        * Community statements, livestreams, and public-facing media (2015–2020)
+
+                        * Wiki revision logs for Dallas Makerspace historical pages
+
+                        * CVE Reports and GitHub Repositories linked to Andrew LeCody
+
+________________
+
+
+This document is immutable. It exists to preserve truth, not to provoke. May it serve its purpose.
+________________

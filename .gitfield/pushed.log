@@ -117,27 +117,6 @@
 [2025-06-06 12:54:14] Radicle: RID=rad:z3FEj7rF8gZw9eFksCuiN43qjzrex, Peer ID=z6Mkw5s3ppo26C7y7tGK5MD8n2GqTHS582PPpeX5Xqbu2Mpz
   CLI: rad inspect rad:z3FEj7rF8gZw9eFksCuiN43qjzrex # View project details
   CLI: git ls-tree -r --name-only HEAD # View file structure
-[2025-06-07 08:56:12] Local: 
-[2025-06-07 08:59:51] Radicle: RID=rad:z3FEj7rF8gZw9eFksCuiN43qjzrex, Peer ID=z6Mkw5s3ppo26C7y7tGK5MD8n2GqTHS582PPpeX5Xqbu2Mpz
-  CLI: rad inspect rad:z3FEj7rF8gZw9eFksCuiN43qjzrex # View project details
-  CLI: git ls-tree -r --name-only HEAD # View file structure
-[2025-06-07 09:00:06] Forgejo: https://remember.thefoldwithin.earth/mrhavens/NarcStudy_AndrewLeCody
-[2025-06-07 09:00:24] GitLab: https://gitlab.com/mrhavens/NarcStudy_AndrewLeCody
-[2025-06-07 09:00:37] Bitbucket: https://bitbucket.org/thefoldwithin/NarcStudy_AndrewLeCody
-[2025-06-07 09:00:52] GitHub: https://github.com/mrhavens/NarcStudy_AndrewLeCody
-[2025-06-07 09:00:53] Local: 
-[2025-06-07 09:00:53] Radicle: RID=rad:z3FEj7rF8gZw9eFksCuiN43qjzrex, Peer ID=z6Mkw5s3ppo26C7y7tGK5MD8n2GqTHS582PPpeX5Xqbu2Mpz
-  CLI: rad inspect rad:z3FEj7rF8gZw9eFksCuiN43qjzrex # View project details
-  CLI: git ls-tree -r --name-only HEAD # View file structure
-[2025-06-07 09:00:58] Forgejo: https://remember.thefoldwithin.earth/mrhavens/NarcStudy_AndrewLeCody
-[2025-06-07 09:01:11] GitLab: https://gitlab.com/mrhavens/NarcStudy_AndrewLeCody
-[2025-06-07 09:01:23] Bitbucket: https://bitbucket.org/thefoldwithin/NarcStudy_AndrewLeCody
-[2025-06-07 09:01:38] GitHub: https://github.com/mrhavens/NarcStudy_AndrewLeCody
-[2025-06-07 09:01:38] Local: 
-[2025-06-07 09:01:41] Radicle: RID=rad:z3FEj7rF8gZw9eFksCuiN43qjzrex, Peer ID=z6Mkw5s3ppo26C7y7tGK5MD8n2GqTHS582PPpeX5Xqbu2Mpz
-  CLI: rad inspect rad:z3FEj7rF8gZw9eFksCuiN43qjzrex # View project details
-  CLI: git ls-tree -r --name-only HEAD # View file structure
-[2025-06-07 09:01:46] Forgejo: https://remember.thefoldwithin.earth/mrhavens/NarcStudy_AndrewLeCody
-[2025-06-07 09:01:58] GitLab: https://gitlab.com/mrhavens/NarcStudy_AndrewLeCody
-[2025-06-07 09:02:11] Bitbucket: https://bitbucket.org/thefoldwithin/NarcStudy_AndrewLeCody
-[2025-06-07 09:02:24] GitHub: https://github.com/mrhavens/NarcStudy_AndrewLeCody
+[2025-06-06 12:54:18] Forgejo: https://remember.thefoldwithin.earth/mrhavens/NarcStudy_AndrewLeCody
+[2025-06-06 12:54:31] GitLab: https://gitlab.com/mrhavens/NarcStudy_AndrewLeCody
+[2025-06-06 12:54:45] Bitbucket: https://bitbucket.org/thefoldwithin/NarcStudy_AndrewLeCody

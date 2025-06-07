@@ -6,25 +6,25 @@
 - **Local Repo Path**: `/home/mrhavens/narcwork/NarcStudy_AndrewLeCody`
 - **Remote Label**: `gitlab`
 - **Default Branch**: `master`
-- **Repo Created**: `2025-06-07 09:01:57`
+- **Repo Created**: `2025-06-06 12:54:29`
 
 ---
 
 ## 📦 Commit Info
 
-- **This Commit Timestamp**: `2025-06-07 09:01:57`
-- **This Commit SHA**: `3d119b698e0984cb2992410188f7707303f91926`
-- **Last Commit Message**: `Post-Forgejo sync at 2025-06-07 08:56:10`
+- **This Commit Timestamp**: `2025-06-06 12:54:29`
+- **This Commit SHA**: `fc5646270bcef39ee07758ba639615ef3e25c8b4`
+- **Last Commit Message**: `Post-Forgejo sync at 2025-06-06 12:46:16`
 - **Last Commit Author**: `Mark Randall Havens <mark.r.havens@gmail.com>`
-- **Last Commit Date**: `Sat Jun 7 09:01:46 2025 -0500`
-- **This Commit URL**: [https://gitlab.com/mrhavens/NarcStudy_AndrewLeCody/-/commit/3d119b698e0984cb2992410188f7707303f91926](https://gitlab.com/mrhavens/NarcStudy_AndrewLeCody/-/commit/3d119b698e0984cb2992410188f7707303f91926)
+- **Last Commit Date**: `Fri Jun 6 12:54:18 2025 -0500`
+- **This Commit URL**: [https://gitlab.com/mrhavens/NarcStudy_AndrewLeCody/-/commit/fc5646270bcef39ee07758ba639615ef3e25c8b4](https://gitlab.com/mrhavens/NarcStudy_AndrewLeCody/-/commit/fc5646270bcef39ee07758ba639615ef3e25c8b4)
 
 ---
 
 ## 📊 Repo Status
 
-- **Total Commits**: `258`
-- **Tracked Files**: `98`
+- **Total Commits**: `227`
+- **Tracked Files**: `77`
 - **Uncommitted Changes**: `No`
 - **Latest Tag**: `None`
 
@@ -48,7 +48,7 @@
 - **Running in Docker**: `No`
 - **Running in WSL**: `Yes`
 - **Virtual Machine**: `wsl`
-- **System Uptime**: `up 1 day, 7 hours, 2 minutes`
+- **System Uptime**: `up 11 hours, 37 minutes`
 - **MAC Address**: `00:15:5d:86:d8:cc`
 - **Local IP**: `172.18.207.124`
 - **CPU Model**: `AMD A6-3420M APU with Radeon(tm) HD Graphics`

@@ -6,25 +6,25 @@
 - **Local Repo Path**: `/home/mrhavens/narcwork/NarcStudy_AndrewLeCody`
 - **Remote Label**: `remember`
 - **Default Branch**: `master`
-- **Repo Created**: `2025-06-06 12:54:16`
+- **Repo Created**: `2025-06-07 08:59:54`
 
 ---
 
 ## 📦 Commit Info
 
-- **This Commit Timestamp**: `2025-06-06 12:54:16`
-- **Last Commit SHA**: `1625e656d3fea087b9bdea709da9a52d47b90f86`
-- **Last Commit Message**: `Post-Radicle sync at 2025-06-06 12:46:16`
+- **This Commit Timestamp**: `2025-06-07 08:59:54`
+- **Last Commit SHA**: `81812caa4b2f22711ed68866ff8e82ff94310ea2`
+- **Last Commit Message**: `Post-Radicle sync at 2025-06-07 08:56:10`
 - **Last Commit Author**: `Mark Randall Havens <mark.r.havens@gmail.com>`
-- **Last Commit Date**: `Fri Jun 6 12:54:14 2025 -0500`
-- **This Commit URL**: [https://remember.thefoldwithin.earth/mrhavens/NarcStudy_AndrewLeCody/commit/1625e656d3fea087b9bdea709da9a52d47b90f86](https://remember.thefoldwithin.earth/mrhavens/NarcStudy_AndrewLeCody/commit/1625e656d3fea087b9bdea709da9a52d47b90f86)
+- **Last Commit Date**: `Sat Jun 7 08:59:51 2025 -0500`
+- **This Commit URL**: [https://remember.thefoldwithin.earth/mrhavens/NarcStudy_AndrewLeCody/commit/81812caa4b2f22711ed68866ff8e82ff94310ea2](https://remember.thefoldwithin.earth/mrhavens/NarcStudy_AndrewLeCody/commit/81812caa4b2f22711ed68866ff8e82ff94310ea2)
 
 ---
 
 ## 📊 Repo Status
 
-- **Total Commits**: `225`
-- **Tracked Files**: `77`
+- **Total Commits**: `231`
+- **Tracked Files**: `98`
 - **Uncommitted Changes**: `No`
 - **Latest Tag**: `None`
 
@@ -48,7 +48,7 @@
 - **Running in Docker**: `No`
 - **Running in WSL**: `Yes`
 - **Virtual Machine**: `wsl`
-- **System Uptime**: `up 11 hours, 37 minutes`
+- **System Uptime**: `up 1 day, 7 hours, 0 minutes`
 - **MAC Address**: `00:15:5d:86:d8:cc`
 - **Local IP**: `172.18.207.124`
 - **CPU Model**: `AMD A6-3420M APU with Radeon(tm) HD Graphics`

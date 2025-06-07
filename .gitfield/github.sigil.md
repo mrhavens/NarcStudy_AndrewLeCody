@@ -6,26 +6,45 @@
 - **Local Repo Path**: `/mnt/c/Downloads/git-sigil`
 - **Remote Label**: `github`
 - **Default Branch**: `master`
+<<<<<<< HEAD
 - **This Commit Date**: `2025-06-07 00:20:54`
+=======
+- **This Commit Date**: `2025-06-06 12:26:22`
+>>>>>>> 4b323cbd7da16625ba04d2a7e8db3532f84bc1e0
 
 ---
 
 ## 📦 Commit Info
 
+<<<<<<< HEAD
 - **This Commit Timestamp**: `2025-06-07 00:20:54`
 - **Last Commit SHA**: `231eee68616d3394d349c3cc982608617297caaa`
 - **Last Commit Message**: `Local metadata link commit at 2025-06-07 00:18:57 — file:///home/mrhavens/git-local-repos/git-sigil.git`
 - **Last Commit Author**: `Mark Randall Havens <mark.r.havens@gmail.com>`
 - **Last Commit Date**: `Sat Jun 7 00:19:01 2025 -0500`
 - **This Commit URL**: [https://github.com/mrhavens/git-sigil/commit/231eee68616d3394d349c3cc982608617297caaa](https://github.com/mrhavens/git-sigil/commit/231eee68616d3394d349c3cc982608617297caaa)
+=======
+- **This Commit Timestamp**: `2025-06-06 12:26:22`
+- **Last Commit SHA**: `b2584503af8db546a9deb5444b93b0932957f56f`
+- **Last Commit Message**: `Post-Bitbucket sync at 2025-06-06 12:19:09`
+- **Last Commit Author**: `Mark Randall Havens <mark.r.havens@gmail.com>`
+- **Last Commit Date**: `Fri Jun 6 12:26:12 2025 -0500`
+- **This Commit URL**: [https://github.com/mrhavens/git-sigil/commit/b2584503af8db546a9deb5444b93b0932957f56f](https://github.com/mrhavens/git-sigil/commit/b2584503af8db546a9deb5444b93b0932957f56f)
+>>>>>>> 4b323cbd7da16625ba04d2a7e8db3532f84bc1e0
 
 ---
 
 ## 📊 Repo Status
 
+<<<<<<< HEAD
 - **Total Commits**: `789`
 - **Tracked Files**: `113`
 - **Uncommitted Changes**: `Yes`
+=======
+- **Total Commits**: `758`
+- **Tracked Files**: `81`
+- **Uncommitted Changes**: `No`
+>>>>>>> 4b323cbd7da16625ba04d2a7e8db3532f84bc1e0
 - **Latest Tag**: `None`
 
 ---
@@ -48,7 +67,11 @@
 - **Running in Docker**: `No`
 - **Running in WSL**: `Yes`
 - **Virtual Machine**: `wsl`
+<<<<<<< HEAD
 - **System Uptime**: `up 22 hours, 28 minutes`
+=======
+- **System Uptime**: `up 11 hours, 10 minutes`
+>>>>>>> 4b323cbd7da16625ba04d2a7e8db3532f84bc1e0
 - **MAC Address**: `00:15:5d:86:d8:cc`
 - **Local IP**: `172.18.207.124`
 - **CPU Model**: `AMD A6-3420M APU with Radeon(tm) HD Graphics`

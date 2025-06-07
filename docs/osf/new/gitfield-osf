@@ -1,0 +1,286 @@
+#!/usr/bin/env bash
+set -Eeuo pipefail
+IFS=$'\n\t'
+
+# ╭─────────────────────────────────────────────────────────────────────────╮
+# │                      gitfield-osf :: v3.2.0 (Refactored)               │
+# │      Self-Healing • Auto-Detecting • PEP 668-Compliant • Debuggable     │
+# ╰─────────────────────────────────────────────────────────────────────────╯
+#
+# This script uses osfclient to upload files, based on a YAML config.
+# It will auto-install python3, pip3, yq, pipx, and osfclient if missing.
+#   1. ensure_dependencies(): makes sure python3, pip3, yq, pipx, osfclient exist
+#   2. configure_osfclient(): prompts for token & username, writes ~/.config/osfclient/config
+#   3. load_yaml_config(): reads project.title, include/exclude globs from gitfield.osf.yaml
+#   4. resolve_files(): expands include/exclude patterns into a FILES array
+#   5. find_or_create_project(): finds or creates an OSF project with the given title
+#   6. upload_files(): loops over FILES and does osf upload
+#
+# Usage:
+#   chmod +x gitfield-osf
+#   ./gitfield-osf
+#
+# If gitfield.osf.yaml is missing or empty patterns match nothing, the script will exit cleanly.
+# Any failure prints an [ERROR] and exits non-zero.
+
+########################################################################
+# CUSTOMIZE HERE (if needed):
+########################################################################
+# If you want to override config path:
+#   export GITFIELD_CONFIG=/path/to/your/gitfield.osf.yaml
+
+CONFIG_FILE="${GITFIELD_CONFIG:-gitfield.osf.yaml}"
+TOKEN_FILE="${OSF_TOKEN_FILE:-$HOME/.osf_token}"
+OSF_CONFIG_DIR="$HOME/.config/osfclient"
+FILES=()
+
+# ─────────────────────────────────────────────────────────────────────
+# Colored logging functions
+# ─────────────────────────────────────────────────────────────────────
+log()   { echo -e "\033[1;34m[INFO]\033[0m  $*"; }
+warn()  { echo -e "\033[1;33m[WARN]\033[0m  $*"; }
+error() { echo -e "\033[1;31m[ERROR]\033[0m $*" >&2; exit 1; }
+
+# ─────────────────────────────────────────────────────────────────────
+# Step 1: Ensure Dependencies
+# - python3, pip3, yq, pipx, osfclient
+# - Works under PEP 668 (uses pipx first, then pip3 --user fallback)
+# ─────────────────────────────────────────────────────────────────────
+ensure_dependencies() {
+  log "Checking for required commands..."
+
+  # 1a. Ensure python3
+  if ! command -v python3 &>/dev/null; then
+    warn "python3 not found — installing..."
+    sudo apt update -qq && sudo apt install -y python3 python3-venv python3-distutils \
+      || error "Failed to install python3"
+  fi
+
+  # 1b. Ensure pip3
+  if ! command -v pip3 &>/dev/null; then
+    warn "pip3 not found — installing..."
+    sudo apt install -y python3-pip || error "Failed to install pip3"
+    # Guarantee pip3 is available now
+    command -v pip3 >/dev/null || error "pip3 still missing after install"
+  fi
+
+  # 1c. Ensure yq (for YAML parsing)
+  if ! command -v yq &>/dev/null; then
+    warn "yq not found — installing..."
+    if command -v snap &>/dev/null; then
+      sudo snap install yq || sudo apt install -y yq || error "Failed to install yq"
+    else
+      sudo apt install -y yq || error "Failed to install yq"
+    fi
+  fi
+
+  # 1d. Ensure pipx
+  if ! command -v pipx &>/dev/null; then
+    warn "pipx not found — installing..."
+    sudo apt install -y pipx || error "Failed to install pipx"
+    # Add pipx’s bin to PATH if needed
+    pipx ensurepath
+    export PATH="$HOME/.local/bin:$PATH"
+  fi
+
+  # 1e. Ensure osfclient via pipx, fallback to pip3 --user
+  if ! command -v osf &>/dev/null; then
+    log "Installing osfclient via pipx..."
+    if ! pipx install osfclient; then
+      warn "pipx install failed; trying pip3 --user install"
+      python3 -m pip install --user osfclient || error "osfclient install failed"
+    fi
+    # Ensure $HOME/.local/bin is in PATH
+    export PATH="$HOME/.local/bin:$PATH"
+  fi
+
+  # Final check
+  command -v osf >/dev/null || error "osfclient is still missing; please investigate"
+  log "✓ All dependencies are now present"
+}
+
+# ─────────────────────────────────────────────────────────────────────
+# Step 2: Configure OSF Credentials
+# - Writes ~/.config/osfclient/config with [osf] username & token
+# - Prompts for token and username if missing
+# ─────────────────────────────────────────────────────────────────────
+configure_osfclient() {
+  log "Configuring osfclient credentials..."
+
+  # Create config directory
+  mkdir -p "$OSF_CONFIG_DIR"
+  chmod 700 "$OSF_CONFIG_DIR"
+
+  # Prompt for Personal Access Token if missing
+  if [ ! -f "$TOKEN_FILE" ]; then
+    read -rsp "🔐 Enter OSF Personal Access Token: " TOKEN
+    echo
+    echo "$TOKEN" > "$TOKEN_FILE"
+    chmod 600 "$TOKEN_FILE"
+  fi
+
+  # Prompt for username/email if not already in env
+  local USERNAME="${OSF_USERNAME:-}"
+  if [ -z "$USERNAME" ]; then
+    read -rp "👤 OSF Username or Email: " USERNAME
+  fi
+
+  # Write config file
+  cat > "$OSF_CONFIG_DIR/config" <<EOF
+[osf]
+username = $USERNAME
+token = $(<"$TOKEN_FILE")
+EOF
+
+  chmod 600 "$OSF_CONFIG_DIR/config"
+  log "✓ osfclient configured (config at $OSF_CONFIG_DIR/config)"
+}
+
+# ─────────────────────────────────────────────────────────────────────
+# Step 3: Load YAML Configuration
+# - Expects PROJECT_TITLE, includes, excludes in gitfield.osf.yaml
+# ─────────────────────────────────────────────────────────────────────
+load_yaml_config() {
+  log "Loading configuration from '$CONFIG_FILE'"
+
+  if [ ! -f "$CONFIG_FILE" ]; then
+    error "Configuration file '$CONFIG_FILE' not found"
+  fi
+
+  # Read project.title
+  PROJECT_TITLE=$(yq -r '.project.title // ""' "$CONFIG_FILE")
+  if [ -z "$PROJECT_TITLE" ]; then
+    error "Missing or empty 'project.title' in $CONFIG_FILE"
+  fi
+
+  # Read project.description (optional, unused here but could be extended)
+  PROJECT_DESCRIPTION=$(yq -r '.project.description // ""' "$CONFIG_FILE")
+
+  # Read upload.include[] and upload.exclude[]
+  readarray -t FILES_INCLUDE < <(yq -r '.upload.include[]?' "$CONFIG_FILE")
+  readarray -t FILES_EXCLUDE < <(yq -r '.upload.exclude[]?' "$CONFIG_FILE")
+
+  # Debug print
+  log "  → project.title = '$PROJECT_TITLE'"
+  log "  → includes: ${FILES_INCLUDE[*]:-<none>}"
+  log "  → excludes: ${FILES_EXCLUDE[*]:-<none>}"
+}
+
+# ─────────────────────────────────────────────────────────────────────
+# Step 4: Match Files Based on Include/Exclude
+# - Populates global FILES array
+# - If no files match, exits gracefully
+# ─────────────────────────────────────────────────────────────────────
+resolve_files() {
+  log "Resolving file patterns..."
+
+  # If no include patterns, nothing to do
+  if [ "${#FILES_INCLUDE[@]}" -eq 0 ]; then
+    warn "No include patterns specified; skipping upload."
+    exit 0
+  fi
+
+  # For each include glob, find matching files
+  for pattern in "${FILES_INCLUDE[@]}"; do
+    # Use find to expand the glob (supports nested directories)
+    while IFS= read -r -d '' file; do
+      # Check against each exclude pattern
+      skip=false
+      for ex in "${FILES_EXCLUDE[@]}"; do
+        if [[ "$file" == $ex ]]; then
+          skip=true
+          break
+        fi
+      done
+      if ! $skip; then
+        FILES+=("$file")
+      fi
+    done < <(find . -type f -path "$pattern" -print0 2>/dev/null || true)
+  done
+
+  # Remove duplicates (just in case)
+  if [ "${#FILES[@]}" -gt 1 ]; then
+    IFS=$'\n' read -r -d '' -a FILES < <(__uniq_array "${FILES[@]}" && printf '\0')
+  fi
+
+  # If still empty, warn and exit
+  if [ "${#FILES[@]}" -eq 0 ]; then
+    warn "No files matched the include/exclude patterns."
+    exit 0
+  fi
+
+  # Debug print of matched files
+  log "Matched files (${#FILES[@]}):"
+  for f in "${FILES[@]}"; do
+    echo "  • $f"
+  done
+}
+
+# Helper: Remove duplicates from a list of lines
+__uniq_array() {
+  printf "%s\n" "$@" | awk '!seen[$0]++'
+}
+
+# ─────────────────────────────────────────────────────────────────────
+# Step 5: Find or Create OSF Project
+# - Uses `osf listprojects` to search for exact title (case-insensitive)
+# - If not found, does `osf createproject "<title>"`
+# - Writes the resulting project ID to .osf_project_id
+# ─────────────────────────────────────────────────────────────────────
+find_or_create_project() {
+  log "Searching for OSF project titled '$PROJECT_TITLE'..."
+  # List all projects and grep case-insensitive for the title
+  pid=$(osf listprojects | grep -iE "^([[:alnum:]]+)[[:space:]]+.*${PROJECT_TITLE}.*$" | awk '{print $1}' || true)
+
+  if [ -z "$pid" ]; then
+    log "No existing project found; creating a new OSF project..."
+    pid=$(osf createproject "$PROJECT_TITLE")
+    if [ -z "$pid" ]; then
+      error "osf createproject failed; no project ID returned"
+    fi
+    echo "$pid" > .osf_project_id
+    log "✓ Created project: $pid"
+  else
+    echo "$pid" > .osf_project_id
+    log "✓ Found existing project: $pid"
+  fi
+}
+
+# ─────────────────────────────────────────────────────────────────────
+# Step 6: Upload Files to OSF
+# - Loops over FILES[] and runs: osf upload "<file>" "<pid>": 
+#   (the trailing colon uploads to root of osfstorage for that project)
+# ─────────────────────────────────────────────────────────────────────
+upload_files() {
+  pid=$(<.osf_project_id)
+
+  log "Uploading ${#FILES[@]} file(s) to OSF project $pid..."
+
+  for file in "${FILES[@]}"; do
+    log "→ Uploading: $file"
+    if osf upload "$file" "$pid":; then
+      log "   ✓ Uploaded: $file"
+    else
+      warn "   ✗ Upload failed for: $file"
+    fi
+  done
+
+  log "✅ All uploads attempted."
+  echo
+  echo "🔗 View your project at: https://osf.io/$pid/"
+}
+
+# ─────────────────────────────────────────────────────────────────────
+# Main: Orchestrate all steps in sequence
+# ─────────────────────────────────────────────────────────────────────
+main() {
+  ensure_dependencies
+  configure_osfclient
+  load_yaml_config
+  resolve_files
+  find_or_create_project
+  upload_files
+}
+
+# Invoke main
+main "$@"

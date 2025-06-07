@@ -1,30 +1,30 @@
 # 🔗 Forgejo Repository Link
 
-- **Repo Name**: `NarcStudy_AndrewLeCody`
+- **Repo Name**: `git-sigil`
 - **Forgejo User**: `mrhavens`
-- **Remote URL**: [https://remember.thefoldwithin.earth/mrhavens/NarcStudy_AndrewLeCody](https://remember.thefoldwithin.earth/mrhavens/NarcStudy_AndrewLeCody)
-- **Local Repo Path**: `/home/mrhavens/narcwork/NarcStudy_AndrewLeCody`
+- **Remote URL**: [https://remember.thefoldwithin.earth/mrhavens/git-sigil](https://remember.thefoldwithin.earth/mrhavens/git-sigil)
+- **Local Repo Path**: `/mnt/c/Downloads/git-sigil`
 - **Remote Label**: `remember`
 - **Default Branch**: `master`
-- **Repo Created**: `2025-06-07 09:01:43`
+- **Repo Created**: `2025-06-07 01:38:20`
 
 ---
 
 ## 📦 Commit Info
 
-- **This Commit Timestamp**: `2025-06-07 09:01:43`
-- **Last Commit SHA**: `ed38e4c9b112a1af9fa543ad13f2a81c5b245bdb`
-- **Last Commit Message**: `Post-Radicle sync at 2025-06-07 08:56:10`
+- **This Commit Timestamp**: `2025-06-07 01:38:20`
+- **Last Commit SHA**: `9f2af2d134fa2fc2226351f894eaf76b873b7404`
+- **Last Commit Message**: `Post-Radicle sync at 2025-06-07 01:33:38`
 - **Last Commit Author**: `Mark Randall Havens <mark.r.havens@gmail.com>`
-- **Last Commit Date**: `Sat Jun 7 09:01:41 2025 -0500`
-- **This Commit URL**: [https://remember.thefoldwithin.earth/mrhavens/NarcStudy_AndrewLeCody/commit/ed38e4c9b112a1af9fa543ad13f2a81c5b245bdb](https://remember.thefoldwithin.earth/mrhavens/NarcStudy_AndrewLeCody/commit/ed38e4c9b112a1af9fa543ad13f2a81c5b245bdb)
+- **Last Commit Date**: `Sat Jun 7 01:38:14 2025 -0500`
+- **This Commit URL**: [https://remember.thefoldwithin.earth/mrhavens/git-sigil/commit/9f2af2d134fa2fc2226351f894eaf76b873b7404](https://remember.thefoldwithin.earth/mrhavens/git-sigil/commit/9f2af2d134fa2fc2226351f894eaf76b873b7404)
 
 ---
 
 ## 📊 Repo Status
 
-- **Total Commits**: `256`
-- **Tracked Files**: `98`
+- **Total Commits**: `881`
+- **Tracked Files**: `115`
 - **Uncommitted Changes**: `No`
 - **Latest Tag**: `None`
 
@@ -48,7 +48,7 @@
 - **Running in Docker**: `No`
 - **Running in WSL**: `Yes`
 - **Virtual Machine**: `wsl`
-- **System Uptime**: `up 1 day, 7 hours, 2 minutes`
+- **System Uptime**: `up 23 hours, 46 minutes`
 - **MAC Address**: `00:15:5d:86:d8:cc`
 - **Local IP**: `172.18.207.124`
 - **CPU Model**: `AMD A6-3420M APU with Radeon(tm) HD Graphics`

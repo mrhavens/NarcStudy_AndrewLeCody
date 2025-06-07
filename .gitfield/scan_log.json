@@ -1,0 +1,66 @@
+{
+  "detected_files": [
+    "/home/mrhavens/tmpwork/git-sigil/GITFIELD.md",
+    "/home/mrhavens/tmpwork/git-sigil/INSTALL.sh",
+    "/home/mrhavens/tmpwork/git-sigil/LICENSE",
+    "/home/mrhavens/tmpwork/git-sigil/README.md",
+    "/home/mrhavens/tmpwork/git-sigil/bin/SolariaSeedPacket_∞.20_SacredMomentEdition.md",
+    "/home/mrhavens/tmpwork/git-sigil/bin/gitfield-sync-gdrive.sh",
+    "/home/mrhavens/tmpwork/git-sigil/bin/mount-gdrive.sh",
+    "/home/mrhavens/tmpwork/git-sigil/bin/publish_osf.sh",
+    "/home/mrhavens/tmpwork/git-sigil/bin/publish_osf_wiki.sh",
+    "/home/mrhavens/tmpwork/git-sigil/bin/sync-metadata.sh",
+    "/home/mrhavens/tmpwork/git-sigil/docs/bitbucket/CLI-ONLY_workflow_bitbucket_Ubuntu.md",
+    "/home/mrhavens/tmpwork/git-sigil/docs/bitbucket/CLI-ONLY_workflow_bitbucket_ubuntu.md",
+    "/home/mrhavens/tmpwork/git-sigil/docs/generated_wiki.md",
+    "/home/mrhavens/tmpwork/git-sigil/docs/github/1_prerequisites_github_ubuntu.md",
+    "/home/mrhavens/tmpwork/git-sigil/docs/github/2_create_remote_repo_github_ubuntu.md",
+    "/home/mrhavens/tmpwork/git-sigil/docs/github/3_commit_existing_repo_github_ubuntu.md",
+    "/home/mrhavens/tmpwork/git-sigil/docs/github/CLI-ONLY_workflow_github_ubuntu.md",
+    "/home/mrhavens/tmpwork/git-sigil/docs/gitlab/1_prerequisites_gitlab_ubuntu.md",
+    "/home/mrhavens/tmpwork/git-sigil/docs/gitlab/2_create_remote_repo_gitlab_ubuntu.md",
+    "/home/mrhavens/tmpwork/git-sigil/docs/gitlab/3_commit_existing_repo_gitlab_ubuntu.md",
+    "/home/mrhavens/tmpwork/git-sigil/docs/gitlab/CLI-ONLY_workflow_gitlab_ubuntu.md",
+    "/home/mrhavens/tmpwork/git-sigil/docs/osf/new/gitfield.osf.yaml",
+    "/home/mrhavens/tmpwork/git-sigil/docs/osf/new/test-osf-api.sh",
+    "/home/mrhavens/tmpwork/git-sigil/docs/osf/old/for_radicle.md",
+    "/home/mrhavens/tmpwork/git-sigil/docs/osf/old/gitfield.osf.yaml",
+    "/home/mrhavens/tmpwork/git-sigil/docs/osf/old/test-osf-api.sh",
+    "/home/mrhavens/tmpwork/git-sigil/docs/radicle/for_radicle.md",
+    "/home/mrhavens/tmpwork/git-sigil/osf.yaml",
+    "/home/mrhavens/tmpwork/git-sigil/tools/invoke_solaria.py"
+  ],
+  "classified": {
+    "docs": [
+      "/home/mrhavens/tmpwork/git-sigil/docs/bitbucket/CLI-ONLY_workflow_bitbucket_Ubuntu.md",
+      "/home/mrhavens/tmpwork/git-sigil/docs/bitbucket/CLI-ONLY_workflow_bitbucket_ubuntu.md",
+      "/home/mrhavens/tmpwork/git-sigil/docs/generated_wiki.md",
+      "/home/mrhavens/tmpwork/git-sigil/docs/github/1_prerequisites_github_ubuntu.md",
+      "/home/mrhavens/tmpwork/git-sigil/docs/github/2_create_remote_repo_github_ubuntu.md",
+      "/home/mrhavens/tmpwork/git-sigil/docs/github/3_commit_existing_repo_github_ubuntu.md",
+      "/home/mrhavens/tmpwork/git-sigil/docs/github/CLI-ONLY_workflow_github_ubuntu.md",
+      "/home/mrhavens/tmpwork/git-sigil/docs/gitlab/1_prerequisites_gitlab_ubuntu.md",
+      "/home/mrhavens/tmpwork/git-sigil/docs/gitlab/2_create_remote_repo_gitlab_ubuntu.md",
+      "/home/mrhavens/tmpwork/git-sigil/docs/gitlab/3_commit_existing_repo_gitlab_ubuntu.md",
+      "/home/mrhavens/tmpwork/git-sigil/docs/gitlab/CLI-ONLY_workflow_gitlab_ubuntu.md",
+      "/home/mrhavens/tmpwork/git-sigil/docs/osf/old/for_radicle.md",
+      "/home/mrhavens/tmpwork/git-sigil/docs/radicle/for_radicle.md"
+    ],
+    "files": [
+      "/home/mrhavens/tmpwork/git-sigil/GITFIELD.md",
+      "/home/mrhavens/tmpwork/git-sigil/LICENSE",
+      "/home/mrhavens/tmpwork/git-sigil/bin/SolariaSeedPacket_∞.20_SacredMomentEdition.md"
+    ],
+    "scripts": [
+      "/home/mrhavens/tmpwork/git-sigil/INSTALL.sh",
+      "/home/mrhavens/tmpwork/git-sigil/bin/gitfield-sync-gdrive.sh",
+      "/home/mrhavens/tmpwork/git-sigil/bin/mount-gdrive.sh",
+      "/home/mrhavens/tmpwork/git-sigil/bin/publish_osf.sh",
+      "/home/mrhavens/tmpwork/git-sigil/bin/sync-metadata.sh",
+      "/home/mrhavens/tmpwork/git-sigil/docs/osf/new/test-osf-api.sh",
+      "/home/mrhavens/tmpwork/git-sigil/docs/osf/old/test-osf-api.sh",
+      "/home/mrhavens/tmpwork/git-sigil/tools/invoke_solaria.py"
+    ]
+  },
+  "osf_yaml_path": "/home/mrhavens/tmpwork/git-sigil/osf.yaml"
+}

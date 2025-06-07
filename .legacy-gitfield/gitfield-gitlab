@@ -1,0 +1,140 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+# ────────────────
+# Configuration
+# ────────────────
+GIT_REMOTE_NAME="gitlab"
+REPO_NAME=$(basename "$(pwd)")
+DEFAULT_NAME="Mark Randall Havens"
+DEFAULT_EMAIL="mark.r.havens@gmail.com"
+GITLAB_WEB="https://gitlab.com"
+GITLAB_API="$GITLAB_WEB/api/v4"
+GITLAB_SSH="git@gitlab.com"
+TOKEN_FILE="$HOME/.gitfield_token"
+
+# ────────────────
+# Logging
+# ────────────────
+info()  { echo -e "\e[1;34m[INFO]\e[0m $*"; }
+warn()  { echo -e "\e[1;33m[WARN]\e[0m $*"; }
+error() { echo -e "\e[1;31m[ERROR]\e[0m $*" >&2; exit 1; }
+
+# ────────────────
+# Token Handling
+# ────────────────
+RESET_TOKEN=false
+if [[ "${1:-}" == "--reset-token" ]]; then
+  RESET_TOKEN=true
+  rm -f "$TOKEN_FILE"
+  info "Token reset requested."
+fi
+
+if [ -f "$TOKEN_FILE" ] && [ "$RESET_TOKEN" = false ]; then
+  TOKEN=$(<"$TOKEN_FILE")
+  info "Using cached token from $TOKEN_FILE"
+else
+  echo
+  echo "🔐 Paste your GitLab Personal Access Token (scopes: api, read_user, write_repository, write_ssh_key)"
+  echo "→ Generate at: $GITLAB_WEB/-/user_settings/personal_access_tokens"
+  read -rp "🔑 Token: " TOKEN
+  echo "$TOKEN" > "$TOKEN_FILE"
+  chmod 600 "$TOKEN_FILE"
+  info "Token saved for future use at $TOKEN_FILE"
+fi
+
+# ────────────────
+# Git Identity
+# ────────────────
+git config --global user.name "$DEFAULT_NAME"
+git config --global user.email "$DEFAULT_EMAIL"
+info "Git identity set to: $DEFAULT_NAME <$DEFAULT_EMAIL>"
+
+# ────────────────
+# Git Init
+# ────────────────
+if [ ! -d .git ]; then
+  info "Initializing Git repository..."
+  git init
+  git add . || warn "Nothing to add"
+  git commit -m "Initial commit" || warn "Nothing to commit"
+else
+  info "Git repo already initialized."
+fi
+
+if ! git rev-parse HEAD &>/dev/null; then
+  git add . && git commit -m "Initial commit" || warn "Nothing to commit"
+fi
+
+# ────────────────
+# SSH Key Setup
+# ────────────────
+if [ ! -f ~/.ssh/id_rsa ]; then
+  info "Generating new SSH key..."
+  ssh-keygen -t rsa -b 4096 -C "$DEFAULT_EMAIL" -f ~/.ssh/id_rsa -N "" || error "SSH keygen failed"
+fi
+
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa || error "Failed to add SSH key"
+
+# ────────────────
+# Username from GitLab
+# ────────────────
+USERNAME=$(curl -s --header "PRIVATE-TOKEN: $TOKEN" "$GITLAB_API/user" | grep -oP '(?<="username":")[^"]*') || {
+  error "Failed to retrieve GitLab username — invalid token?"
+}
+info "GitLab username: $USERNAME"
+
+# ────────────────
+# Upload SSH Key if Needed
+# ────────────────
+if ! ssh -T "$GITLAB_SSH" 2>&1 | grep -q "Welcome"; then
+  PUBKEY=$(<~/.ssh/id_rsa.pub)
+  TITLE="AutoKey-$(hostname)-$(date +%s)"
+  info "Uploading SSH key to GitLab..."
+  curl -s --fail -X POST "$GITLAB_API/user/keys" \
+    -H "PRIVATE-TOKEN: $TOKEN" \
+    -H "Content-Type: application/json" \
+    -d "{\"title\": \"$TITLE\", \"key\": \"$PUBKEY\"}" || warn "SSH key upload may have failed"
+  sleep 2
+fi
+
+# ────────────────
+# Create GitLab Repo (Graceful Fallback)
+# ────────────────
+if ! git remote get-url "$GIT_REMOTE_NAME" &>/dev/null; then
+  info "Creating GitLab repository '$REPO_NAME'..."
+  if curl -s --fail -X POST "$GITLAB_API/projects" \
+      -H "PRIVATE-TOKEN: $TOKEN" \
+      -H "Content-Type: application/json" \
+      -d "{\"name\": \"$REPO_NAME\", \"visibility\": \"public\"}" | grep -q '"ssh_url_to_repo":'; then
+    info "Repository created."
+  else
+    warn "Repo may already exist or creation failed — continuing..."
+  fi
+
+  REMOTE_URL="$GITLAB_SSH:$USERNAME/$REPO_NAME.git"
+  git remote add "$GIT_REMOTE_NAME" "$REMOTE_URL"
+  info "Remote set to: $REMOTE_URL"
+else
+  info "Remote already configured: $(git remote get-url "$GIT_REMOTE_NAME")"
+fi
+
+# ────────────────
+# Commit & Push
+# ────────────────
+if ! git diff --quiet || ! git diff --cached --quiet; then
+  git add . && git commit -m "Update: $(date '+%Y-%m-%d %H:%M:%S')" || warn "No changes"
+else
+  info "No uncommitted changes."
+fi
+
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+if ! git config --get branch."$BRANCH".remote &>/dev/null; then
+  info "Pushing with upstream..."
+  git push -u "$GIT_REMOTE_NAME" "$BRANCH" || error "Push failed"
+else
+  info "Pushing to $GIT_REMOTE_NAME/$BRANCH..."
+  git push "$GIT_REMOTE_NAME" "$BRANCH" || error "Push failed"
+fi

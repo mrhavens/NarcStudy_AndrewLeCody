@@ -1,0 +1,307 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+# ╭─────────────────────────────────────╮
+# │          gitfield-local             │
+# ╰─────────────────────────────────────╯
+# Manages a local bare Git repository as a sacred push target for redundancy.
+# Creates and maintains a bare repository in ~/git-local-repos/git-sigil.git
+# Generates rich metadata in .gitfield/local.sigil.md and updates .gitfield/push_log.json
+# Commands: configure, status, push
+
+# ╭─────────────────────────────────────╮
+# │          CONFIGURATION              │
+# ╰─────────────────────────────────────╯
+GIT_REMOTE_NAME="local"
+REPO_NAME=$(basename "$(pwd)") || REPO_NAME="Unknown"
+DEFAULT_NAME="Mark Randall Havens"
+DEFAULT_EMAIL="mark.r.havens@gmail.com"
+LOCAL_REPO="$HOME/git-local-repos/git-sigil.git"
+REPO_PATH=$(git rev-parse --show-toplevel 2>/dev/null) || { echo -e "\e[1;31m[ERROR]\e[0m Not inside a Git repository" >&2; exit 1; }
+MARKDOWN_FILE="$REPO_PATH/.gitfield/local.sigil.md"
+PUSH_LOG="$REPO_PATH/.gitfield/push_log.json"
+SCRIPT_VERSION="1.0"
+
+# ╭─────────────────────────────────────╮
+# │           LOGGING UTILS             │
+# ╰─────────────────────────────────────╯
+info()  { echo -e "\e[1;34m[INFO]\e[0m $*"; }
+warn()  { echo -e "\e[1;33m[WARN]\e[0m $*"; }
+error() { echo -e "\e[1;31m[ERROR]\e[0m $*" >&2; exit 1; }
+
+# ╭─────────────────────────────────────╮
+# │        TOOLCHAIN SETUP              │
+# ╰─────────────────────────────────────╯
+info "Checking for required tools..."
+if ! command -v git &>/dev/null; then
+  info "Installing Git..."
+  sudo apt update -qq 2>/dev/null || warn "apt update failed, continuing..."
+  sudo apt install -y git 2>/dev/null || error "Git install failed"
+fi
+
+if ! command -v jq &>/dev/null; then
+  info "Installing jq for JSON processing..."
+  sudo apt install -y jq 2>/dev/null || warn "jq install failed, push_log.json updates may fail"
+fi
+
+# ╭─────────────────────────────────────╮
+# │        AUTH + IDENTITY              │
+# ╰─────────────────────────────────────╯
+info "Setting Git identity..."
+git config --global user.name "$DEFAULT_NAME" 2>/dev/null || warn "Failed to set git user name"
+git config --global user.email "$DEFAULT_EMAIL" 2>/dev/null || warn "Failed to set git user email"
+info "Git identity set to: $DEFAULT_NAME <$DEFAULT_EMAIL>"
+
+# ╭─────────────────────────────────────╮
+# │         GIT INIT (IF NEEDED)        │
+# ╰─────────────────────────────────────╯
+if [ ! -d "$REPO_PATH/.git" ]; then
+  info "Initializing Git repository..."
+  git -C "$REPO_PATH" init 2>/dev/null || warn "Git init failed, continuing..."
+  git -C "$REPO_PATH" add . 2>/dev/null || warn "Nothing to add"
+  git -C "$REPO_PATH" commit -m "Initial commit" 2>/dev/null || warn "Nothing to commit"
+fi
+
+# ╭─────────────────────────────────────╮
+# │     LOCAL REPO CONFIGURATION        │
+# ╰─────────────────────────────────────╯
+configure() {
+  info "Configuring local bare repository..."
+
+  # Create and verify local bare repository
+  if [[ ! -d "$LOCAL_REPO" ]]; then
+    info "Creating local bare repository: $LOCAL_REPO"
+    mkdir -p "$LOCAL_REPO" || error "Failed to create $LOCAL_REPO"
+    git -C "$LOCAL_REPO" init --bare 2>/dev/null || error "Failed to initialize bare repository"
+  fi
+
+  if ! git -C "$LOCAL_REPO" rev-parse --is-bare-repository >/dev/null 2>&1; then
+    warn "Local repository $LOCAL_REPO is not a valid bare repository. Reinitializing..."
+    rm -rf "$LOCAL_REPO" || error "Failed to remove invalid $LOCAL_REPO"
+    mkdir -p "$LOCAL_REPO" || error "Failed to create $LOCAL_REPO"
+    git -C "$LOCAL_REPO" init --bare 2>/dev/null || error "Failed to reinitialize bare repository"
+  fi
+
+  # Set permissions
+  chmod -R u+rwX "$LOCAL_REPO" 2>/dev/null || warn "Failed to set permissions on $LOCAL_REPO"
+
+  # Configure local remote
+  REMOTE_URL="file://$LOCAL_REPO"
+  if ! git -C "$REPO_PATH" remote get-url "$GIT_REMOTE_NAME" &>/dev/null; then
+    info "Adding local remote: $REMOTE_URL"
+    git -C "$REPO_PATH" remote add "$GIT_REMOTE_NAME" "$REMOTE_URL" 2>/dev/null || error "Failed to add local remote"
+  else
+    current_url=$(git -C "$REPO_PATH" remote get-url "$GIT_REMOTE_NAME")
+    if [[ "$current_url" != "$REMOTE_URL" ]]; then
+      warn "Local remote URL is incorrect ($current_url). Updating to $REMOTE_URL"
+      git -C "$REPO_PATH" remote set-url "$GIT_REMOTE_NAME" "$REMOTE_URL" 2>/dev/null || error "Failed to update local remote URL"
+    fi
+  fi
+
+  # Set upstream for current branch
+  DEFAULT_BRANCH=$(git -C "$REPO_PATH" symbolic-ref --short HEAD 2>/dev/null || echo "main")
+  if ! git -C "$REPO_PATH" rev-parse --abbrev-ref --symbolic-full-name "@{u}" >/dev/null 2>&1; then
+    info "Setting upstream for $DEFAULT_BRANCH to $GIT_REMOTE_NAME/$DEFAULT_BRANCH"
+    git -C "$REPO_PATH" push --set-upstream "$GIT_REMOTE_NAME" "$DEFAULT_BRANCH" 2>/dev/null || error "Failed to set upstream"
+  fi
+
+  info "Local bare repository configured successfully."
+}
+
+# ╭─────────────────────────────────────╮
+# │         STATUS CHECK                │
+# ╰─────────────────────────────────────╯
+status() {
+  info "Checking local repository status..."
+
+  # Verify local bare repository
+  if [[ -d "$LOCAL_REPO" && $(git -C "$LOCAL_REPO" rev-parse --is-bare-repository 2>/dev/null) == "true" ]]; then
+    info "Local bare repository: $LOCAL_REPO"
+    latest_commit=$(git -C "$LOCAL_REPO" log -1 --format="%h %s (%cr)" 2>/dev/null || echo "No commits")
+    info "Latest commit: $latest_commit"
+  else
+    warn "Local bare repository not found or invalid: $LOCAL_REPO"
+  fi
+
+  # Check remote configuration
+  if git -C "$REPO_PATH" remote | grep -q "^$GIT_REMOTE_NAME$"; then
+    remote_url=$(git -C "$REPO_PATH" remote get-url "$GIT_REMOTE_NAME")
+    info "Local remote URL: $remote_url"
+  else
+    warn "Local remote not configured."
+  fi
+
+  # Check working repository status
+  info "Working repository: $REPO_PATH"
+  git -C "$REPO_PATH" status --short 2>/dev/null || warn "Failed to get repository status"
+}
+
+# ╭─────────────────────────────────────╮
+# │       GIT METADATA SNAPSHOT         │
+# ╰─────────────────────────────────────╯
+generate_metadata() {
+  info "Generating metadata: $MARKDOWN_FILE"
+  mkdir -p "$(dirname "$MARKDOWN_FILE")" 2>/dev/null || warn "Failed to create .gitfield directory"
+
+  TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S' 2>/dev/null || echo "Unknown")
+  DEFAULT_BRANCH=$(git -C "$REPO_PATH" symbolic-ref --short HEAD 2>/dev/null || echo "Unknown")
+  LATEST_SHA=$(git -C "$REPO_PATH" rev-parse HEAD 2>/dev/null || echo "Unknown")
+  LAST_COMMIT_MSG=$(git -C "$REPO_PATH" log -1 --pretty=format:"%s" 2>/dev/null || echo "Unknown")
+  LAST_COMMIT_DATE=$(git -C "$REPO_PATH" log -1 --pretty=format:"%ad" 2>/dev/null || echo "Unknown")
+  LAST_COMMIT_AUTHOR=$(git -C "$REPO_PATH" log -1 --pretty=format:"%an <%ae>" 2>/dev/null || echo "Unknown")
+  TOTAL_COMMITS=$(git -C "$REPO_PATH" rev-list --count HEAD 2>/dev/null || echo "Unknown")
+  TRACKED_FILES=$(git -C "$REPO_PATH" ls-files 2>/dev/null | wc -l 2>/dev/null || echo "Unknown")
+  UNCOMMITTED=$(if ! git -C "$REPO_PATH" diff --quiet 2>/dev/null || ! git -C "$REPO_PATH" diff --cached --quiet 2>/dev/null; then echo "Yes"; else echo "No"; fi)
+  LATEST_TAG=$(git -C "$REPO_PATH" describe --tags --abbrev=0 2>/dev/null || echo "None")
+  HOSTNAME=$(hostname 2>/dev/null || echo "Unknown")
+  CURRENT_USER=$(whoami 2>/dev/null || echo "Unknown")
+  TIMEZONE=$(date +%Z 2>/dev/null || echo "Unknown")
+  OS_NAME=$(uname -s 2>/dev/null || echo "Unknown")
+  KERNEL_VERSION=$(uname -r 2>/dev/null || echo "Unknown")
+  ARCHITECTURE=$(uname -m 2>/dev/null || echo "Unknown")
+  OS_PRETTY_NAME=$(grep PRETTY_NAME /etc/os-release 2>/dev/null | cut -d= -f2 | tr -d '"' || echo "Unknown")
+  DOCKER_CHECK=$(grep -qE '/docker|/lxc' /proc/1/cgroup 2>/dev/null && echo "Yes" || echo "No")
+  WSL_CHECK=$(grep -qi microsoft /proc/version 2>/dev/null && echo "Yes" || echo "No")
+  VM_CHECK=$(systemd-detect-virt 2>/dev/null || echo "Unknown")
+  UPTIME=$(uptime -p 2>/dev/null || echo "Unknown")
+  MAC_ADDR=$(ip link 2>/dev/null | awk '/ether/ {print $2}' | head -n 1 2>/dev/null || echo "Unknown")
+  LOCAL_IP=$(hostname -I 2>/dev/null | awk '{print $1}' 2>/dev/null || echo "Unknown")
+  CPU_MODEL=$(grep -m1 'model name' /proc/cpuinfo 2>/dev/null | cut -d: -f2 | sed 's/^ //' 2>/dev/null || echo "Unknown")
+  RAM_GB=$(awk '/MemTotal/ {printf "%.2f", $2/1024/1024}' /proc/meminfo 2>/dev/null || echo "Unknown")
+  WEB_LINK="file://$LOCAL_REPO"
+
+  cat > "$MARKDOWN_FILE" <<EOF
+# 🔗 Local Repository Link
+
+- **Repo Name**: \`$REPO_NAME\`
+- **Local User**: \`$CURRENT_USER\`
+- **Remote URL**: \`$WEB_LINK\`
+- **Local Repo Path**: \`$REPO_PATH\`
+- **Remote Label**: \`$GIT_REMOTE_NAME\`
+- **Default Branch**: \`$DEFAULT_BRANCH\`
+- **Repo Created**: \`$TIMESTAMP\`
+
+---
+
+## 📦 Commit Info
+
+- **This Commit Timestamp**: \`$TIMESTAMP\`
+- **Last Commit SHA**: \`$LATEST_SHA\`
+- **Last Commit Message**: \`$LAST_COMMIT_MSG\`
+- **Last Commit Author**: \`$LAST_COMMIT_AUTHOR\`
+- **Last Commit Date**: \`$LAST_COMMIT_DATE\`
+- **This Commit URL**: \`$WEB_LINK\`
+
+---
+
+## 📊 Repo Status
+
+- **Total Commits**: \`$TOTAL_COMMITS\`
+- **Tracked Files**: \`$TRACKED_FILES\`
+- **Uncommitted Changes**: \`$UNCOMMITTED\`
+- **Latest Tag**: \`$LATEST_TAG\`
+
+---
+
+## 🧭 Environment
+
+- **Host Machine**: \`$HOSTNAME\`
+- **Current User**: \`$CURRENT_USER\`
+- **Time Zone**: \`$TIMEZONE\`
+- **Script Version**: \`v$SCRIPT_VERSION\`
+
+---
+
+## 🧬 Hardware & OS Fingerprint
+
+- **OS Name**: \`$OS_NAME\`
+- **OS Version**: \`$OS_PRETTY_NAME\`
+- **Kernel Version**: \`$KERNEL_VERSION\`
+- **Architecture**: \`$ARCHITECTURE\`
+- **Running in Docker**: \`$DOCKER_CHECK\`
+- **Running in WSL**: \`$WSL_CHECK\`
+- **Virtual Machine**: \`$VM_CHECK\`
+- **System Uptime**: \`$UPTIME\`
+- **MAC Address**: \`$MAC_ADDR\`
+- **Local IP**: \`$LOCAL_IP\`
+- **CPU Model**: \`$CPU_MODEL\`
+- **Total RAM (GB)**: \`$RAM_GB\`
+
+---
+
+_Auto-generated by \`gitfield-local\` push script._
+EOF
+
+  # Update push_log.json
+  if command -v jq >/dev/null 2>&1; then
+    jq --arg ts "$TIMESTAMP" \
+       --arg branch "$DEFAULT_BRANCH" \
+       --arg commit "$LATEST_SHA" \
+       --arg msg "$LAST_COMMIT_MSG" \
+       '.local += [{"timestamp": $ts, "branch": $branch, "commit": $commit, "message": $msg}]' \
+       "$PUSH_LOG" > "$PUSH_LOG.tmp" && mv "$PUSH_LOG.tmp" "$PUSH_LOG" 2>/dev/null || warn "Failed to update $PUSH_LOG"
+    info "Updated push log: $PUSH_LOG"
+  else
+    warn "jq not installed. Skipping $PUSH_LOG update."
+  fi
+}
+
+# ╭─────────────────────────────────────╮
+# │         PUSH TO LOCAL               │
+# ╰─────────────────────────────────────╯
+push() {
+  info "Pushing to local bare repository..."
+
+  # Ensure remote is configured
+  if ! git -C "$REPO_PATH" remote | grep -q "^$GIT_REMOTE_NAME$"; then
+    warn "Local remote not configured. Running configure..."
+    configure
+  fi
+
+  # Generate metadata
+  generate_metadata
+
+  # Commit metadata
+  set +e
+  info "Committing metadata file..."
+  git -C "$REPO_PATH" add "$MARKDOWN_FILE" 2>/dev/null || warn "Failed to add metadata file"
+  git -C "$REPO_PATH" commit -m "Local metadata link commit at $TIMESTAMP — $WEB_LINK" 2>/dev/null || warn "No changes to commit"
+  set -e
+
+  # Push to local remote
+  DEFAULT_BRANCH=$(git -C "$REPO_PATH" symbolic-ref --short HEAD 2>/dev/null || echo "main")
+  set +e
+  info "Pushing to $GIT_REMOTE_NAME/$DEFAULT_BRANCH..."
+  if ! git -C "$REPO_PATH" push "$GIT_REMOTE_NAME" "$DEFAULT_BRANCH" 2>/dev/null; then
+    warn "Push failed. Attempting to recover..."
+    configure
+    git -C "$REPO_PATH" push "$GIT_REMOTE_NAME" "$DEFAULT_BRANCH" 2>/dev/null || error "Failed to push to $GIT_REMOTE_NAME/$DEFAULT_BRANCH after recovery"
+  fi
+  set -e
+
+  info "✅ Local push complete."
+  echo -e "\n🔗 Local repository: $WEB_LINK\n"
+}
+
+# ╭─────────────────────────────────────╮
+# │            MAIN EXECUTION           │
+# ╰─────────────────────────────────────╯
+main() {
+  case "${1:-push}" in
+    configure)
+      configure
+      ;;
+    status)
+      status
+      ;;
+    push)
+      push
+      ;;
+    *)
+      error "Usage: $0 {configure|status|push}"
+      ;;
+  esac
+}
+
+main "$@"

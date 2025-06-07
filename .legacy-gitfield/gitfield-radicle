@@ -1,0 +1,139 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+# ╭───────────────────────────────╮
+# │         Config & Paths        │
+# ╰───────────────────────────────╯
+PROJECT_NAME=$(basename "$(pwd)")
+DEFAULT_NAME="Mark Randall Havens"
+DEFAULT_EMAIL="mark.r.havens@gmail.com"
+
+RAD_HOME="$HOME/.radicle"
+RAD_BIN="$RAD_HOME/bin/rad"
+RAD_KEYS="$RAD_HOME/keys.json"
+RAD_BACKUP=".radicle-backup/keys.json"
+RAD_PATH_LINE='export PATH="$HOME/.radicle/bin:$PATH"'
+PROFILE_FILE="$HOME/.bashrc"
+PUSH_STATE_FILE=".radicle-push-state"
+
+# ╭───────────────────────────────╮
+# │         Logging Utils         │
+# ╰───────────────────────────────╯
+info()  { echo -e "\e[1;34m[INFO]\e[0m $*"; }
+warn()  { echo -e "\e[1;33m[WARN]\e[0m $*"; }
+error() { echo -e "\e[1;31m[ERROR]\e[0m $*" >&2; exit 1; }
+
+# ╭───────────────────────────────╮
+# │     Git + Tools Precheck      │
+# ╰───────────────────────────────╯
+info "Checking Git..."
+command -v git >/dev/null || {
+  info "Installing Git..."
+  sudo apt update && sudo apt install -y git || error "Failed to install Git"
+}
+info "Git version: $(git --version)"
+
+NAME=$(git config --global user.name || true)
+EMAIL=$(git config --global user.email || true)
+[[ -z "$NAME" || -z "$EMAIL" ]] && {
+  info "Setting Git identity..."
+  git config --global user.name "$DEFAULT_NAME"
+  git config --global user.email "$DEFAULT_EMAIL"
+}
+info "Git identity: $(git config --global user.name) <$(git config --global user.email)>"
+
+# ╭───────────────────────────────╮
+# │     Radicle CLI Setup         │
+# ╰───────────────────────────────╯
+if [ ! -x "$RAD_BIN" ]; then
+  info "Installing Radicle CLI..."
+  sudo apt install -y curl jq unzip || error "Missing dependencies"
+  curl -sSf https://radicle.xyz/install | sh || error "Radicle install failed"
+fi
+
+export PATH="$HOME/.radicle/bin:$PATH"
+if ! grep -Fxq "$RAD_PATH_LINE" "$PROFILE_FILE"; then
+  echo "$RAD_PATH_LINE" >> "$PROFILE_FILE"
+  info "→ Added PATH to $PROFILE_FILE"
+  warn "→ Run 'source $PROFILE_FILE' to make Radicle CLI persistent"
+fi
+
+command -v rad >/dev/null || error "Radicle CLI still unavailable. Try restarting terminal."
+
+info "Radicle CLI ready: $(rad --version)"
+
+# ╭────────────────────────────────────────────────────╮
+# │     Restore or Create Radicle Identity & Backup    │
+# ╰────────────────────────────────────────────────────╯
+mkdir -p "$(dirname "$RAD_BACKUP")"
+if [ ! -f "$RAD_KEYS" ]; then
+  if [ -f "$RAD_BACKUP" ]; then
+    info "Restoring Radicle identity from backup..."
+    cp "$RAD_BACKUP" "$RAD_KEYS" || error "Failed to restore identity"
+  else
+    info "Creating new Radicle identity..."
+    rad auth || error "Identity creation failed"
+    cp "$RAD_KEYS" "$RAD_BACKUP" || warn "Backup of identity failed"
+  fi
+else
+  info "Radicle identity already exists."
+fi
+
+# ╭───────────────────────────────╮
+# │        Start Rad Node         │
+# ╰───────────────────────────────╯
+pgrep -f "rad node start" >/dev/null || {
+  info "Starting Radicle node..."
+  nohup rad node start > /dev/null 2>&1 &
+  sleep 3
+}
+
+# ╭───────────────────────────────╮
+# │     Git Repo Initialization   │
+# ╰───────────────────────────────╯
+if [ ! -d .git ]; then
+  git init
+  git add . || warn "Nothing to add"
+  git commit -m "Initial commit" || warn "Nothing to commit"
+else
+  info "Git repo already initialized."
+fi
+
+# ╭───────────────────────────────╮
+# │   Radicle Project Registration│
+# ╰───────────────────────────────╯
+if ! rad projects | grep -q "$PROJECT_NAME"; then
+  info "Registering Radicle project '$PROJECT_NAME'..."
+  rad init --name "$PROJECT_NAME" --description "Radicle sovereign repo for $PROJECT_NAME" || warn "Repo may already exist"
+else
+  info "Project '$PROJECT_NAME' already registered."
+fi
+
+# ╭───────────────────────────────╮
+# │    Push Current Commit Logic  │
+# ╰───────────────────────────────╯
+CURRENT_BRANCH=$(git symbolic-ref --short HEAD)
+CURRENT_COMMIT=$(git rev-parse HEAD)
+LAST_PUSHED_COMMIT=$(cat "$PUSH_STATE_FILE" 2>/dev/null || echo "none")
+
+if [[ "$CURRENT_COMMIT" == "$LAST_PUSHED_COMMIT" ]]; then
+  info "✓ Already pushed commit: $CURRENT_COMMIT"
+else
+  info "Pushing commit '$CURRENT_COMMIT' on branch '$CURRENT_BRANCH'..."
+  if git push rad "$CURRENT_BRANCH"; then
+    echo "$CURRENT_COMMIT" > "$PUSH_STATE_FILE"
+    info "✓ Pushed to Radicle successfully"
+  else
+    warn "Push may have failed — check 'rad sync status'"
+  fi
+fi
+
+# ╭───────────────────────────────╮
+# │         Final Output Block    │
+# ╰───────────────────────────────╯
+PROJECT_ID=$(rad self | grep 'Project ID' | awk '{print $NF}' || true)
+PEER_ID=$(rad self | grep 'Peer ID' | awk '{print $NF}' || true)
+
+[[ -n "$PROJECT_ID" ]] && info "✓ Project ID: $PROJECT_ID"
+[[ -n "$PEER_ID" ]] && info "→ Peer ID: $PEER_ID (Share to connect)"

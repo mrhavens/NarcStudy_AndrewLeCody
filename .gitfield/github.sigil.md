@@ -1,30 +1,30 @@
 # 🔗 GitHub Repository Link
 
-- **Repo Name**: `NarcStudy_AndrewLeCody`
+- **Repo Name**: `git-sigil`
 - **GitHub User**: `mrhavens`
-- **Remote URL**: [https://github.com/mrhavens/NarcStudy_AndrewLeCody](https://github.com/mrhavens/NarcStudy_AndrewLeCody)
-- **Local Repo Path**: `/home/mrhavens/narcwork/NarcStudy_AndrewLeCody`
+- **Remote URL**: [https://github.com/mrhavens/git-sigil](https://github.com/mrhavens/git-sigil)
+- **Local Repo Path**: `/mnt/c/Downloads/git-sigil`
 - **Remote Label**: `github`
 - **Default Branch**: `master`
-- **This Commit Date**: `2025-06-06 12:54:57`
+- **This Commit Date**: `2025-06-07 01:40:14`
 
 ---
 
 ## 📦 Commit Info
 
-- **This Commit Timestamp**: `2025-06-06 12:54:57`
-- **Last Commit SHA**: `13245b31db202dc1ad7767613f346cd1759a8428`
-- **Last Commit Message**: `Post-Bitbucket sync at 2025-06-06 12:46:16`
+- **This Commit Timestamp**: `2025-06-07 01:40:14`
+- **Last Commit SHA**: `cb2e4bacca6984166556467484a6ead0d9462cdf`
+- **Last Commit Message**: `Post-Bitbucket sync at 2025-06-07 01:33:38`
 - **Last Commit Author**: `Mark Randall Havens <mark.r.havens@gmail.com>`
-- **Last Commit Date**: `Fri Jun 6 12:54:45 2025 -0500`
-- **This Commit URL**: [https://github.com/mrhavens/NarcStudy_AndrewLeCody/commit/13245b31db202dc1ad7767613f346cd1759a8428](https://github.com/mrhavens/NarcStudy_AndrewLeCody/commit/13245b31db202dc1ad7767613f346cd1759a8428)
+- **Last Commit Date**: `Sat Jun 7 01:39:55 2025 -0500`
+- **This Commit URL**: [https://github.com/mrhavens/git-sigil/commit/cb2e4bacca6984166556467484a6ead0d9462cdf](https://github.com/mrhavens/git-sigil/commit/cb2e4bacca6984166556467484a6ead0d9462cdf)
 
 ---
 
 ## 📊 Repo Status
 
-- **Total Commits**: `231`
-- **Tracked Files**: `77`
+- **Total Commits**: `887`
+- **Tracked Files**: `115`
 - **Uncommitted Changes**: `No`
 - **Latest Tag**: `None`
 
@@ -48,7 +48,7 @@
 - **Running in Docker**: `No`
 - **Running in WSL**: `Yes`
 - **Virtual Machine**: `wsl`
-- **System Uptime**: `up 1 day, 7 hours, 2 minutes`
+- **System Uptime**: `up 23 hours, 48 minutes`
 - **MAC Address**: `00:15:5d:86:d8:cc`
 - **Local IP**: `172.18.207.124`
 - **CPU Model**: `AMD A6-3420M APU with Radeon(tm) HD Graphics`

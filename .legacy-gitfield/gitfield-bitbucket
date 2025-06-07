@@ -1,0 +1,152 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+# ╭─────────────────────────────────────╮
+# │          CONFIGURATION              │
+# ╰─────────────────────────────────────╯
+BITBUCKET_USER="mrhavens"
+BITBUCKET_WORKSPACE="thefoldwithin"
+REMOTE_NAME="bitbucket"
+REPO_NAME=$(basename "$(pwd)")
+EMAIL="mark.r.havens@gmail.com"
+FULL_NAME="Mark Randall Havens"
+APP_PASS_FILE="$HOME/.bitbucket_app_password"
+API_URL="https://api.bitbucket.org/2.0/repositories/$BITBUCKET_WORKSPACE/$REPO_NAME"
+SSH_REMOTE="git@bitbucket.org:$BITBUCKET_WORKSPACE/$REPO_NAME.git"
+WEB_LINK="https://bitbucket.org/$BITBUCKET_WORKSPACE/$REPO_NAME"
+
+# ╭─────────────────────────────────────╮
+# │           LOGGING UTILS             │
+# ╰─────────────────────────────────────╯
+info()  { echo -e "\n\e[1;34m[INFO]\e[0m $*"; }
+warn()  { echo -e "\n\e[1;33m[WARN]\e[0m $*"; }
+error() { echo -e "\n\e[1;31m[ERROR]\e[0m $*" >&2; exit 1; }
+
+# ╭─────────────────────────────────────╮
+# │       CHECK + INSTALL TOOLS         │
+# ╰─────────────────────────────────────╯
+info "Checking prerequisites..."
+sudo apt update -qq
+sudo apt install -y git curl jq openssh-client || error "Dependency install failed"
+
+# ╭─────────────────────────────────────╮
+# │        GIT IDENTITY SETUP           │
+# ╰─────────────────────────────────────╯
+git config --global user.name "$FULL_NAME"
+git config --global user.email "$EMAIL"
+info "Git identity: $FULL_NAME <$EMAIL>"
+
+# ╭─────────────────────────────────────╮
+# │        SSH KEYGEN + AGENT           │
+# ╰─────────────────────────────────────╯
+if [ ! -f ~/.ssh/id_rsa ]; then
+  info "Generating new SSH key..."
+  ssh-keygen -t rsa -b 4096 -C "$EMAIL" -f ~/.ssh/id_rsa -N ""
+fi
+
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa || error "Failed to add SSH key"
+ssh-keyscan -t rsa bitbucket.org >> ~/.ssh/known_hosts 2>/dev/null || true
+
+# ╭─────────────────────────────────────╮
+# │        SSH AUTH VERIFICATION        │
+# ╰─────────────────────────────────────╯
+info "Verifying SSH access to Bitbucket..."
+if ssh -T git@bitbucket.org 2>&1 | grep -q "authenticated"; then
+  info "✓ SSH access to Bitbucket verified."
+else
+  warn "❌ SSH key not authorized with Bitbucket."
+  echo "→ Visit: https://bitbucket.org/account/settings/ssh-keys/"
+  echo "→ Paste this key:"
+  echo
+  cat ~/.ssh/id_rsa.pub
+  echo
+  exit 1
+fi
+
+# ╭─────────────────────────────────────╮
+# │     BITBUCKET APP PASSWORD SETUP    │
+# ╰─────────────────────────────────────╯
+if [ ! -f "$APP_PASS_FILE" ]; then
+  echo
+  echo "🔐 Create a Bitbucket App Password (repo:admin + write + webhook)"
+  echo "→ https://bitbucket.org/account/settings/app-passwords/"
+  read -rsp "Enter Bitbucket App Password (input hidden): " APP_PASS
+  echo "$APP_PASS" > "$APP_PASS_FILE"
+  chmod 600 "$APP_PASS_FILE"
+  echo
+  info "App password saved at $APP_PASS_FILE"
+fi
+
+APP_PASS=$(<"$APP_PASS_FILE")
+
+# ╭─────────────────────────────────────╮
+# │         GIT INIT & COMMIT           │
+# ╰─────────────────────────────────────╯
+if [ ! -d .git ]; then
+  info "Initializing Git repository..."
+  git init
+  git add . || warn "Nothing to add"
+  git commit -m "Initial commit" || warn "Nothing to commit"
+else
+  info "✓ Git repo already initialized."
+fi
+
+# ╭─────────────────────────────────────╮
+# │     CREATE REMOTE IF NOT EXISTS     │
+# ╰─────────────────────────────────────╯
+REPO_EXISTS=$(curl -s -u "$BITBUCKET_USER:$APP_PASS" "$API_URL" | jq -r '.name // empty')
+if [ -z "$REPO_EXISTS" ]; then
+  info "Creating Bitbucket repository '$REPO_NAME'..."
+  CREATE_RESPONSE=$(curl -s -w "%{http_code}" -o /tmp/create_resp.txt -u "$BITBUCKET_USER:$APP_PASS" -X POST "$API_URL" \
+    -H "Content-Type: application/json" \
+    -d "{\"scm\": \"git\", \"is_private\": false}")
+  if [[ "$CREATE_RESPONSE" != "200" && "$CREATE_RESPONSE" != "201" ]]; then
+    cat /tmp/create_resp.txt
+    error "Failed to create repository (HTTP $CREATE_RESPONSE)"
+  fi
+  info "✓ Repository created."
+else
+  info "✓ Remote Bitbucket repo already exists."
+fi
+
+# ╭─────────────────────────────────────╮
+# │      REMOTE VALIDATION + SETUP      │
+# ╰─────────────────────────────────────╯
+EXPECTED_REMOTE="$SSH_REMOTE"
+CURRENT_REMOTE=$(git remote get-url "$REMOTE_NAME" 2>/dev/null || echo "")
+if [[ "$CURRENT_REMOTE" != "$EXPECTED_REMOTE" ]]; then
+  if [ -n "$CURRENT_REMOTE" ]; then
+    warn "Removing incorrect remote: $CURRENT_REMOTE"
+    git remote remove "$REMOTE_NAME"
+  fi
+  info "Setting correct Bitbucket remote: $EXPECTED_REMOTE"
+  git remote add "$REMOTE_NAME" "$EXPECTED_REMOTE"
+else
+  info "✓ Remote already correctly set to: $EXPECTED_REMOTE"
+fi
+
+# ╭─────────────────────────────────────╮
+# │          COMMIT + PUSH LOGIC        │
+# ╰─────────────────────────────────────╯
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+if ! git diff --quiet || ! git diff --cached --quiet; then
+  git add . && git commit -m "Update: $(date '+%Y-%m-%d %H:%M:%S')" || warn "Nothing to commit"
+else
+  info "No uncommitted changes."
+fi
+
+if ! git config --get branch."$BRANCH".remote &>/dev/null; then
+  info "Pushing with upstream..."
+  git push -u "$REMOTE_NAME" "$BRANCH" || error "Push failed"
+else
+  info "Pushing to $REMOTE_NAME/$BRANCH..."
+  git push "$REMOTE_NAME" "$BRANCH" || error "Push failed"
+fi
+
+# ╭─────────────────────────────────────╮
+# │          FINAL LINK OUTPUT          │
+# ╰─────────────────────────────────────╯
+info "✅ Bitbucket push complete."
+echo -e "\n🔗 View in browser: $WEB_LINK\n"

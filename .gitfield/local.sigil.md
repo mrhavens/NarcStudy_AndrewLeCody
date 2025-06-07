@@ -1,30 +1,30 @@
 # 🔗 Local Repository Link
 
-- **Repo Name**: `NarcStudy_AndrewLeCody`
+- **Repo Name**: `git-sigil`
 - **Local User**: `mrhavens`
 - **Remote URL**: `file:///home/mrhavens/git-local-repos/git-sigil.git`
-- **Local Repo Path**: `/home/mrhavens/narcwork/NarcStudy_AndrewLeCody`
+- **Local Repo Path**: `/mnt/c/Downloads/git-sigil`
 - **Remote Label**: `local`
 - **Default Branch**: `master`
-- **Repo Created**: `2025-06-07 09:01:38`
+- **Repo Created**: `2025-06-07 01:40:33`
 
 ---
 
 ## 📦 Commit Info
 
-- **This Commit Timestamp**: `2025-06-07 09:01:38`
-- **Last Commit SHA**: `006afd61e5b615bf500dd072e684d2d2577fdf96`
-- **Last Commit Message**: `Post-GitHub sync at 2025-06-07 08:56:10`
+- **This Commit Timestamp**: `2025-06-07 01:40:33`
+- **Last Commit SHA**: `d1bdac6f11d212a1bd25043d848dbf603577ab21`
+- **Last Commit Message**: `Post-GitHub sync at 2025-06-07 01:33:38`
 - **Last Commit Author**: `Mark Randall Havens <mark.r.havens@gmail.com>`
-- **Last Commit Date**: `Sat Jun 7 09:01:38 2025 -0500`
+- **Last Commit Date**: `Sat Jun 7 01:40:32 2025 -0500`
 - **This Commit URL**: `file:///home/mrhavens/git-local-repos/git-sigil.git`
 
 ---
 
 ## 📊 Repo Status
 
-- **Total Commits**: `252`
-- **Tracked Files**: `98`
+- **Total Commits**: `889`
+- **Tracked Files**: `115`
 - **Uncommitted Changes**: `No`
 - **Latest Tag**: `None`
 
@@ -48,7 +48,7 @@
 - **Running in Docker**: `No`
 - **Running in WSL**: `Yes`
 - **Virtual Machine**: `wsl`
-- **System Uptime**: `up 1 day, 7 hours, 2 minutes`
+- **System Uptime**: `up 23 hours, 48 minutes`
 - **MAC Address**: `00:15:5d:86:d8:cc`
 - **Local IP**: `172.18.207.124`
 - **CPU Model**: `AMD A6-3420M APU with Radeon(tm) HD Graphics`

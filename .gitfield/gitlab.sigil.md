@@ -1,30 +1,30 @@
 # 🔗 GitLab Repository Link
 
-- **Repo Name**: `NarcStudy_AndrewLeCody`
+- **Repo Name**: `git-sigil`
 - **GitLab User**: `mrhavens`
-- **Remote URL**: [https://gitlab.com/mrhavens/NarcStudy_AndrewLeCody](https://gitlab.com/mrhavens/NarcStudy_AndrewLeCody)
-- **Local Repo Path**: `/home/mrhavens/narcwork/NarcStudy_AndrewLeCody`
+- **Remote URL**: [https://gitlab.com/mrhavens/git-sigil](https://gitlab.com/mrhavens/git-sigil)
+- **Local Repo Path**: `/mnt/c/Downloads/git-sigil`
 - **Remote Label**: `gitlab`
 - **Default Branch**: `master`
-- **Repo Created**: `2025-06-06 12:54:29`
+- **Repo Created**: `2025-06-07 01:38:58`
 
 ---
 
 ## 📦 Commit Info
 
-- **This Commit Timestamp**: `2025-06-06 12:54:29`
-- **This Commit SHA**: `fc5646270bcef39ee07758ba639615ef3e25c8b4`
-- **Last Commit Message**: `Post-Forgejo sync at 2025-06-06 12:46:16`
+- **This Commit Timestamp**: `2025-06-07 01:38:58`
+- **This Commit SHA**: `11204d37a7bc8a00780ac752801c9b3fbe29cc83`
+- **Last Commit Message**: `Post-Forgejo sync at 2025-06-07 01:33:38`
 - **Last Commit Author**: `Mark Randall Havens <mark.r.havens@gmail.com>`
-- **Last Commit Date**: `Fri Jun 6 12:54:18 2025 -0500`
-- **This Commit URL**: [https://gitlab.com/mrhavens/NarcStudy_AndrewLeCody/-/commit/fc5646270bcef39ee07758ba639615ef3e25c8b4](https://gitlab.com/mrhavens/NarcStudy_AndrewLeCody/-/commit/fc5646270bcef39ee07758ba639615ef3e25c8b4)
+- **Last Commit Date**: `Sat Jun 7 01:38:43 2025 -0500`
+- **This Commit URL**: [https://gitlab.com/mrhavens/git-sigil/-/commit/11204d37a7bc8a00780ac752801c9b3fbe29cc83](https://gitlab.com/mrhavens/git-sigil/-/commit/11204d37a7bc8a00780ac752801c9b3fbe29cc83)
 
 ---
 
 ## 📊 Repo Status
 
-- **Total Commits**: `227`
-- **Tracked Files**: `77`
+- **Total Commits**: `883`
+- **Tracked Files**: `115`
 - **Uncommitted Changes**: `No`
 - **Latest Tag**: `None`
 
@@ -48,7 +48,7 @@
 - **Running in Docker**: `No`
 - **Running in WSL**: `Yes`
 - **Virtual Machine**: `wsl`
-- **System Uptime**: `up 11 hours, 37 minutes`
+- **System Uptime**: `up 23 hours, 47 minutes`
 - **MAC Address**: `00:15:5d:86:d8:cc`
 - **Local IP**: `172.18.207.124`
 - **CPU Model**: `AMD A6-3420M APU with Radeon(tm) HD Graphics`

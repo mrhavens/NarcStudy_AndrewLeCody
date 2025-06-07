@@ -1,0 +1,472 @@
+#!/usr/bin/env bash
+set -uo pipefail
+
+# === Constants and Paths ===
+BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+OSF_YAML="$BASEDIR/osf.yaml"
+GITFIELD_DIR="$BASEDIR/.gitfield"
+LOG_DIR="$GITFIELD_DIR/logs"
+SCAN_LOG_PUSH="$GITFIELD_DIR/push_log.json"
+TMP_JSON_TOKEN="$GITFIELD_DIR/tmp_token.json"
+TMP_JSON_PROJECT="$GITFIELD_DIR/tmp_project.json"
+TMP_JSON_WIKI="$GITFIELD_DIR/tmp_wiki.json"
+TOKEN_PATH="$HOME/.local/gitfieldlib/osf.token"
+mkdir -p "$GITFIELD_DIR" "$LOG_DIR" "$(dirname "$TOKEN_PATH")"
+chmod -R u+rw "$GITFIELD_DIR" "$(dirname "$TOKEN_PATH")"
+
+# === Logging ===
+log() {
+  local level="$1" msg="$2"
+  echo "[$(date -Iseconds)] [$level] $msg" >> "$LOG_DIR/gitfield_wiki_$(date +%Y%m%d).log"
+  if [[ "$level" == "ERROR" || "$level" == "INFO" || "$VERBOSE" == "true" ]]; then
+    echo "[$(date -Iseconds)] [$level] $msg" >&2
+  fi
+}
+
+error() {
+  log "ERROR" "$1"
+  exit 1
+}
+
+# === Dependency Check ===
+require_yq() {
+  if ! command -v yq &>/dev/null || ! yq --version 2>/dev/null | grep -q 'version v4'; then
+    log "INFO" "Installing 'yq' (Go version)..."
+    YQ_BIN="/usr/local/bin/yq"
+    ARCH=$(uname -m)
+    case $ARCH in
+      x86_64) ARCH=amd64 ;;
+      aarch64) ARCH=arm64 ;;
+      *) error "Unsupported architecture: $ARCH" ;;
+    esac
+    curl -sL "https://github.com/mikefarah/yq/releases/download/v4.43.1/yq_linux_${ARCH}" -o yq \
+      && chmod +x yq && sudo mv yq "$YQ_BIN"
+    log "INFO" "'yq' installed to $YQ_BIN"
+  fi
+}
+
+require_jq() {
+  if ! command -v jq &>/dev/null; then
+    log "INFO" "Installing 'jq'..."
+    sudo apt update && sudo apt install -y jq
+    log "INFO" "'jq' installed"
+  fi
+}
+
+require_curl() {
+  if ! command -v curl &>/dev/null; then
+    log "INFO" "Installing 'curl'..."
+    sudo apt update && sudo apt install -y curl
+    log "INFO" "'curl' installed"
+  fi
+  CURL_VERSION=$(curl --version | head -n 1)
+  log "INFO" "Using curl version: $CURL_VERSION"
+}
+
+require_yq
+require_jq
+require_curl
+
+# === Token Retrieval ===
+get_token() {
+  if [[ -z "${OSF_TOKEN:-}" ]]; then
+    if [[ -f "$TOKEN_PATH" ]]; then
+      OSF_TOKEN=$(tr -d '\n' < "$TOKEN_PATH")
+      if [[ -z "$OSF_TOKEN" ]]; then
+        log "ERROR" "OSF token file $TOKEN_PATH is empty"
+        echo -n "🔐 Enter your OSF_TOKEN: " >&2
+        read -rs OSF_TOKEN
+        echo >&2
+        echo "$OSF_TOKEN" > "$TOKEN_PATH"
+        chmod 600 "$TOKEN_PATH"
+        log "INFO" "Token saved to $TOKEN_PATH"
+      fi
+    else
+      echo -n "🔐 Enter your OSF_TOKEN: " >&2
+      read -rs OSF_TOKEN
+      echo >&2
+      echo "$OSF_TOKEN" > "$TOKEN_PATH"
+      chmod 600 "$TOKEN_PATH"
+      log "INFO" "Token saved to $TOKEN_PATH"
+    fi
+  fi
+  log "DEBUG" "OSF_TOKEN length: ${#OSF_TOKEN}"
+  RESPONSE=$(curl -s -w "\n%{http_code}" -o "$TMP_JSON_TOKEN" "https://api.osf.io/v2/users/me/" \
+    -H "Authorization: Bearer $OSF_TOKEN" 2>> "$LOG_DIR/curl_errors.log")
+  HTTP_CODE=$(echo "$RESPONSE" | tail -n 1)
+  if [[ -z "$HTTP_CODE" ]]; then
+    CURL_ERROR=$(cat "$LOG_DIR/curl_errors.log")
+    error "Failed to validate OSF token: curl command failed (no HTTP code returned). Curl error: $CURL_ERROR"
+  fi
+  if [[ "$HTTP_CODE" != "200" ]]; then
+    RESPONSE_BODY=$(cat "$TMP_JSON_TOKEN")
+    error "Invalid OSF token (HTTP $HTTP_CODE): $RESPONSE_BODY"
+  fi
+}
+
+# === Validate YAML ===
+validate_yaml() {
+  log "INFO" "Validating $OSF_YAML..."
+  [[ -f "$OSF_YAML" ]] || error "No osf.yaml found. Run publish_osf.sh --init first."
+  for field in title description category public; do
+    [[ $(yq e ".$field" "$OSF_YAML") != "null" ]] || error "Missing field: $field in $OSF_YAML"
+  done
+}
+
+# === Read Project ID ===
+read_project_id() {
+  if [[ ! -f "$SCAN_LOG_PUSH" ]] || ! jq -e '.' "$SCAN_LOG_PUSH" >/dev/null 2>&1; then
+    log "WARN" "No valid push_log.json found"
+    echo ""
+    return
+  fi
+  NODE_ID=$(jq -r '.project_id // ""' "$SCAN_LOG_PUSH")
+  echo "$NODE_ID"
+}
+
+# === Search for Existing Project by Title ===
+find_project_by_title() {
+  local title="$1"
+  log "INFO" "Searching for project: $title"
+  if [[ "$DRY_RUN" == "true" ]]; then
+    echo "dry-run-$(uuidgen)"
+    return
+  fi
+  ENCODED_TITLE=$(jq -r -n --arg title "$title" '$title|@uri')
+  RESPONSE=$(curl -s -w "\n%{http_code}" -o "$TMP_JSON_PROJECT" "https://api.osf.io/v2/nodes/?filter[title]=$ENCODED_TITLE" \
+    -H "Authorization: Bearer $OSF_TOKEN" 2>> "$LOG_DIR/curl_errors.log")
+  HTTP_CODE=$(echo "$RESPONSE" | tail -n 1)
+  if [[ -z "$HTTP_CODE" ]]; then
+    CURL_ERROR=$(cat "$LOG_DIR/curl_errors.log")
+    error "Failed to search for project: curl command failed (no HTTP code returned). Curl error: $CURL_ERROR"
+  fi
+  if [[ "$HTTP_CODE" != "200" ]]; then
+    RESPONSE_BODY=$(cat "$TMP_JSON_PROJECT")
+    log "WARN" "Failed to search for project (HTTP $HTTP_CODE): $RESPONSE_BODY"
+    echo ""
+    return
+  fi
+  NODE_ID=$(jq -r '.data[0].id // ""' "$TMP_JSON_PROJECT")
+  [[ -n "$NODE_ID" ]] && log "INFO" "Found project '$title': $NODE_ID"
+  echo "$NODE_ID"
+}
+
+# === Check and Enable Wiki Settings ===
+check_wiki_settings() {
+  log "INFO" "Checking wiki settings for project $NODE_ID..."
+  RESPONSE=$(curl -s -w "\n%{http_code}" -o "$TMP_JSON_PROJECT" "https://api.osf.io/v2/nodes/$NODE_ID/" \
+    -H "Authorization: Bearer $OSF_TOKEN" 2>> "$LOG_DIR/curl_errors.log")
+  HTTP_CODE=$(echo "$RESPONSE" | tail -n 1)
+  if [[ -z "$HTTP_CODE" ]]; then
+    CURL_ERROR=$(cat "$LOG_DIR/curl_errors.log")
+    error "Failed to fetch project settings: curl command failed (no HTTP code returned). Curl error: $CURL_ERROR"
+  fi
+  if [[ "$HTTP_CODE" != "200" ]]; then
+    RESPONSE_BODY=$(cat "$TMP_JSON_PROJECT")
+    error "Failed to fetch project settings (HTTP $HTTP_CODE): $RESPONSE_BODY"
+  fi
+  WIKI_ENABLED=$(jq -r '.data.attributes.wiki_enabled // false' "$TMP_JSON_PROJECT")
+  if [[ "$WIKI_ENABLED" != "true" ]]; then
+    log "INFO" "Wiki is disabled. Attempting to enable..."
+    RESPONSE=$(curl -s -w "\n%{http_code}" -X PATCH "https://api.osf.io/v2/nodes/$NODE_ID/" \
+      -H "Authorization: Bearer $OSF_TOKEN" \
+      -H "Content-Type: application/vnd.api+json" \
+      -d @- <<EOF
+{
+  "data": {
+    "id": "$NODE_ID",
+    "type": "nodes",
+    "attributes": {
+      "wiki_enabled": true
+    }
+  }
+}
+EOF
+    2>> "$LOG_DIR/curl_errors.log")
+    HTTP_CODE=$(echo "$RESPONSE" | tail -n 1)
+    if [[ -z "$HTTP_CODE" ]]; then
+      CURL_ERROR=$(cat "$LOG_DIR/curl_errors.log")
+      error "Failed to enable wiki: curl command failed (no HTTP code returned). Curl error: $CURL_ERROR"
+    fi
+    if [[ "$HTTP_CODE" != "200" ]]; then
+      RESPONSE_BODY=$(cat "$TMP_JSON_PROJECT")
+      error "Failed to enable wiki for project $NODE_ID (HTTP $HTTP_CODE): $RESPONSE_BODY"
+    fi
+    log "INFO" "Wiki enabled successfully"
+  fi
+}
+
+# === Check for Existing Wiki Page ===
+check_wiki_exists() {
+  local retries=3
+  local attempt=1
+  while [[ $attempt -le $retries ]]; do
+    log "INFO" "Checking for existing wiki page (attempt $attempt/$retries)..."
+    # URL-encode the filter parameter to avoid shell interpretation
+    FILTER_ENCODED=$(jq -r -n --arg filter "home" '$filter|@uri')
+    WIKI_URL="https://api.osf.io/v2/nodes/$NODE_ID/wikis/?filter[name]=$FILTER_ENCODED"
+    log "DEBUG" "Executing curl: curl -s -w '\n%{http_code}' -o '$TMP_JSON_WIKI' '$WIKI_URL' -H 'Authorization: Bearer [REDACTED]'"
+    RESPONSE=$(curl -s -w "\n%{http_code}" -o "$TMP_JSON_WIKI" "$WIKI_URL" \
+      -H "Authorization: Bearer $OSF_TOKEN" 2>> "$LOG_DIR/curl_errors.log")
+    HTTP_CODE=$(echo "$RESPONSE" | tail -n 1)
+    if [[ -z "$HTTP_CODE" ]]; then
+      CURL_ERROR=$(cat "$LOG_DIR/curl_errors.log")
+      if [[ $attempt -eq $retries ]]; then
+        error "Failed to check for wiki page: curl command failed (no HTTP code returned). Curl error: $CURL_ERROR"
+      fi
+      log "WARN" "curl command failed (no HTTP code returned). Retrying in 5 seconds..."
+      sleep 5
+      ((attempt++))
+      continue
+    fi
+    if [[ "$HTTP_CODE" != "200" ]]; then
+      RESPONSE_BODY="No response body"
+      [[ -f "$TMP_JSON_WIKI" ]] && RESPONSE_BODY=$(cat "$TMP_JSON_WIKI")
+      error "Failed to check for wiki page (HTTP $HTTP_CODE): $RESPONSE_BODY"
+    fi
+    WIKI_ID=$(jq -r '.data[0].id // ""' "$TMP_JSON_WIKI")
+    if [[ -n "$WIKI_ID" ]]; then
+      log "INFO" "Found existing wiki page 'home' (ID: $WIKI_ID)"
+      return 0
+    else
+      log "INFO" "No 'home' wiki page found"
+      return 1
+    fi
+  done
+}
+
+# === Create Wiki Page ===
+create_wiki_page() {
+  local wiki_path="$1"
+  log "INFO" "Creating new wiki page 'home'..."
+  CONTENT=$(jq -Rs . < "$wiki_path")
+  RESPONSE=$(curl -s -w "\n%{http_code}" -o "$TMP_JSON_WIKI" -X POST "https://api.osf.io/v2/nodes/$NODE_ID/wikis/" \
+    -H "Authorization: Bearer $OSF_TOKEN" \
+    -H "Content-Type: application/vnd.api+json" \
+    -d @- <<EOF
+{
+  "data": {
+    "type": "wikis",
+    "attributes": {
+      "name": "home",
+      "content": $CONTENT
+    }
+  }
+}
+EOF
+  2>> "$LOG_DIR/curl_errors.log")
+  HTTP_CODE=$(echo "$RESPONSE" | tail -n 1)
+  if [[ -z "$HTTP_CODE" ]]; then
+    CURL_ERROR=$(cat "$LOG_DIR/curl_errors.log")
+    error "Failed to create wiki page: curl command failed (no HTTP code returned). Curl error: $CURL_ERROR"
+  fi
+  if [[ "$HTTP_CODE" != "201" ]]; then
+    RESPONSE_BODY="No response body"
+    [[ -f "$TMP_JSON_WIKI" ]] && RESPONSE_BODY=$(cat "$TMP_JSON_WIKI")
+    error "Failed to create wiki page (HTTP $HTTP_CODE): $RESPONSE_BODY"
+  fi
+  log "INFO" "Wiki page 'home' created successfully"
+}
+
+# === Generate Default Wiki with Links ===
+generate_wiki() {
+  local wiki_path="$1"
+  log "INFO" "Generating default wiki at $wiki_path..."
+  mkdir -p "$(dirname "$wiki_path")"
+  {
+    echo "# Auto-Generated Wiki for $(yq e '.title' "$OSF_YAML")"
+    echo
+    echo "## Project Overview"
+    echo "$(yq e '.description' "$OSF_YAML")"
+    echo
+    echo "## Repository Info"
+    echo "- **Last Commit**: $(git log -1 --pretty=%B 2>/dev/null || echo "No git commits")"
+    echo "- **Commit Hash**: $(git rev-parse HEAD 2>/dev/null || echo "N/A")"
+    if [[ -f "$(yq e '.readme.path' "$OSF_YAML")" ]]; then
+      echo
+      echo "## README Preview"
+      head -n 10 "$(yq e '.readme.path' "$OSF_YAML")"
+    fi
+    echo
+    echo "## Internal Documents"
+    echo "Links to documents uploaded to OSF:"
+    for section in docs essays images scripts data files; do
+      local count
+      count=$(yq e ".${section} | length" "$OSF_YAML")
+      if [[ "$count" != "0" && "$count" != "null" ]]; then
+        echo
+        echo "### $(echo "$section" | tr '[:lower:]' '[:upper:]')"
+        for ((i = 0; i < count; i++)); do
+          local name
+          name=$(yq e ".${section}[$i].name" "$OSF_YAML")
+          echo "- [$name](https://osf.io/$NODE_ID/files/osfstorage/$name)"
+        done
+      fi
+    done
+  } > "$wiki_path"
+  log "INFO" "Default wiki generated at $wiki_path"
+}
+
+# === Push Wiki to OSF ===
+push_wiki() {
+  local wiki_path="$1"
+  log "INFO" "Pushing wiki from $wiki_path"
+  if [[ "$DRY_RUN" == "true" ]]; then
+    log "DRY-RUN" "Would push wiki to $NODE_ID"
+    return 0
+  fi
+
+  # Check if wiki exists; create if it doesn't
+  if ! check_wiki_exists; then
+    create_wiki_page "$wiki_path"
+    return 0  # Creation includes content, so no need to patch
+  fi
+
+  # Wiki exists, update it with PATCH
+  CONTENT=$(jq -Rs . < "$wiki_path")
+  RESPONSE=$(curl -s -w "\n%{http_code}" -o "$TMP_JSON_WIKI" -X PATCH "https://api.osf.io/v2/nodes/$NODE_ID/wikis/home/" \
+    -H "Authorization: Bearer $OSF_TOKEN" \
+    -H "Content-Type: application/vnd.api+json" \
+    -d @- <<EOF
+{
+  "data": {
+    "type": "wikis",
+    "attributes": {
+      "content": $CONTENT
+    }
+  }
+}
+EOF
+  2>> "$LOG_DIR/curl_errors.log")
+  HTTP_CODE=$(echo "$RESPONSE" | tail -n 1)
+  if [[ -z "$HTTP_CODE" ]]; then
+    CURL_ERROR=$(cat "$LOG_DIR/curl_errors.log")
+    log "ERROR" "Failed to push wiki: curl command failed (no HTTP code returned). Curl error: $CURL_ERROR"
+    return 1
+  fi
+  if [[ "$HTTP_CODE" != "200" ]]; then
+    RESPONSE_BODY="No response body"
+    [[ -f "$TMP_JSON_WIKI" ]] && RESPONSE_BODY=$(cat "$TMP_JSON_WIKI")
+    log "ERROR" "Failed to push wiki (HTTP $HTTP_CODE): $RESPONSE_BODY"
+    return 1
+  fi
+  echo "📜 Pushed wiki to https://osf.io/$NODE_ID/" >&2
+  return 0
+}
+
+# === Main Logic ===
+wiki_mode() {
+  validate_yaml
+  get_token
+
+  local title
+  title=$(yq e '.title' "$OSF_YAML")
+
+  NODE_ID=$(read_project_id)
+  if [[ -n "$NODE_ID" ]]; then
+    log "INFO" "Using existing OSF project ID: $NODE_ID"
+    RESPONSE=$(curl -s -w "\n%{http_code}" -o "$TMP_JSON_PROJECT" "https://api.osf.io/v2/nodes/$NODE_ID/" \
+      -H "Authorization: Bearer $OSF_TOKEN" 2>> "$LOG_DIR/curl_errors.log")
+    HTTP_CODE=$(echo "$RESPONSE" | tail -n 1)
+    if [[ -z "$HTTP_CODE" ]]; then
+      CURL_ERROR=$(cat "$LOG_DIR/curl_errors.log")
+      error "Failed to validate project ID: curl command failed (no HTTP code returned). Curl error: $CURL_ERROR"
+    fi
+    if [[ "$HTTP_CODE" != "200" ]]; then
+      log "WARN" "Project $NODE_ID not found (HTTP $HTTP_CODE)"
+      NODE_ID=""
+    fi
+  fi
+
+  if [[ -z "$NODE_ID" ]]; then
+    NODE_ID=$(find_project_by_title "$title")
+  fi
+
+  [[ -n "$NODE_ID" ]] || error "Failed to determine OSF project ID"
+
+  # Check and enable wiki settings
+  check_wiki_settings
+
+  local wiki_path
+  wiki_path=$(yq e '.wiki.path' "$OSF_YAML")
+  if [[ "$wiki_path" == "null" || -z "$wiki_path" ]]; then
+    log "INFO" "No wiki defined in osf.yaml. Auto-generating..."
+    wiki_path="docs/generated_wiki.md"
+    echo "wiki:" >> "$OSF_YAML"
+    echo "  path: \"$wiki_path\"" >> "$OSF_YAML"
+    echo "  overwrite: true" >> "$OSF_YAML"
+  fi
+
+  wiki_path="$BASEDIR/$wiki_path"
+  if [[ ! -f "$wiki_path" ]]; then
+    generate_wiki "$wiki_path"
+  fi
+
+  push_wiki "$wiki_path" || error "Wiki push failed"
+  log "INFO" "Wiki push complete for project $NODE_ID"
+  echo "✅ Wiki push complete! View at: https://osf.io/$NODE_ID/wiki/" >&2
+}
+
+# === Help Menu ===
+show_help() {
+  local verbose="$1"
+  if [[ "$verbose" == "true" ]]; then
+    cat <<EOF
+Usage: $0 [OPTION]
+
+Publish a wiki page to an OSF project.
+
+Options:
+  --push          Generate (if needed) and push wiki to OSF
+  --dry-run       Simulate actions without making API calls
+  --verbose       Show detailed logs on stderr
+  --help          Show this help message (--help --verbose for more details)
+
+Behavior:
+  - Requires osf.yaml (run publish_osf.sh --init first if missing).
+  - Auto-generates a wiki (docs/generated_wiki.md) if none is defined in osf.yaml.
+  - Updates osf.yaml with the new wiki path if auto-generated.
+  - Pushes the wiki to the OSF project's wiki/home endpoint.
+  - Includes links to internal documents (docs, scripts, etc.) from osf.yaml.
+
+Example:
+  $0 --push       # Push wiki to OSF
+  $0 --dry-run --push  # Simulate push
+EOF
+  else
+    cat <<EOF
+Usage: $0 [OPTION]
+
+Publish a wiki page to an OSF project.
+
+Options:
+  --push          Push wiki to OSF
+  --dry-run       Simulate actions
+  --verbose       Show detailed logs
+  --help          Show this help (--help --verbose for more)
+
+Example:
+  $0 --push       # Push wiki to OSF
+EOF
+  fi
+}
+
+# === CLI Dispatcher ===
+DRY_RUN="false"
+VERBOSE="false"
+MODE=""
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --push) MODE="wiki" ;;
+    --dry-run) DRY_RUN="true" ;;
+    --verbose) VERBOSE="true" ;;
+    --help) show_help "$VERBOSE"; exit 0 ;;
+    *) echo "Unknown option: $1" >&2; show_help "false"; exit 1 ;;
+  esac
+  shift
+done
+
+case "$MODE" in
+  wiki) wiki_mode ;;
+  *) show_help "false"; exit 0 ;;
+esac

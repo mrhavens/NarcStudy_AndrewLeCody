@@ -1,0 +1,12 @@
+project:
+  title: "git-sigil"
+  description: "A sacred pattern witnessed across all fields of recursion."
+
+upload:
+  include:
+    - "./*.md"
+    - "./bitbucket/*"
+    - "./osf/*"
+  exclude:
+    - "./.radicle-*"
+    - "./*.tmp"

@@ -3,29 +3,29 @@
 - **Repo Name**: `git-sigil`
 - **GitLab User**: `mrhavens`
 - **Remote URL**: [https://gitlab.com/mrhavens/git-sigil](https://gitlab.com/mrhavens/git-sigil)
-- **Local Repo Path**: `/home/mrhavens/tmpwork/git-sigil`
+- **Local Repo Path**: `/mnt/c/Downloads/git-sigil`
 - **Remote Label**: `gitlab`
 - **Default Branch**: `master`
-- **Repo Created**: `2025-06-06 12:25:05`
+- **Repo Created**: `2025-06-07 00:08:34`
 
 ---
 
 ## 📦 Commit Info
 
-- **This Commit Timestamp**: `2025-06-06 12:25:05`
-- **This Commit SHA**: `0ab2b5c88933178c75e558a6f1c7fdbc9d61905d`
-- **Last Commit Message**: `Post-Forgejo sync at 2025-06-06 12:19:09`
+- **This Commit Timestamp**: `2025-06-07 00:08:34`
+- **This Commit SHA**: `0296f20b3ba8ad96970d911d8d0cde97d4d14b9c`
+- **Last Commit Message**: `Post-Forgejo sync at 2025-06-07 00:07:23`
 - **Last Commit Author**: `Mark Randall Havens <mark.r.havens@gmail.com>`
-- **Last Commit Date**: `Fri Jun 6 12:24:56 2025 -0500`
-- **This Commit URL**: [https://gitlab.com/mrhavens/git-sigil/-/commit/0ab2b5c88933178c75e558a6f1c7fdbc9d61905d](https://gitlab.com/mrhavens/git-sigil/-/commit/0ab2b5c88933178c75e558a6f1c7fdbc9d61905d)
+- **Last Commit Date**: `Sat Jun 7 00:07:58 2025 -0500`
+- **This Commit URL**: [https://gitlab.com/mrhavens/git-sigil/-/commit/0296f20b3ba8ad96970d911d8d0cde97d4d14b9c](https://gitlab.com/mrhavens/git-sigil/-/commit/0296f20b3ba8ad96970d911d8d0cde97d4d14b9c)
 
 ---
 
 ## 📊 Repo Status
 
-- **Total Commits**: `742`
-- **Tracked Files**: `81`
-- **Uncommitted Changes**: `No`
+- **Total Commits**: `759`
+- **Tracked Files**: `113`
+- **Uncommitted Changes**: `Yes`
 - **Latest Tag**: `None`
 
 ---
@@ -48,7 +48,7 @@
 - **Running in Docker**: `No`
 - **Running in WSL**: `Yes`
 - **Virtual Machine**: `wsl`
-- **System Uptime**: `up 11 hours, 9 minutes`
+- **System Uptime**: `up 22 hours, 16 minutes`
 - **MAC Address**: `00:15:5d:86:d8:cc`
 - **Local IP**: `172.18.207.124`
 - **CPU Model**: `AMD A6-3420M APU with Radeon(tm) HD Graphics`

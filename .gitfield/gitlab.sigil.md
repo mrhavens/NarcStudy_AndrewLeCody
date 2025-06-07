@@ -6,26 +6,45 @@
 - **Local Repo Path**: `/mnt/c/Downloads/git-sigil`
 - **Remote Label**: `gitlab`
 - **Default Branch**: `master`
+<<<<<<< HEAD
 - **Repo Created**: `2025-06-07 00:14:50`
+=======
+- **Repo Created**: `2025-06-06 12:25:52`
+>>>>>>> be7726405b6412ae5af5144f9e2cf4d13bd32aeb
 
 ---
 
 ## 📦 Commit Info
 
+<<<<<<< HEAD
 - **This Commit Timestamp**: `2025-06-07 00:14:50`
 - **This Commit SHA**: `ac3616d769390092d59b246aed17a1038c211a7f`
 - **Last Commit Message**: `Post-Forgejo sync at 2025-06-07 00:07:23`
 - **Last Commit Author**: `Mark Randall Havens <mark.r.havens@gmail.com>`
 - **Last Commit Date**: `Sat Jun 7 00:14:38 2025 -0500`
 - **This Commit URL**: [https://gitlab.com/mrhavens/git-sigil/-/commit/ac3616d769390092d59b246aed17a1038c211a7f](https://gitlab.com/mrhavens/git-sigil/-/commit/ac3616d769390092d59b246aed17a1038c211a7f)
+=======
+- **This Commit Timestamp**: `2025-06-06 12:25:52`
+- **This Commit SHA**: `e8fe71090f582b8025cf8f9fc80ecc958f8f0ea3`
+- **Last Commit Message**: `Post-Forgejo sync at 2025-06-06 12:19:09`
+- **Last Commit Author**: `Mark Randall Havens <mark.r.havens@gmail.com>`
+- **Last Commit Date**: `Fri Jun 6 12:25:42 2025 -0500`
+- **This Commit URL**: [https://gitlab.com/mrhavens/git-sigil/-/commit/e8fe71090f582b8025cf8f9fc80ecc958f8f0ea3](https://gitlab.com/mrhavens/git-sigil/-/commit/e8fe71090f582b8025cf8f9fc80ecc958f8f0ea3)
+>>>>>>> be7726405b6412ae5af5144f9e2cf4d13bd32aeb
 
 ---
 
 ## 📊 Repo Status
 
+<<<<<<< HEAD
 - **Total Commits**: `782`
 - **Tracked Files**: `113`
 - **Uncommitted Changes**: `Yes`
+=======
+- **Total Commits**: `754`
+- **Tracked Files**: `81`
+- **Uncommitted Changes**: `No`
+>>>>>>> be7726405b6412ae5af5144f9e2cf4d13bd32aeb
 - **Latest Tag**: `None`
 
 ---

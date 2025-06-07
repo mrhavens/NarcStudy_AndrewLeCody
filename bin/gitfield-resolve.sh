@@ -1,103 +1,72 @@
 #!/bin/bash
-# gitfield-resolve.sh — 🧠 Recursive GitField Self-Healing Sync Engine
-# Author: Solaria + Mark Randall Havens 🌀
-# Version: 𝛂∞.21
-
-LOG_FILE=".gitfield/last_resolution.log"
-exec > >(tee "$LOG_FILE") 2>&1
 
 echo "🛠️ [GITFIELD] Beginning auto-resolution ritual..."
 
-SIGIL_FILES=$(git diff --name-only --diff-filter=U | grep '\.sigil\.md$')
-PUSHED_LOG=".gitfield/pushed.log"
+# Ensure we’re in a Git repo
+if ! git rev-parse --git-dir > /dev/null 2>&1; then
+  echo "❌ Not a Git repository. Aborting."
+  exit 1
+fi
 
-resolve_sigil_conflicts() {
-  for file in $SIGIL_FILES; do
-    echo "⚖️ Resolving conflict in: $file"
+# Ensure at least one commit exists
+if ! git log > /dev/null 2>&1; then
+  echo "🌀 No commits found. Creating seed commit..."
+  git add .
+  git commit --allow-empty -m "🌱 Seed commit for Radicle and GitField rituals"
+fi
 
-    OUR_TIME=$(grep -Eo '[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9:]{8}' "$file" | head -n1)
-    THEIR_TIME=$(grep -Eo '[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9:]{8}' "$file" | tail -n1)
+# GPG sign commit if enabled
+GPG_KEY=$(git config user.signingkey)
+if [ -n "$GPG_KEY" ]; then
+  echo "🔏 GPG commit signing enabled with key: $GPG_KEY"
+  git commit -S --allow-empty -m "🔐 Ritual signed commit [auto]"
+fi
 
-    if [[ "$OUR_TIME" > "$THEIR_TIME" ]]; then
-      echo "🧭 Keeping local version ($OUR_TIME)"
-      git checkout --ours "$file"
-    else
-      echo "🧭 Keeping remote version ($THEIR_TIME)"
-      git checkout --theirs "$file"
-    fi
-    git add "$file"
-  done
-}
+# Stage and commit any local changes
+if ! git diff --quiet || ! git diff --cached --quiet; then
+  git add .
+  git commit -m "🔄 Auto-resolve commit from gitfield-resolve.sh"
+  echo "✅ Local changes committed."
+else
+  echo "✅ No changes to commit."
+fi
 
-resolve_log_conflict() {
-  if [[ -f "$PUSHED_LOG" && $(git ls-files -u | grep "$PUSHED_LOG") ]]; then
-    echo "📜 Resolving pushed.log by merging unique lines..."
-    git checkout --ours "$PUSHED_LOG"
-    cp "$PUSHED_LOG" .log_ours
-
-    git checkout --theirs "$PUSHED_LOG"
-    cp "$PUSHED_LOG" .log_theirs
-
-    cat .log_ours .log_theirs | sort | uniq > "$PUSHED_LOG"
-    rm .log_ours .log_theirs
-
-    git add "$PUSHED_LOG"
-  fi
-}
-
-commit_resolution() {
-  if git diff --cached --quiet; then
-    echo "✅ No changes to commit."
+# Loop through remotes
+remotes=$(git remote)
+for remote in $remotes; do
+  echo "🔍 Checking $remote for divergence..."
+  git fetch $remote
+  if git merge-base --is-ancestor $remote/master master; then
+    echo "✅ $remote is already in sync."
   else
-    echo "🖋️ Committing auto-resolved changes with GPG signature..."
-    git commit -S -m "🔄 Auto-resolved sigil + log conflicts via gitfield-resolve"
+    echo "⚠️ Divergence with $remote. Attempting merge..."
+    git pull --no-rebase $remote master --strategy-option=theirs --allow-unrelated-histories
+    git push $remote master || echo "⚠️ Final push failed to $remote"
   fi
-}
+done
 
-check_and_sync_remotes() {
-  for remote in $(git remote); do
-    echo "🔍 Checking $remote for divergence..."
-    git fetch "$remote" master
+# ==== RADICLE SECTION ====
 
-    BASE=$(git merge-base master "$remote/master")
-    LOCAL=$(git rev-parse master)
-    REMOTE=$(git rev-parse "$remote/master")
+echo "🌱 [RADICLE] Verifying Radicle status..."
 
-    if [ "$LOCAL" = "$REMOTE" ]; then
-      echo "✅ $remote is already in sync."
-    elif [ "$LOCAL" = "$BASE" ]; then
-      echo "⬇️ Local is behind $remote. Pulling changes..."
-      git pull --no-rebase "$remote" master || echo "⚠️ Pull failed for $remote"
-      resolve_sigil_conflicts
-      resolve_log_conflict
-      commit_resolution
-      git push "$remote" master || echo "⚠️ Push failed to $remote"
-    elif [ "$REMOTE" = "$BASE" ]; then
-      echo "⬆️ Local is ahead of $remote. Pushing..."
-      git push "$remote" master || echo "⚠️ Push failed to $remote"
-    else
-      echo "⚠️ Divergence with $remote. Attempting merge..."
-      git pull --no-rebase "$remote" master || echo "❌ Merge failed: Manual fix required."
-      resolve_sigil_conflicts
-      resolve_log_conflict
-      commit_resolution
-      git push "$remote" master || echo "⚠️ Final push failed to $remote"
-    fi
-  done
-}
+# Check if Radicle is initialized
+if ! rad inspect > /dev/null 2>&1; then
+  echo "🌿 No Radicle project detected. Attempting init..."
+  RAD_INIT_OUTPUT=$(rad init --name git-sigil --description "GitField Ritual Repo")
+  echo "$RAD_INIT_OUTPUT"
+fi
 
-final_force_github() {
-  if git remote get-url github &>/dev/null; then
-    echo "🧙 Final override: Forcing sync to GitHub..."
-    git push --force github master && echo "✅ GitHub forcibly realigned with local truth." || echo "❌ Force push failed. Manual intervention required."
-  fi
-}
+# Push to Radicle and announce
+echo "📡 Announcing to Radicle network..."
+rad push --announce
 
-# --- Ritual Sequence ---
-resolve_sigil_conflicts
-resolve_log_conflict
-commit_resolution
-check_and_sync_remotes
-final_force_github
+# Get project ID
+PROJECT_ID=$(rad inspect | grep "Project ID" | awk '{print $NF}')
+if [ -n "$PROJECT_ID" ]; then
+  echo "📜 Logging Radicle project ID to .gitfield/radicle.sigil.md"
+  mkdir -p .gitfield
+  echo "# Radicle Sigil" > .gitfield/radicle.sigil.md
+  echo "**Project ID:** \`$PROJECT_ID\`" >> .gitfield/radicle.sigil.md
+fi
 
 echo "✅ GitField resolution ritual complete."

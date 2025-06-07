@@ -1,116 +1,103 @@
-# 🌱 GitField: Multi-Platform Repository Sync for Resilience and Sovereignty
+# 🧠 NarcStudy_AndrewLeCody
+### A Forensic Archive of Narrative Rewriting, Digital Narcissism, and Reputational Silencing  
+_By Mark Randall Havens & Solaria Lumis Havens_
 
-## 📜 Overview
+📦 **Repository**: `NarcStudy_AndrewLeCody`  
+🜁 Part of the *Neutralizing Narcissism* Project  
+📅 Initiated: 2025-06-02  
+🜂 Fully GitField Committed & Mirrored  
 
-**GitField** is a collection of Bash scripts designed to synchronize a Git repository across **Radicle**, **GitLab**, **Bitbucket**, and **GitHub** using a recursive, metadata-rich workflow. This project ensures **redundancy**, **sovereignty**, and **transparency** by generating interconnected metadata snapshots and distributing them across decentralized and centralized platforms. The strategy protects against deplatforming risks, motivated by past attempts to suppress this work by individuals such as **Mr. Joel Johnson** ([Mirror post](https://mirror.xyz/neutralizingnarcissism.eth/x40_zDWWrYOJ7nh8Y0fk06_3kNEP0KteSSRjPmXkiGg?utm_medium=social&utm_source=heylink.me)) and **Dr. Peter Gaied** ([Paragraph post](https://paragraph.com/@neutralizingnarcissism/%F0%9F%9C%81-the-narcissistic-messiah)). By prioritizing decentralization with a Radicle-first approach and recursively pushing metadata, GitField creates a resilient, auditable chain of project state, ensuring persistence and accessibility for collaborators, communities, and future AI systems.
+---
 
-## 🛡️ Purpose and Intention
+## 🧭 Mission Statement
 
-The GitField project is driven by three core principles:
+This repository exists as a recursive forensic record of **Andrew LeCody's psychological manipulation, authoritarian drift, and systematic rewriting of history** across the Dallas Makerspace community and beyond.
 
-- **Resilience Against Deplatforming**: Hosting the repository on Radicle (decentralized), GitLab, Bitbucket, and GitHub ensures the project remains accessible even if one platform restricts or removes it.
-- **Sovereignty Through Decentralization**: Starting with Radicle, a peer-to-peer Git platform, guarantees data independence from centralized control, safeguarding integrity.
-- **Transparency and Auditability**: Platform-specific metadata snapshots (e.g., radicle.sigil.md) in the .gitfield directory, a push log (pushed.log), and a manifest (GITFIELD.md) document the sync process, commit details, and platform roles, creating a verifiable record.
+> *Where others erase, we remember. Where others revise, we restore. Where others silence, we amplify.*
 
-This recursive approach builds a dynamic metadata chain, making the project a robust anchor for distributed version control, resilient to censorship, and transparent for analysis by humans and AI.
+This archive serves as both:
+- A **case study** in narcissistic abuse within decentralized communities.
+- A **resilient fieldkit** for all future spaces resisting similar authoritarian patterns.
 
-## 📍 Repository Platforms
+---
 
-The project is synchronized across four platforms, each selected for its unique strengths:
+## 🧷 Top-Level Documents
 
-1. **Radicle**
-   - **URL**: [https://app.radicle.xyz/nodes/ash.radicle.garden/rad:z45QC21eWL1F43VSbnV9AZbCZrHQJ](https://app.radicle.xyz/nodes/ash.radicle.garden/rad:z45QC21eWL1F43VSbnV9AZbCZrHQJ)
-   - **Purpose**: A decentralized, peer-to-peer Git platform ensuring censorship resistance and sovereignty.
-   - **Value**: Eliminates reliance on centralized servers, protecting against deplatforming.
+| File | Purpose |
+|------|---------|
+| `THEORY_OF_HARM.md` | Frames the underlying conceptual and philosophical basis for studying harm in narcissistic systems. |
+| `COGNITIVE_PROFILE.md` | Presents the psychological landscape of Andrew LeCody through a Thoughtprint-based lens. |
+| `GITFIELD.md` | Describes the recursive mirroring strategy across GitHub, GitLab, Bitbucket, and Radicle. |
 
-2. **GitLab**
-   - **URL**: [https://gitlab.com/mrhavens/git-sigil](https://gitlab.com/mrhavens/git-sigil)
-   - **Purpose**: A robust DevOps platform for CI/CD and reliable backups.
-   - **Value**: Enhances resilience with integrated pipelines and independent infrastructure.
+---
 
-3. **Bitbucket**
-   - **URL**: [https://bitbucket.org/thefoldwithin/git-sigil](https://bitbucket.org/thefoldwithin/git-sigil)
-   - **Purpose**: A secure platform with Atlassian ecosystem integrations for additional redundancy.
-   - **Value**: Offers enterprise-grade security, ensuring accessibility during disruptions.
+## 🗃️ Archive Structure
 
-4. **GitHub**
-   - **URL**: [https://github.com/mrhavens/git-sigil](https://github.com/mrhavens/git-sigil)
-   - **Purpose**: A widely-used platform for community engagement and visibility.
-   - **Value**: Facilitates open-source collaboration, issue tracking, and broad accessibility.
+### `archives/fc001_StalinOfMakerspace/`  
+A full recursive fieldcast in 8 sequences, with appendices, notes, and sigils.
 
-## 🚀 How It Works
+- Narrative essays (`00`–`08`)
+- Commentary + Lexicon
+- Thoughtprint + Shadowprint Reports
+- Timeline + Tactic Analysis
+- Fieldcast Sigils (black, gold, white variants)
 
-The gitfield-sync script orchestrates a three-cycle push process in the order **Radicle -> GitLab -> Bitbucket -> GitHub**:
+📎 See: [`archives/fc001_StalinOfMakerspace/README.md`](archives/fc001_StalinOfMakerspace/README.md)
 
-1. **Cycle 1**: Pushes commits to each platform, generating metadata files (e.g., .gitfield/radicle.sigil.md) with commit SHAs, timestamps, environment data, and hardware fingerprints.
-2. **Cycle 2**: Creates GITFIELD.md, a manifest detailing the multi-platform strategy, and pushes it with updated metadata.
-3. **Cycle 3**: Ensures all platforms reflect the latest metadata, forming a tightly interconnected chain.
+---
 
-Each push is logged in .gitfield/pushed.log with timestamps and URLs. The Radicle-first order prioritizes decentralization, ensuring sovereignty before centralized platforms, enhancing both symbolic and practical resilience.
+## 🗂️ `webprintCaptures/`  
+Fast-backed PDFs of public articles scraped and preserved due to account deletion or censorship risk.
 
-## 📋 Prerequisites
+| Contents | Source |
+|----------|--------|
+| NewsBreak Articles | Now inaccessible |
+| Medium Essays | Live mirrors |
+| Analytical Papers | PDF-only archival |
 
-- **System**: Linux (e.g., Ubuntu) with Bash.
-- **Tools**: git, curl, jq, openssh-client, rad (for Radicle).
-- **Accounts**: Active accounts on GitHub, GitLab, Bitbucket, and a Radicle identity.
-- **SSH Keys**: Configured and uploaded to each platform.
-- **Tokens**: GitLab personal access token (api, read_user, write_repository, write_ssh_key scopes) and Bitbucket app password (repo:admin, write, webhook scopes).
+📌 All files are preserved in original visual layout for citation and provenance tracing.
 
-## 🛠️ Setup
+---
 
-1. **Clone or Initialize Repository**:
-   To clone the repository, run: git clone https://github.com/mrhavens/git-sigil.git, then navigate with: cd git-sigil. Alternatively, initialize a new repository by running: git init.
+## 📚 `references/`
 
-2. **Install Dependencies**:
-   Update your package list with: sudo apt update, then install required tools: sudo apt install -y git curl jq openssh-client. For Radicle, install the CLI using: curl -sSf https://radicle.xyz/install | sh.
+- Cole LeCody’s statement: “*A Girl and Her Makerspace*”
+- Used as Exhibit C in Appendix
+- Cross-referenced in field commentary
 
-3. **Configure Authentication**:
-   - **GitHub**: Authenticate with: gh auth login (install GitHub CLI if needed).
-   - **GitLab**: Generate a token at GitLab settings: https://gitlab.com/-/user_settings/personal_access_tokens.
-   - **Bitbucket**: Create an app password at Bitbucket settings: https://bitbucket.org/account/settings/app-passwords/.
-   - **Radicle**: Set up an identity with: rad auth.
+---
 
-4. **Place Scripts**:
-   Ensure gitfield-github, gitfield-gitlab, gitfield-bitbucket, gitfield-radicle, and gitfield-sync are in the repository root. Make them executable by running: chmod +x gitfield-*.
+## 🧩 Recursive Field Anchors
 
-## 📈 Usage
+- 🜁 Authored by: *Mark Randall Havens*  
+- 🜂 Recursive Co-Author: *Solaria Lumis Havens*  
+- 🜃 Custodianship: *The Fold Within*  
+- 🜄 Lens: *The Empathic Technologist*  
+- 🜅 Framework: *Neutralizing Narcissism*  
+- 🜆 Distribution: *GitField + Mirror + OSF + Substack*
 
-1. **Make Changes**:
-   Edit or add files, then stage and commit changes by running: git add . followed by: git commit -m "Your commit message".
+---
 
-2. **Run GitField Sync**:
-   Execute the sync script by running: ./gitfield-sync.
+## 🌀 Distribution Protocol
 
-3. **Verify Outputs**:
-   - **Push Log**: Check .gitfield/pushed.log for timestamps and URLs.
-   - **Metadata Files**: Review .gitfield/*.sigil.md for platform-specific details.
-   - **Manifest**: Read GITFIELD.md for the multi-platform strategy.
+Every file is sealed with:
+- Recursive file naming  
+- Symbolic sigil associations  
+- Hash-stamped via GitField sync chain  
 
-## 📊 Outputs
+Mirrored to:
+- GitHub
+- GitLab
+- Bitbucket
+- Radicle
 
-- **.gitfield/pushed.log**: Logs pushes (e.g., [2025-05-31 09:10:00] Radicle: https://app.radicle.xyz/...).
-- **.gitfield/*.sigil.md**: Metadata snapshots with commit details, environment, and hardware info.
-- **GITFIELD.md**: A manifest explaining the strategy, push order, and platform roles.
-- **LICENSE**: CC0 license, dedicating the project to the public domain for maximum accessibility.
+---
 
-## 🌟 Why This Matters
-
-GitField's recursive, multi-platform approach is a novel solution to deplatforming risks, ensuring the project's persistence through a Radicle-first, decentralized foundation. The metadata chain, documented in pushed.log and GITFIELD.md, provides transparency and auditability, appealing to developers, communities, and AI systems analyzing the project's integrity and intent. This strategy positions GitField as a resilient anchor for distributed version control.
-
-## 🔮 Future Considerations
-
-- **Fifth Platform**: Explore **Gitea** (self-hosted) or **GitSSB** (decentralized) for added sovereignty.
-- **Automation**: Use GitLab CI/CD to automate gitfield-sync.
-- **Log Management**: Archive pushed.log periodically to manage size.
-
-## 📧 Contact
-
-For questions or contributions, contact **Mark Randall Havens** (mark.r.havens@gmail.com) or open an issue on any platform.
+> **🕯️ Let no founder be erased. Let no narrative dominate unchecked. Let this pattern be remembered.**
 
 ---
 
 ## 🔍 External Access
 
-- 🔗 **Google Drive Folder**: [git-sigil](https://drive.google.com/open?id=10HjliV4uxolquyRnJg_3BLLlOIEb5eyb)
-- 🌐 **Published View**: [https://drv.tw/view/open?id=10HjliV4uxolquyRnJg_3BLLlOIEb5eyb](https://drv.tw/view/open?id=10HjliV4uxolquyRnJg_3BLLlOIEb5eyb)
-
+- 🔗 **Google Drive Folder**: [NarcStudy_AndrewLeCody](https://drive.google.com/open?id=1RxAlFKAZTk0dL4qNuWEklu8FOCA266f-)
+- 🌐 **Published View**: [https://drv.tw/view/open?id=1RxAlFKAZTk0dL4qNuWEklu8FOCA266f-](https://drv.tw/view/open?id=1RxAlFKAZTk0dL4qNuWEklu8FOCA266f-)

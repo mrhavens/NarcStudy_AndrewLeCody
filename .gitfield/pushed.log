@@ -142,3 +142,6 @@
 [2025-06-06 12:26:12] Bitbucket: https://bitbucket.org/thefoldwithin/git-sigil
 >>>>>>> 4b323cbd7da16625ba04d2a7e8db3532f84bc1e0
 [2025-06-07 00:42:56] Local: 
+[2025-06-07 00:43:05] Radicle: RID=rad:z3FEj7rF8gZw9eFksCuiN43qjzrex, Peer ID=z6Mkw5s3ppo26C7y7tGK5MD8n2GqTHS582PPpeX5Xqbu2Mpz
+  CLI: rad inspect rad:z3FEj7rF8gZw9eFksCuiN43qjzrex # View project details
+  CLI: git ls-tree -r --name-only HEAD # View file structure

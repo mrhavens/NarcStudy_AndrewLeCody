@@ -6,24 +6,24 @@
 - **Local Repo Path**: `/mnt/c/Downloads/git-sigil`
 - **Remote Label**: `github`
 - **Default Branch**: `master`
-- **This Commit Date**: `2025-06-07 00:15:35`
+- **This Commit Date**: `2025-06-07 00:20:54`
 
 ---
 
 ## 📦 Commit Info
 
-- **This Commit Timestamp**: `2025-06-07 00:15:35`
-- **Last Commit SHA**: `56f9997e3b87e2df2373004fe3a1f261004e9366`
-- **Last Commit Message**: `Post-Bitbucket sync at 2025-06-07 00:07:23`
+- **This Commit Timestamp**: `2025-06-07 00:20:54`
+- **Last Commit SHA**: `231eee68616d3394d349c3cc982608617297caaa`
+- **Last Commit Message**: `Local metadata link commit at 2025-06-07 00:18:57 — file:///home/mrhavens/git-local-repos/git-sigil.git`
 - **Last Commit Author**: `Mark Randall Havens <mark.r.havens@gmail.com>`
-- **Last Commit Date**: `Sat Jun 7 00:15:22 2025 -0500`
-- **This Commit URL**: [https://github.com/mrhavens/git-sigil/commit/56f9997e3b87e2df2373004fe3a1f261004e9366](https://github.com/mrhavens/git-sigil/commit/56f9997e3b87e2df2373004fe3a1f261004e9366)
+- **Last Commit Date**: `Sat Jun 7 00:19:01 2025 -0500`
+- **This Commit URL**: [https://github.com/mrhavens/git-sigil/commit/231eee68616d3394d349c3cc982608617297caaa](https://github.com/mrhavens/git-sigil/commit/231eee68616d3394d349c3cc982608617297caaa)
 
 ---
 
 ## 📊 Repo Status
 
-- **Total Commits**: `786`
+- **Total Commits**: `789`
 - **Tracked Files**: `113`
 - **Uncommitted Changes**: `Yes`
 - **Latest Tag**: `None`
@@ -48,7 +48,7 @@
 - **Running in Docker**: `No`
 - **Running in WSL**: `Yes`
 - **Virtual Machine**: `wsl`
-- **System Uptime**: `up 22 hours, 23 minutes`
+- **System Uptime**: `up 22 hours, 28 minutes`
 - **MAC Address**: `00:15:5d:86:d8:cc`
 - **Local IP**: `172.18.207.124`
 - **CPU Model**: `AMD A6-3420M APU with Radeon(tm) HD Graphics`

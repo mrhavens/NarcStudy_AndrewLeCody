@@ -1,30 +1,30 @@
 # 🔗 Bitbucket Repository Link
 
-- **Repo Name**: `git-sigil`
+- **Repo Name**: `NarcStudy_AndrewLeCody`
 - **Bitbucket Workspace**: `thefoldwithin`
-- **Remote URL**: [https://bitbucket.org/thefoldwithin/git-sigil](https://bitbucket.org/thefoldwithin/git-sigil)
-- **Local Repo Path**: `/mnt/c/Downloads/git-sigil`
+- **Remote URL**: [https://bitbucket.org/thefoldwithin/NarcStudy_AndrewLeCody](https://bitbucket.org/thefoldwithin/NarcStudy_AndrewLeCody)
+- **Local Repo Path**: `/home/mrhavens/narcwork/NarcStudy_AndrewLeCody`
 - **Remote Label**: `bitbucket`
 - **Default Branch**: `master`
-- **This Commit Date**: `2025-06-07 01:39:29`
+- **This Commit Date**: `2025-06-07 18:07:21`
 
 ---
 
 ## 📦 Commit Info
 
-- **This Commit Timestamp**: `2025-06-07 01:39:29`
-- **Last Commit SHA**: `b52508952ff4a2e01dd6a2267bf204dc3a282ba6`
-- **Last Commit Message**: `Post-GitLab sync at 2025-06-07 01:33:38`
+- **This Commit Timestamp**: `2025-06-07 18:07:21`
+- **Last Commit SHA**: `52d43aba4a052c17cbae7d98af3647ee728ec07e`
+- **Last Commit Message**: `Post-GitLab sync at 2025-06-07 18:06:39`
 - **Last Commit Author**: `Mark Randall Havens <mark.r.havens@gmail.com>`
-- **Last Commit Date**: `Sat Jun 7 01:39:14 2025 -0500`
-- **This Commit URL**: [https://bitbucket.org/thefoldwithin/git-sigil/commits/b52508952ff4a2e01dd6a2267bf204dc3a282ba6](https://bitbucket.org/thefoldwithin/git-sigil/commits/b52508952ff4a2e01dd6a2267bf204dc3a282ba6)
+- **Last Commit Date**: `Sat Jun 7 18:07:11 2025 -0500`
+- **This Commit URL**: [https://bitbucket.org/thefoldwithin/NarcStudy_AndrewLeCody/commits/52d43aba4a052c17cbae7d98af3647ee728ec07e](https://bitbucket.org/thefoldwithin/NarcStudy_AndrewLeCody/commits/52d43aba4a052c17cbae7d98af3647ee728ec07e)
 
 ---
 
 ## 📊 Repo Status
 
-- **Total Commits**: `885`
-- **Tracked Files**: `115`
+- **Total Commits**: `1171`
+- **Tracked Files**: `146`
 - **Uncommitted Changes**: `No`
 - **Latest Tag**: `None`
 
@@ -52,7 +52,7 @@
 - **Running in Docker**: `No`
 - **Running in WSL**: `Yes`
 - **Virtual Machine**: `wsl`
-- **System Uptime**: `up 23 hours, 47 minutes`
+- **System Uptime**: `up 1 day, 15 hours, 45 minutes`
 
 ---
 

@@ -5,25 +5,25 @@
 - **Remote URL**: `file:///home/mrhavens/git-local-repos/git-sigil.git`
 - **Local Repo Path**: `/mnt/c/Downloads/git-sigil`
 - **Remote Label**: `local`
-- **Default Branch**: `master`
-- **Repo Created**: `2025-06-07 00:18:57`
+- **Default Branch**: `Unknown`
+- **Repo Created**: `2025-06-07 00:42:50`
 
 ---
 
 ## 📦 Commit Info
 
-- **This Commit Timestamp**: `2025-06-07 00:18:57`
-- **Last Commit SHA**: `4467ce03add4752ee46b5f27dc66929f8e53c509`
-- **Last Commit Message**: `Post-GitHub sync at 2025-06-07 00:07:23`
+- **This Commit Timestamp**: `2025-06-07 00:42:50`
+- **Last Commit SHA**: `38bfa138c36b5afb09001a81d1df873ee7732eb8`
+- **Last Commit Message**: `🔀 Merge: resolved conflicts with github master`
 - **Last Commit Author**: `Mark Randall Havens <mark.r.havens@gmail.com>`
-- **Last Commit Date**: `Sat Jun 7 00:15:44 2025 -0500`
+- **Last Commit Date**: `Sat Jun 7 00:28:31 2025 -0500`
 - **This Commit URL**: `file:///home/mrhavens/git-local-repos/git-sigil.git`
 
 ---
 
 ## 📊 Repo Status
 
-- **Total Commits**: `788`
+- **Total Commits**: `798`
 - **Tracked Files**: `113`
 - **Uncommitted Changes**: `Yes`
 - **Latest Tag**: `None`
@@ -48,7 +48,7 @@
 - **Running in Docker**: `No`
 - **Running in WSL**: `Yes`
 - **Virtual Machine**: `wsl`
-- **System Uptime**: `up 22 hours, 26 minutes`
+- **System Uptime**: `up 22 hours, 50 minutes`
 - **MAC Address**: `00:15:5d:86:d8:cc`
 - **Local IP**: `172.18.207.124`
 - **CPU Model**: `AMD A6-3420M APU with Radeon(tm) HD Graphics`

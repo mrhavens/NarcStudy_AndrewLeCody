@@ -2,28 +2,28 @@
 
 - **Project Name**: `NarcStudy_AndrewLeCody`
 - **Radicle URN**: `rad://z3omBzCc2TxBZPovoVbzuUFaX3sY8`
-- **Public Gateway**: [https://app.radicle.xyz/nodes/ash.radicle.garden/rad:z3omBzCc2TxBZPovoVbzuUFaX3sY8/tree/6dfef0c1a03885204004d67e7196abcea43de04f](https://app.radicle.xyz/nodes/ash.radicle.garden/rad:z3omBzCc2TxBZPovoVbzuUFaX3sY8/tree/6dfef0c1a03885204004d67e7196abcea43de04f)
+- **Public Gateway**: [https://app.radicle.xyz/nodes/ash.radicle.garden/rad:z3omBzCc2TxBZPovoVbzuUFaX3sY8/tree/3195a45e45b3c098f977eb52754bba525ff1a21b](https://app.radicle.xyz/nodes/ash.radicle.garden/rad:z3omBzCc2TxBZPovoVbzuUFaX3sY8/tree/3195a45e45b3c098f977eb52754bba525ff1a21b)
 - **Local Repo Path**: `/home/mrhavens/narcwork/NarcStudy_AndrewLeCody`
 - **Default Branch**: `master`
-- **Repo Created**: `2025-06-07 18:08:21`
+- **Repo Created**: `2025-06-08 22:51:59`
 
 ---
 
 ## 📦 Commit Info
 
-- **This Commit Timestamp**: `2025-06-07 18:08:21`
-- **Last Commit SHA**: `6dfef0c1a03885204004d67e7196abcea43de04f`
-- **Last Commit Message**: `Post-Local sync at 2025-06-07 18:06:39`
+- **This Commit Timestamp**: `2025-06-08 22:51:59`
+- **Last Commit SHA**: `3195a45e45b3c098f977eb52754bba525ff1a21b`
+- **Last Commit Message**: `Post-Local sync at 2025-06-08 22:51:01`
 - **Commit Author**: `Mark Randall Havens <mark.r.havens@gmail.com>`
-- **Commit Date**: `Sat Jun 7 18:08:21 2025 -0500`
-- **This Commit URL**: [https://app.radicle.xyz/nodes/ash.radicle.garden/rad:z3omBzCc2TxBZPovoVbzuUFaX3sY8/tree/6dfef0c1a03885204004d67e7196abcea43de04f](https://app.radicle.xyz/nodes/ash.radicle.garden/rad:z3omBzCc2TxBZPovoVbzuUFaX3sY8/tree/6dfef0c1a03885204004d67e7196abcea43de04f)
+- **Commit Date**: `Sun Jun 8 22:51:02 2025 -0500`
+- **This Commit URL**: [https://app.radicle.xyz/nodes/ash.radicle.garden/rad:z3omBzCc2TxBZPovoVbzuUFaX3sY8/tree/3195a45e45b3c098f977eb52754bba525ff1a21b](https://app.radicle.xyz/nodes/ash.radicle.garden/rad:z3omBzCc2TxBZPovoVbzuUFaX3sY8/tree/3195a45e45b3c098f977eb52754bba525ff1a21b)
 
 ---
 
 ## 📊 Repo Status
 
-- **Total Commits**: `1190`
-- **Tracked Files**: `146`
+- **Total Commits**: `1202`
+- **Tracked Files**: `159`
 - **Uncommitted Changes**: `Yes`
 - **Latest Tag**: `None`
 
@@ -47,8 +47,8 @@
 - **Running in Docker**: `No`
 - **Running in WSL**: `Yes`
 - **Virtual Machine**: `wsl`
-- **System Uptime**: `up 1 day, 15 hours, 46 minutes`
-- **MAC Address**: `00:15:5d:86:d8:cc`
+- **System Uptime**: `up 1 hour, 3 minutes`
+- **MAC Address**: `00:15:5d:3d:32:5b`
 - **Local IP**: `172.18.207.124`
 - **CPU Model**: `AMD A6-3420M APU with Radeon(tm) HD Graphics`
 - **Total RAM (GB)**: `3.63`

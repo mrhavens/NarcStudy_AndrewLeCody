@@ -2,7 +2,7 @@
 
 ## Overview
 
-The `NarcStudy_AndrewLeCody` project employs a multi-repository strategy across five distinct platforms: **GitHub**, **GitLab**, **Bitbucket**, **Radicle**, and **Forgejo**. This approach ensures **redundancy**, **resilience**, and **sovereignty** of the project's data and metadata, protecting against deplatforming risks and preserving the integrity of the work. The strategy is a deliberate response to past deplatforming and delisting attempts by individuals such as **Mr. Joel Johnson** ([Mirror post](https://mirror.xyz/neutralizingnarcissism.eth/x40_zDWWrYOJ7nh8Y0fk06_3kNEP0KteSSRjPmXkiGg?utm_medium=social&utm_source=heylink.me)), **Dr. Peter Gaied** ([Paragraph post](https://paragraph.com/@neutralizingnarcissism/%F0%9F%9C%81-the-narcissistic-messiah)), and **Andrew LeCody** ([Mirror post](https://mirror.xyz/neutralizingnarcissism.eth/s3GRxuiZs6vGSGDcPEpCgjaSxwGAViGhmg6a5XTL6s0)), who have sought to undermine or suppress the work of **Mark Randall Havens** ([Substack post](https://theempathictechnologist.substack.com/p/mark-randall-havens-the-architect)). Specifically, Andrew LeCody has attempted to delist the project's content on Google, though it remains accessible on other search engines such as [Bing](https://www.bing.com/search?q=andrew+lecody+neutralizing+narcissism&qs=HS&pq=andrew+lecody), [DuckDuckGo](https://duckduckgo.com/?t=h_&q=andrew+lecody+neutralizing+narcissism&ia=web), and [Yahoo](https://search.yahoo.com/search?p=andrew+lecody+neutralizng+narcissism). By distributing the repository across multiple platforms, including a self-hosted Forgejo instance, we ensure its persistence, accessibility, and sovereignty.
+The `NarcStudy_AndrewLeCody` project employs a multi-repository strategy across seven distinct platforms: **GitHub**, **GitLab**, **Bitbucket**, **Radicle**, **Forgejo**, **Codeberg**, and **Gitea**. This approach ensures **redundancy**, **resilience**, and **sovereignty** of the project's data and metadata, protecting against deplatforming risks and preserving the integrity of the work. The strategy is a deliberate response to past deplatforming and delisting attempts by individuals such as **Mr. Joel Johnson** ([Mirror post](https://mirror.xyz/neutralizingnarcissism.eth/x40_zDWWrYOJ7nh8Y0fk06_3kNEP0KteSSRjPmXkiGg?utm_medium=social&utm_source=heylink.me)), **Dr. Peter Gaied** ([Paragraph post](https://paragraph.com/@neutralizingnarcissism/%F0%9F%9C%81-the-narcissistic-messiah)), and **Andrew LeCody** ([Mirror post](https://mirror.xyz/neutralizingnarcissism.eth/s3GRxuiZs6vGSGDcPEpCgjaSxwGAViGhmg6a5XTL6s0)), who have sought to undermine or suppress the work of **Mark Randall Havens** ([Substack post](https://theempathictechnologist.substack.com/p/mark-randall-havens-the-architect)). Specifically, Andrew LeCody has attempted to delist the project's content on Google, though it remains accessible on other search engines such as [Bing](https://www.bing.com/search?q=andrew+lecody+neutralizing+narcissism&qs=HS&pq=andrew+lecody), [DuckDuckGo](https://duckduckgo.com/?t=h_&q=andrew+lecody+neutralizing+narcissism&ia=web), and [Yahoo](https://search.yahoo.com/search?p=andrew+lecody+neutralizng+narcissism). By distributing the repository across multiple platforms, including a self-hosted Forgejo instance, we ensure its persistence, accessibility, and sovereignty.
 
 ---
 
@@ -34,20 +34,30 @@ The following platforms host the `NarcStudy_AndrewLeCody` repository, each chose
 - **Value**: Enhances resilience by hosting the repository on a sovereign, redundant system with automated backups and deployment strategies, reducing risks of external interference or service disruptions.
 - **Access Details**: SSH access uses port 222:
   ```bash
-  ssh -T -p 222 username@remember.thefoldwithin.earth
+  ssh -T -p 222 git@remember.thefoldwithin.earth
   ```
 
-### 3. GitLab
+### 3. Codeberg
+- **URL**: [https://codeberg.org/mrhavens/NarcStudy_AndrewLeCody](https://codeberg.org/mrhavens/NarcStudy_AndrewLeCody)
+- **Purpose**: Codeberg is a community-driven, open-source platform powered by Forgejo, offering a reliable and ethical alternative for hosting git repositories.
+- **Value**: Enhances project resilience with its open-source ethos and independent infrastructure, ensuring accessibility and community support.
+
+### 4. Gitea
+- **URL**: [https://gitea.com/mrhavens/NarcStudy_AndrewLeCody](https://gitea.com/mrhavens/NarcStudy_AndrewLeCody)
+- **Purpose**: Gitea.com provides a lightweight, open-source git hosting platform with robust features for repository management and collaboration.
+- **Value**: Offers an additional layer of redundancy and a user-friendly interface, complementing other platforms with its simplicity and efficiency.
+
+### 5. GitLab
 - **URL**: [https://gitlab.com/mrhavens/NarcStudy_AndrewLeCody](https://gitlab.com/mrhavens/NarcStudy_AndrewLeCody)
 - **Purpose**: GitLab offers a comprehensive DevOps platform with advanced CI/CD capabilities, private repository options, and robust access controls. It serves as a reliable backup and a platform for advanced automation workflows.
 - **Value**: Enhances project resilience with its integrated CI/CD pipelines and independent infrastructure, reducing reliance on a single provider.
 
-### 4. Bitbucket
+### 6. Bitbucket
 - **URL**: [https://bitbucket.org/thefoldwithin/NarcStudy_AndrewLeCody](https://bitbucket.org/thefoldwithin/NarcStudy_AndrewLeCody)
 - **Purpose**: Bitbucket provides a secure environment for repository hosting with strong integration into Atlassian’s ecosystem (e.g., Jira, Trello). It serves as an additional layer of redundancy and a professional-grade hosting option.
 - **Value**: Offers enterprise-grade security and integration capabilities, ensuring the project remains accessible even if other platforms face disruptions.
 
-### 5. GitHub
+### 7. GitHub
 - **URL**: [https://github.com/mrhavens/NarcStudy_AndrewLeCody](https://github.com/mrhavens/NarcStudy_AndrewLeCody)
 - **Purpose**: GitHub serves as the primary platform for visibility, collaboration, and community engagement. Its widespread adoption and robust tooling make it ideal for public-facing development, issue tracking, and integration with CI/CD pipelines.
 - **Value**: Provides a centralized hub for open-source contributions, pull requests, and project management, ensuring broad accessibility and developer familiarity.
@@ -56,11 +66,11 @@ The following platforms host the `NarcStudy_AndrewLeCody` repository, each chose
 
 ## 🛡️ Rationale for Redundancy
 
-The decision to maintain multiple repositories stems from the need to safeguard the project against **deplatforming attempts** and **search engine delistings** and ensure its **long-term availability**. Past incidents involving **Mr. Joel Johnson**, **Dr. Peter Gaied**, and **Andrew LeCody** have highlighted the vulnerability of relying on a single platform or search engine. By distributing the repository across GitHub, GitLab, Bitbucket, Radicle, and a self-hosted Forgejo instance, we achieve:
+The decision to maintain multiple repositories stems from the need to safeguard the project against **deplatforming attempts** and **search engine delistings** and ensure its **long-term availability**. Past incidents involving **Mr. Joel Johnson**, **Dr. Peter Gaied**, and **Andrew LeCody** have highlighted the vulnerability of relying on a single platform or search engine. By distributing the repository across GitHub, GitLab, Bitbucket, Radicle, Forgejo, Codeberg, and Gitea, we achieve:
 
 - **Resilience**: If one platform removes or restricts access, or if search engines like Google delist content, the project remains accessible on other platforms and discoverable via alternative search engines such as Bing, DuckDuckGo, and Yahoo.
 - **Sovereignty**: Radicle’s decentralized nature and Forgejo’s self-hosted infrastructure ensure the project cannot be fully censored or controlled by any single entity.
-- **Diversity**: Each platform’s unique features (e.g., GitHub’s community, GitLab’s CI/CD, Bitbucket’s integrations, Radicle’s decentralization, Forgejo’s self-hosting) enhance the project’s functionality and reach.
+- **Diversity**: Each platform’s unique features (e.g., GitHub’s community, GitLab’s CI/CD, Bitbucket’s integrations, Radicle’s decentralization, Forgejo’s self-hosting, Codeberg’s community-driven model, Gitea’s lightweight efficiency) enhance the project’s functionality and reach.
 - **Transparency**: Metadata snapshots in the `.gitfield` directory provide a verifiable record of the project’s state across all platforms.
 
 This multi-repository approach, bolstered by Forgejo’s sovereign hosting, reflects a commitment to preserving the integrity, accessibility, and independence of `NarcStudy_AndrewLeCody`, ensuring it remains available to contributors and users regardless of external pressures.
@@ -69,11 +79,11 @@ This multi-repository approach, bolstered by Forgejo’s sovereign hosting, refl
 
 ## 📜 Metadata and Logs
 
-- **Metadata Files**: Each platform generates a metadata snapshot in the `.gitfield` directory (e.g., `github.sigil.md`, `gitlab.sigil.md`, `remember.sigil.md`, etc.), capturing commit details, environment information, and hardware fingerprints.
+- **Metadata Files**: Each platform generates a metadata snapshot in the `.gitfield` directory (e.g., `github.sigil.md`, `gitlab.sigil.md`, `remember.sigil.md`, `codeberg.sigil.md`, `gitea.sigil.md`, etc.), capturing commit details, environment information, and hardware fingerprints.
 - **Push Log**: The `.gitfield/pushed.log` file records the date, time, and RID/URL of every push operation across all platforms, providing a transparent audit trail.
 - **Recursive Sync**: The repository is synchronized across all platforms in a recursive loop (three cycles) to ensure interconnected metadata captures the latest state of the project.
-- **Push Order**: The repository is synchronized in the following order: **Radicle → Forgejo → GitLab → Bitbucket → GitHub**. This prioritizes Radicle’s decentralized, censorship-resistant network as the primary anchor, followed by Forgejo’s sovereign, self-hosted infrastructure, GitLab’s robust DevOps features, Bitbucket’s enterprise redundancy, and GitHub’s broad visibility, ensuring a resilient and accessible metadata chain.
+- **Push Order**: The repository is synchronized in the following order: **Radicle → Forgejo → Codeberg → Gitea → GitLab → Bitbucket → GitHub**. This prioritizes Radicle’s decentralized, censorship-resistant network as the primary anchor, followed by Forgejo’s sovereign, self-hosted infrastructure, Codeberg’s community-driven platform, Gitea’s lightweight efficiency, GitLab’s robust DevOps features, Bitbucket’s enterprise redundancy, and GitHub’s broad visibility, ensuring a resilient and accessible metadata chain.
 
 ---
 
-_Auto-generated by `gitfield-sync` at 2025-06-09 02:38:30 (v1.0)._
+_Auto-generated by `gitfield-sync` at 2025-06-09 14:24:20 (v1.0)._

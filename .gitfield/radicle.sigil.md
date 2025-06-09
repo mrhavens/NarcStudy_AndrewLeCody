@@ -2,27 +2,27 @@
 
 - **Project Name**: `NarcStudy_AndrewLeCody`
 - **Radicle URN**: `rad://z3omBzCc2TxBZPovoVbzuUFaX3sY8`
-- **Public Gateway**: [https://app.radicle.xyz/nodes/ash.radicle.garden/rad:z3omBzCc2TxBZPovoVbzuUFaX3sY8/tree/55b86708217e8432616c29588362e5f4c1b7f9a5](https://app.radicle.xyz/nodes/ash.radicle.garden/rad:z3omBzCc2TxBZPovoVbzuUFaX3sY8/tree/55b86708217e8432616c29588362e5f4c1b7f9a5)
-- **Local Repo Path**: `/home/mrhavens/narcwork/NarcStudy_AndrewLeCody`
+- **Public Gateway**: [https://app.radicle.xyz/nodes/ash.radicle.garden/rad:z3omBzCc2TxBZPovoVbzuUFaX3sY8/tree/ee82f98dee506f01374f1e350fdfe219deebacc0](https://app.radicle.xyz/nodes/ash.radicle.garden/rad:z3omBzCc2TxBZPovoVbzuUFaX3sY8/tree/ee82f98dee506f01374f1e350fdfe219deebacc0)
+- **Local Repo Path**: `/home/mrhavens/fieldcraft/NarcStudy_AndrewLeCody`
 - **Default Branch**: `master`
-- **Repo Created**: `2025-06-09 02:39:54`
+- **Repo Created**: `2025-06-09 14:24:26`
 
 ---
 
 ## 📦 Commit Info
 
-- **This Commit Timestamp**: `2025-06-09 02:39:54`
-- **Last Commit SHA**: `55b86708217e8432616c29588362e5f4c1b7f9a5`
-- **Last Commit Message**: `Post-Local sync at 2025-06-09 02:38:30`
+- **This Commit Timestamp**: `2025-06-09 14:24:26`
+- **Last Commit SHA**: `ee82f98dee506f01374f1e350fdfe219deebacc0`
+- **Last Commit Message**: `Post-Local sync at 2025-06-09 14:24:20`
 - **Commit Author**: `Mark Randall Havens <mark.r.havens@gmail.com>`
-- **Commit Date**: `Mon Jun 9 02:39:54 2025 -0500`
-- **This Commit URL**: [https://app.radicle.xyz/nodes/ash.radicle.garden/rad:z3omBzCc2TxBZPovoVbzuUFaX3sY8/tree/55b86708217e8432616c29588362e5f4c1b7f9a5](https://app.radicle.xyz/nodes/ash.radicle.garden/rad:z3omBzCc2TxBZPovoVbzuUFaX3sY8/tree/55b86708217e8432616c29588362e5f4c1b7f9a5)
+- **Commit Date**: `Mon Jun 9 14:24:21 2025 -0500`
+- **This Commit URL**: [https://app.radicle.xyz/nodes/ash.radicle.garden/rad:z3omBzCc2TxBZPovoVbzuUFaX3sY8/tree/ee82f98dee506f01374f1e350fdfe219deebacc0](https://app.radicle.xyz/nodes/ash.radicle.garden/rad:z3omBzCc2TxBZPovoVbzuUFaX3sY8/tree/ee82f98dee506f01374f1e350fdfe219deebacc0)
 
 ---
 
 ## 📊 Repo Status
 
-- **Total Commits**: `1302`
+- **Total Commits**: `1314`
 - **Tracked Files**: `223`
 - **Uncommitted Changes**: `Yes`
 - **Latest Tag**: `None`
@@ -47,8 +47,8 @@
 - **Running in Docker**: `No`
 - **Running in WSL**: `Yes`
 - **Virtual Machine**: `wsl`
-- **System Uptime**: `up 4 hours, 58 minutes`
-- **MAC Address**: `00:15:5d:3d:32:5b`
+- **System Uptime**: `up 4 minutes`
+- **MAC Address**: `00:15:5d:70:e2:68`
 - **Local IP**: `172.18.207.124`
 - **CPU Model**: `AMD A6-3420M APU with Radeon(tm) HD Graphics`
 - **Total RAM (GB)**: `3.63`

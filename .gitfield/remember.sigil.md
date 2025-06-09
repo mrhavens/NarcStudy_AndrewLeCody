@@ -3,27 +3,27 @@
 - **Repo Name**: `NarcStudy_AndrewLeCody`
 - **Forgejo User**: `mrhavens`
 - **Remote URL**: [https://remember.thefoldwithin.earth/mrhavens/NarcStudy_AndrewLeCody](https://remember.thefoldwithin.earth/mrhavens/NarcStudy_AndrewLeCody)
-- **Local Repo Path**: `/home/mrhavens/narcwork/NarcStudy_AndrewLeCody`
+- **Local Repo Path**: `/home/mrhavens/fieldcraft/NarcStudy_AndrewLeCody`
 - **Remote Label**: `remember`
 - **Default Branch**: `master`
-- **Repo Created**: `2025-06-09 02:39:56`
+- **Repo Created**: `2025-06-09 14:24:27`
 
 ---
 
 ## 📦 Commit Info
 
-- **This Commit Timestamp**: `2025-06-09 02:39:56`
-- **Last Commit SHA**: `46886cdaaa6444a9facffb98b1a89a9869bdc041`
-- **Last Commit Message**: `Post-Radicle sync at 2025-06-09 02:38:30`
+- **This Commit Timestamp**: `2025-06-09 14:24:27`
+- **Last Commit SHA**: `2c10ab64830d7aff87cf7688d8ed6fea48145bcf`
+- **Last Commit Message**: `Post-Radicle sync at 2025-06-09 14:24:20`
 - **Last Commit Author**: `Mark Randall Havens <mark.r.havens@gmail.com>`
-- **Last Commit Date**: `Mon Jun 9 02:39:55 2025 -0500`
-- **This Commit URL**: [https://remember.thefoldwithin.earth/mrhavens/NarcStudy_AndrewLeCody/commit/46886cdaaa6444a9facffb98b1a89a9869bdc041](https://remember.thefoldwithin.earth/mrhavens/NarcStudy_AndrewLeCody/commit/46886cdaaa6444a9facffb98b1a89a9869bdc041)
+- **Last Commit Date**: `Mon Jun 9 14:24:26 2025 -0500`
+- **This Commit URL**: [https://remember.thefoldwithin.earth/mrhavens/NarcStudy_AndrewLeCody/commit/2c10ab64830d7aff87cf7688d8ed6fea48145bcf](https://remember.thefoldwithin.earth/mrhavens/NarcStudy_AndrewLeCody/commit/2c10ab64830d7aff87cf7688d8ed6fea48145bcf)
 
 ---
 
 ## 📊 Repo Status
 
-- **Total Commits**: `1304`
+- **Total Commits**: `1316`
 - **Tracked Files**: `223`
 - **Uncommitted Changes**: `No`
 - **Latest Tag**: `None`
@@ -48,8 +48,8 @@
 - **Running in Docker**: `No`
 - **Running in WSL**: `Yes`
 - **Virtual Machine**: `wsl`
-- **System Uptime**: `up 4 hours, 58 minutes`
-- **MAC Address**: `00:15:5d:3d:32:5b`
+- **System Uptime**: `up 4 minutes`
+- **MAC Address**: `00:15:5d:70:e2:68`
 - **Local IP**: `172.18.207.124`
 - **CPU Model**: `AMD A6-3420M APU with Radeon(tm) HD Graphics`
 - **Total RAM (GB)**: `3.63`

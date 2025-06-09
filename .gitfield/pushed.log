@@ -205,3 +205,6 @@
 [2025-06-08 22:54:16] Bitbucket: https://bitbucket.org/thefoldwithin/NarcStudy_AndrewLeCody
 [2025-06-08 22:54:28] GitHub: https://github.com/mrhavens/NarcStudy_AndrewLeCody
 [2025-06-09 02:29:39] Local: 
+[2025-06-09 02:29:39] Radicle: RID=rad:z3FEj7rF8gZw9eFksCuiN43qjzrex, Peer ID=z6Mkw5s3ppo26C7y7tGK5MD8n2GqTHS582PPpeX5Xqbu2Mpz
+  CLI: rad inspect rad:z3FEj7rF8gZw9eFksCuiN43qjzrex # View project details
+  CLI: git ls-tree -r --name-only HEAD # View file structure

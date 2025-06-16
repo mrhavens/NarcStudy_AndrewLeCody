@@ -3,28 +3,28 @@
 - **Repo Name**: `NarcStudy_AndrewLeCody`
 - **Bitbucket Workspace**: `thefoldwithin`
 - **Remote URL**: [https://bitbucket.org/thefoldwithin/NarcStudy_AndrewLeCody](https://bitbucket.org/thefoldwithin/NarcStudy_AndrewLeCody)
-- **Local Repo Path**: `/home/mrhavens/fieldcraft/NarcStudy_AndrewLeCody`
+- **Local Repo Path**: `/mnt/c/fieldcraft/NarcStudy_AndrewLeCody`
 - **Remote Label**: `bitbucket`
 - **Default Branch**: `master`
-- **This Commit Date**: `2025-06-09 14:38:21`
+- **This Commit Date**: `2025-06-16 04:10:47`
 
 ---
 
 ## 📦 Commit Info
 
-- **This Commit Timestamp**: `2025-06-09 14:38:21`
-- **Last Commit SHA**: `e0f20e69475a255635993c25f2fd5b5ac15cd91e`
-- **Last Commit Message**: `Post-GitLab sync at 2025-06-09 14:24:20`
+- **This Commit Timestamp**: `2025-06-16 04:10:47`
+- **Last Commit SHA**: `fbe8cdc3e891cdf8848eb333fbe010e32422e165`
+- **Last Commit Message**: `Post-GitLab sync at 2025-06-16T09:02:55Z`
 - **Last Commit Author**: `Mark Randall Havens <mark.r.havens@gmail.com>`
-- **Last Commit Date**: `Mon Jun 9 14:38:10 2025 -0500`
-- **This Commit URL**: [https://bitbucket.org/thefoldwithin/NarcStudy_AndrewLeCody/commits/e0f20e69475a255635993c25f2fd5b5ac15cd91e](https://bitbucket.org/thefoldwithin/NarcStudy_AndrewLeCody/commits/e0f20e69475a255635993c25f2fd5b5ac15cd91e)
+- **Last Commit Date**: `Mon Jun 16 04:10:22 2025 -0500`
+- **This Commit URL**: [https://bitbucket.org/thefoldwithin/NarcStudy_AndrewLeCody/commits/fbe8cdc3e891cdf8848eb333fbe010e32422e165](https://bitbucket.org/thefoldwithin/NarcStudy_AndrewLeCody/commits/fbe8cdc3e891cdf8848eb333fbe010e32422e165)
 
 ---
 
 ## 📊 Repo Status
 
-- **Total Commits**: `1357`
-- **Tracked Files**: `225`
+- **Total Commits**: `1399`
+- **Tracked Files**: `268`
 - **Uncommitted Changes**: `No`
 - **Latest Tag**: `None`
 
@@ -47,12 +47,12 @@
 - **Architecture**: `x86_64`
 - **CPU Model**: `AMD A6-3420M APU with Radeon(tm) HD Graphics`
 - **Total RAM (GB)**: `3.63`
-- **MAC Address**: `00:15:5d:70:e2:68`
+- **MAC Address**: `00:15:5d:1b:bf:e4`
 - **Local IP**: `172.18.207.124`
 - **Running in Docker**: `No`
 - **Running in WSL**: `Yes`
 - **Virtual Machine**: `wsl`
-- **System Uptime**: `up 18 minutes`
+- **System Uptime**: `up 1 hour, 12 minutes`
 
 ---
 

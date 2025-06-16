@@ -3,29 +3,29 @@
 - **Repo Name**: `NarcStudy_AndrewLeCody`
 - **Codeberg User**: `mrhavens`
 - **Remote URL**: [https://codeberg.org/mrhavens/NarcStudy_AndrewLeCody](https://codeberg.org/mrhavens/NarcStudy_AndrewLeCody)
-- **Local Repo Path**: `/home/mrhavens/fieldcraft/NarcStudy_AndrewLeCody`
+- **Local Repo Path**: `/mnt/c/fieldcraft/NarcStudy_AndrewLeCody`
 - **Remote Label**: `codeberg`
 - **Default Branch**: `master`
-- **Repo Created**: `2025-06-09 14:37:45`
+- **Repo Created**: `2025-06-16 04:18:22`
 
 ---
 
 ## 📦 Commit Info
 
-- **This Commit Timestamp**: `2025-06-09 14:37:45`
-- **Last Commit SHA**: `8285b4eb9fae8883bc4086938a1bc1a7b476c47c`
-- **Last Commit Message**: `Post-Forgejo sync at 2025-06-09 14:24:20`
+- **This Commit Timestamp**: `2025-06-16 04:18:22`
+- **Last Commit SHA**: `4ffdb2de4f2fb148c4f5766174665db76554db65`
+- **Last Commit Message**: `Post-Forgejo sync at 2025-06-16T09:02:55Z`
 - **Last Commit Author**: `Mark Randall Havens <mark.r.havens@gmail.com>`
-- **Last Commit Date**: `Mon Jun 9 14:37:40 2025 -0500`
-- **This Commit URL**: [https://codeberg.org/mrhavens/NarcStudy_AndrewLeCody/commit/8285b4eb9fae8883bc4086938a1bc1a7b476c47c](https://codeberg.org/mrhavens/NarcStudy_AndrewLeCody/commit/8285b4eb9fae8883bc4086938a1bc1a7b476c47c)
+- **Last Commit Date**: `Mon Jun 16 04:17:22 2025 -0500`
+- **This Commit URL**: [https://codeberg.org/mrhavens/NarcStudy_AndrewLeCody/commit/4ffdb2de4f2fb148c4f5766174665db76554db65](https://codeberg.org/mrhavens/NarcStudy_AndrewLeCody/commit/4ffdb2de4f2fb148c4f5766174665db76554db65)
 
 ---
 
 ## 📊 Repo Status
 
-- **Total Commits**: `1351`
-- **Tracked Files**: `225`
-- **Uncommitted Changes**: `No`
+- **Total Commits**: `1416`
+- **Tracked Files**: `273`
+- **Uncommitted Changes**: `Yes`
 - **Latest Tag**: `None`
 
 ---
@@ -48,8 +48,8 @@
 - **Running in Docker**: `No`
 - **Running in WSL**: `Yes`
 - **Virtual Machine**: `wsl`
-- **System Uptime**: `up 18 minutes`
-- **MAC Address**: `00:15:5d:70:e2:68`
+- **System Uptime**: `up 1 hour, 21 minutes`
+- **MAC Address**: `00:15:5d:1b:bf:e4`
 - **Local IP**: `172.18.207.124`
 - **CPU Model**: `AMD A6-3420M APU with Radeon(tm) HD Graphics`
 - **Total RAM (GB)**: `3.63`

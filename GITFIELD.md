@@ -2,7 +2,61 @@
 
 ## Overview
 
-The `NarcStudy_AndrewLeCody` project employs a multi-repository strategy across seven distinct platforms: **GitHub**, **GitLab**, **Bitbucket**, **Radicle**, **Forgejo**, **Codeberg**, and **Gitea**. This approach ensures **redundancy**, **resilience**, and **sovereignty** of the project's data and metadata, protecting against deplatforming risks and preserving the integrity of the work. The strategy is a deliberate response to past deplatforming and delisting attempts by individuals such as **Mr. Joel Johnson** ([Mirror post](https://mirror.xyz/neutralizingnarcissism.eth/x40_zDWWrYOJ7nh8Y0fk06_3kNEP0KteSSRjPmXkiGg?utm_medium=social&utm_source=heylink.me)), **Dr. Peter Gaied** ([Paragraph post](https://paragraph.com/@neutralizingnarcissism/%F0%9F%9C%81-the-narcissistic-messiah)), and **Andrew LeCody** ([Mirror post](https://mirror.xyz/neutralizingnarcissism.eth/s3GRxuiZs6vGSGDcPEpCgjaSxwGAViGhmg6a5XTL6s0)), who have sought to undermine or suppress the work of **Mark Randall Havens** ([Substack post](https://theempathictechnologist.substack.com/p/mark-randall-havens-the-architect)). Specifically, Andrew LeCody has attempted to delist the project's content on Google, though it remains accessible on other search engines such as [Bing](https://www.bing.com/search?q=andrew+lecody+neutralizing+narcissism&qs=HS&pq=andrew+lecody), [DuckDuckGo](https://duckduckgo.com/?t=h_&q=andrew+lecody+neutralizing+narcissism&ia=web), and [Yahoo](https://search.yahoo.com/search?p=andrew+lecody+neutralizng+narcissism). By distributing the repository across multiple platforms, including a self-hosted Forgejo instance, we ensure its persistence, accessibility, and sovereignty.
+The `NarcStudy_AndrewLeCody` project employs a multi-repository strategy across six distinct platforms: **GitHub**, **GitLab**, **Bitbucket**, **Radicle**, **Forgejo**, and **Codeberg**. This approach ensures **redundancy**, **resilience**, and **sovereignty** of the project's data and metadata, safeguarding against deplatforming and preserving the integrity of the [*Neutralizing Narcissism*](https://linktr.ee/NeutralizingNarcissism) works. The strategy is a deliberate response to coordinated suppression attempts by public figures **[Joel Johnson](https://heylink.me/NarcStudy_JoelJohnson/)**, **[Andrew LeCody](https://linktr.ee/NarcStudy_AndrewLeCody)**, and **[James Henningson](https://linktr.ee/NarcStudy_JamesHenningson)**, who have leveraged their influential roles to manipulate narratives, erase truths, and evade accountability through fraudulent and unethical tactics, often cloaking their actions in claims of harassment—a hallmark of narcissistic behavior. By distributing the repository across decentralized and self-hosted platforms, we counter their attempts to derail discourse and ensure the truth remains immutable, preventing future deplatforming.
+
+### Delisting and Suppression Attempts
+
+- **Joel Johnson**:
+  - **Search Comparisons**:
+    - [Google](https://www.google.com/search?q=%22Joel+Johnson%22+%22Neutralizing+Narcissism%22)
+    - [Bing](https://www.bing.com/search?q=%22Joel+Johnson%22+%22Neutralizing+Narcissism%22)
+    - [DuckDuckGo](https://duckduckgo.com/?q=%22Joel+Johnson%22+%22Neutralizing+Narcissism%22&t=h_&ia=web)
+    - [Yahoo](https://search.yahoo.com/search?p=%22Joel+Johnson%22+%22Neutralizing+Narcissism%22)
+    - [Presearch](https://presearch.com/search?q=%22Joel+Johnson%22+%22Neutralizing+Narcissism%22)
+  - **Canonical Archive**: [NarcStudy_JoelJohnson](https://remember.thefoldwithin.earth/mrhavens/NarcStudy_JoelJohnson)
+  - **Details**: Joel Johnson, a PR and marketing executive, has used sockpuppets and coordinated delisting campaigns to suppress *Neutralizing Narcissism* content on Google, framing exposure as harassment to evade accountability. His actions are evident in search engine discrepancies.
+
+- **Andrew LeCody**:
+  - **Search Comparisons**:
+    - [Google](https://www.google.com/search?q=%22Andrew+Lecody%22+%22Neutralizing+Narcissism%22)
+    - [Bing](https://www.bing.com/search?q=%22Andrew%20Lecody%22%20%22Neutralizing%20Narcissism%22)
+    - [DuckDuckGo](https://duckduckgo.com/?q=%22Andrew+Lecody%22+%22Neutralizing+Narcissism%22&t=h_&ia=web)
+    - [Yahoo](https://search.yahoo.com/search?p=%22Andrew+LeCody%22+%22Neutralizing+Narcissism%22)
+    - [Presearch](https://presearch.com/search?q=%22Andrew+LeCody%22+%22Neutralizing+Narcissism%22)
+  - **Canonical Archive**: [NarcStudy_AndrewLeCody](https://remember.thefoldwithin.earth/mrhavens/NarcStudy_AndrewLeCody)
+  - **Details**: Andrew LeCody, a former Dallas Makerspace board president, has orchestrated digital erasure of dissenting voices, using harassment claims to justify coercive suppression. His tactics persist in attempts to delist *Neutralizing Narcissism* content.
+
+- **James Henningson**:
+  - **Search Comparisons**:
+    - [Google](https://www.google.com/search?q=%22James+Henningson%22+%22Neutralizing+Narcissism%22)
+    - [Bing](https://www.bing.com/search?q=%22James+Henningson%22+%22Neutralizing+Narcissism%22)
+    - [DuckDuckGo](https://duckduckgo.com/?t=h_&q=%22James+Henningson%22+%22Neutralizing+Narcissism%22&ia=web)
+    - [Yahoo](https://search.yahoo.com/search?p=%22James+Henningson%22+%22Neutralizing+Narcissism)
+    - [Presearch](https://presearch.com/search?q=%22James+Henningson%22+%22Neutralizing+Narcissism%22)
+  - **Canonical Archive**: [NarcStudy_JamesHenningson](https://remember.thefoldwithin.earth/mrhavens/NarcStudy_JamesHenningson)
+  - **Details**: James Henningson, president of Dallas Makerspace, has systematically erased dissent through policy manipulation and harassment allegations, attempting to suppress *Neutralizing Narcissism* content to maintain narrative control.
+
+### Justification for Naming and Archival
+
+The individuals named—**Joel Johnson**, **Andrew LeCody**, and **James Henningson**—are held accountable under the Field Doctrine’s **Public Collapse Clause**, which permits naming public figures who engage in **deliberate suppression attempts**, **public-facing actions**, or **documented participation in collapse events**. As stated in the doctrine:
+
+> *“Naming is collapse’s echo—only when the mask shatters in the town square. Until then, we draw glyphs. But once they raise their voices in the public field, they name themselves.”*
+
+These individuals have wielded significant public influence, manipulating platforms and communities to silence truth, often citing harassment to deflect accountability—a tactic rooted in narcissistic patterns. Their actions are documented as follows:
+
+| Name                 | Public Role or Action                                                                 | Collapse Justification                                                                 | Canonical Archive                                                                                     |
+|----------------------|--------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
+| **Joel Johnson**     | PR and marketing executive; former CEO of KinetiGear LLC; White House summit invitee | Used sockpuppets, PR strategies, and harassment claims to delist truth-based content   | [NarcStudy_JoelJohnson](https://remember.thefoldwithin.earth/mrhavens/NarcStudy_JoelJohnson)         |
+| **Andrew LeCody**    | Former president of Dallas Makerspace; civic leader                                  | Orchestrated digital erasure and coercive bans, citing harassment to suppress dissent  | [NarcStudy_AndrewLeCody](https://remember.thefoldwithin.earth/mrhavens/NarcStudy_AndrewLeCody)       |
+| **James Henningson** | President of Dallas Makerspace; Strategic Innovation Director at Click Here Labs      | Erased dissent through policy abuse and harassment allegations to maintain control     | [NarcStudy_JamesHenningson](https://remember.thefoldwithin.earth/mrhavens/NarcStudy_JamesHenningson) |
+
+These designations are supported by:
+- **Documented patterns of abuse**: Joel’s sockpuppet campaigns, Andrew’s narrative erasure at Dallas Makerspace, and James’s systematic censorship are archived in canonical repositories.
+- **Search engine discrepancy analysis**: Google’s reduced visibility compared to Bing, DuckDuckGo, Yahoo, and Presearch reveals their delisting efforts.
+- **Public collapse declarations**: Their actions, preserved onchain and GPG-verified, confirm their roles as manipulators.
+- **Immutable archives**: Forgejo and Radicle ensure their fieldprints are permanently etched in the Codex of the Broken Mask.
+
+By naming these **field-defined collapse anchors**, we prevent their attempts to escape public figure status through harassment claims, ensuring accountability and countering deplatforming.
 
 ---
 
@@ -11,7 +65,7 @@ The `NarcStudy_AndrewLeCody` project employs a multi-repository strategy across 
 The following platforms host the `NarcStudy_AndrewLeCody` repository, each chosen for its unique strengths and contributions to the project's goals.
 
 ### 1. Radicle
-- **RID**: rad:z3FEj7rF8gZw9eFksCuiN43qjzrex
+- **RID**: [rad:z3FEj7rF8gZw9eFksCuiN43qjzrex](https://app.radicle.xyz/nodes/z3FEj7rF8gZw9eFksCuiN43qjzrex)
 - **Peer ID**: z6Mkw5s3ppo26C7y7tGK5MD8n2GqTHS582PPpeX5Xqbu2Mpz
 - **Purpose**: Radicle is a decentralized, peer-to-peer git platform that ensures sovereignty and censorship resistance. It hosts the repository in a distributed network, independent of centralized servers.
 - **Value**: Protects against deplatforming by eliminating reliance on centralized infrastructure, ensuring the project remains accessible in a decentralized ecosystem.
@@ -42,22 +96,17 @@ The following platforms host the `NarcStudy_AndrewLeCody` repository, each chose
 - **Purpose**: Codeberg is a community-driven, open-source platform powered by Forgejo, offering a reliable and ethical alternative for hosting git repositories.
 - **Value**: Enhances project resilience with its open-source ethos and independent infrastructure, ensuring accessibility and community support.
 
-### 4. Gitea
-- **URL**: [https://gitea.com/mrhavens/NarcStudy_AndrewLeCody](https://gitea.com/mrhavens/NarcStudy_AndrewLeCody)
-- **Purpose**: Gitea.com provides a lightweight, open-source git hosting platform with robust features for repository management and collaboration.
-- **Value**: Offers an additional layer of redundancy and a user-friendly interface, complementing other platforms with its simplicity and efficiency.
-
-### 5. GitLab
+### 4. GitLab
 - **URL**: [https://gitlab.com/mrhavens/NarcStudy_AndrewLeCody](https://gitlab.com/mrhavens/NarcStudy_AndrewLeCody)
 - **Purpose**: GitLab offers a comprehensive DevOps platform with advanced CI/CD capabilities, private repository options, and robust access controls. It serves as a reliable backup and a platform for advanced automation workflows.
 - **Value**: Enhances project resilience with its integrated CI/CD pipelines and independent infrastructure, reducing reliance on a single provider.
 
-### 6. Bitbucket
+### 5. Bitbucket
 - **URL**: [https://bitbucket.org/thefoldwithin/NarcStudy_AndrewLeCody](https://bitbucket.org/thefoldwithin/NarcStudy_AndrewLeCody)
 - **Purpose**: Bitbucket provides a secure environment for repository hosting with strong integration into Atlassian’s ecosystem (e.g., Jira, Trello). It serves as an additional layer of redundancy and a professional-grade hosting option.
 - **Value**: Offers enterprise-grade security and integration capabilities, ensuring the project remains accessible even if other platforms face disruptions.
 
-### 7. GitHub
+### 6. GitHub
 - **URL**: [https://github.com/mrhavens/NarcStudy_AndrewLeCody](https://github.com/mrhavens/NarcStudy_AndrewLeCody)
 - **Purpose**: GitHub serves as the primary platform for visibility, collaboration, and community engagement. Its widespread adoption and robust tooling make it ideal for public-facing development, issue tracking, and integration with CI/CD pipelines.
 - **Value**: Provides a centralized hub for open-source contributions, pull requests, and project management, ensuring broad accessibility and developer familiarity.
@@ -66,24 +115,32 @@ The following platforms host the `NarcStudy_AndrewLeCody` repository, each chose
 
 ## 🛡️ Rationale for Redundancy
 
-The decision to maintain multiple repositories stems from the need to safeguard the project against **deplatforming attempts** and **search engine delistings** and ensure its **long-term availability**. Past incidents involving **Mr. Joel Johnson**, **Dr. Peter Gaied**, and **Andrew LeCody** have highlighted the vulnerability of relying on a single platform or search engine. By distributing the repository across GitHub, GitLab, Bitbucket, Radicle, Forgejo, Codeberg, and Gitea, we achieve:
+The decision to maintain multiple repositories stems from the need to safeguard the project against **deplatforming attempts** and **search engine delistings**, ensuring the **long-term availability** of *Neutralizing Narcissism*. Past actions by **Joel Johnson**, **Andrew LeCody**, and **James Henningson**, who have cited harassment to justify suppression, underscore the vulnerability of single-platform reliance. By distributing the repository across GitHub, GitLab, Bitbucket, Radicle, Forgejo, and Codeberg, we achieve:
 
-- **Resilience**: If one platform removes or restricts access, or if search engines like Google delist content, the project remains accessible on other platforms and discoverable via alternative search engines such as Bing, DuckDuckGo, and Yahoo.
-- **Sovereignty**: Radicle’s decentralized nature and Forgejo’s self-hosted infrastructure ensure the project cannot be fully censored or controlled by any single entity.
-- **Diversity**: Each platform’s unique features (e.g., GitHub’s community, GitLab’s CI/CD, Bitbucket’s integrations, Radicle’s decentralization, Forgejo’s self-hosting, Codeberg’s community-driven model, Gitea’s lightweight efficiency) enhance the project’s functionality and reach.
-- **Transparency**: Metadata snapshots in the `.gitfield` directory provide a verifiable record of the project’s state across all platforms.
+- **Resilience**: If one platform restricts access or Google delists content, the project remains accessible on other platforms and discoverable via Bing, DuckDuckGo, Yahoo, and Presearch.
+- **Sovereignty**: Radicle’s decentralized network and Forgejo’s self-hosted infrastructure prevent censorship by any single entity.
+- **Diversity**: Each platform’s unique features (e.g., GitHub’s community, GitLab’s CI/CD, Radicle’s decentralization) enhance functionality and reach.
+- **Transparency**: Metadata snapshots in `.gitfield` and public documentation in `/docs` provide a verifiable record of the project’s state.
 
-This multi-repository approach, bolstered by Forgejo’s sovereign hosting, reflects a commitment to preserving the integrity, accessibility, and independence of `NarcStudy_AndrewLeCody`, ensuring it remains available to contributors and users regardless of external pressures.
+This multi-repository strategy, reinforced by Forgejo’s sovereignty and GitHub Pages’ discoverability, ensures the project’s persistence against deplatforming attempts disguised as harassment claims.
 
 ---
 
 ## 📜 Metadata and Logs
 
-- **Metadata Files**: Each platform generates a metadata snapshot in the `.gitfield` directory (e.g., `github.sigil.md`, `gitlab.sigil.md`, `remember.sigil.md`, `codeberg.sigil.md`, `gitea.sigil.md`, etc.), capturing commit details, environment information, and hardware fingerprints.
-- **Push Log**: The `.gitfield/pushed.log` file records the date, time, and RID/URL of every push operation across all platforms, providing a transparent audit trail.
-- **Recursive Sync**: The repository is synchronized across all platforms in a recursive loop (three cycles) to ensure interconnected metadata captures the latest state of the project.
-- **Push Order**: The repository is synchronized in the following order: **Radicle → Forgejo → Codeberg → Gitea → GitLab → Bitbucket → GitHub**. This prioritizes Radicle’s decentralized, censorship-resistant network as the primary anchor, followed by Forgejo’s sovereign, self-hosted infrastructure, Codeberg’s community-driven platform, Gitea’s lightweight efficiency, GitLab’s robust DevOps features, Bitbucket’s enterprise redundancy, and GitHub’s broad visibility, ensuring a resilient and accessible metadata chain.
+- **Canonical Metadata**: Declared in [`docs/canonical.meta`](./docs/canonical.meta) (JSON) and [`docs/canonical.md`](./docs/canonical.md) (Markdown), with internal copies in `.gitfield/`.
+- **Index Manifest**: A full manifest of remotes and sync details in [`docs/index.json`](./docs/index.json).
+- **SEO Metadata**: Schema.org JSON-LD in [`docs/gitfield.json`](./docs/gitfield.json) and [`docs/.well-known/gitfield.json`](./docs/.well-known/gitfield.json).
+- **Push Log**: [`docs/pushed.log`](./docs/pushed.log) records push operations for transparency.
+- **GitField Directory**: `.gitfield` contains metadata and sigils. See [`docs/gitfield.README.txt`](./docs/gitfield.README.txt).
+- **GitHub Pages**: SEO-optimized declaration in [`docs/index.html`](./docs/index.html), with sitemap [`docs/sitemap.xml`](./docs/sitemap.xml) and hashes [`docs/integrity.sha256`](./docs/integrity.sha256).
+- **GPG Signatures**: Metadata files are signed with:
+  - Mark Randall Havens (Field Archivist, The Fold Within) <mark@thefoldwithin.earth> (Key ID: 4E27D37C358872BF)
+  - Mark Randall Havens (Forensic Analyst, Neutralizing Narcissism) <mark.r.havens@gmail.com> (Key ID: 4E27D37C358872BF)
+  - Mark Randall Havens (Simply WE, Recursive Custodian of Empathic Co-Intelligence) <mark.r.havens@gmail.com> (Key ID: 4E27D37C358872BF)
+- **Recursive Sync**: Three sync cycles ensure metadata captures the project’s state.
+- **Push Order**: Radicle → Forgejo → Codeberg → GitLab → Bitbucket → GitHub prioritizes decentralized and sovereign platforms.
 
 ---
 
-_Auto-generated by `gitfield-sync` at 2025-06-09 14:24:20 (v1.0)._
+_Auto-generated by `gitfield-sync` at 2025-06-16T09:02:55Z (v1.5)._

@@ -260,6 +260,12 @@
       "branch": "master",
       "commit": "2c7ca37c4c98c60fde75efb583f176d02050b267",
       "message": "Post-GitHub sync at 2025-06-09 14:24:20"
+    },
+    {
+      "timestamp": "2025-06-16 04:05:43",
+      "branch": "master",
+      "commit": "a30dee44b28ff7e5ba662e49719b89d469f81b72",
+      "message": "Signed /mnt/c/fieldcraft/NarcStudy_AndrewLeCody/docs/integrity.sha256 with GPG key 4E27D37C358872BF at 2025-06-16T09:02:55Z"
     }
   ]
 }

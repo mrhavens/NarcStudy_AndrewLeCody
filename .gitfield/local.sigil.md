@@ -3,28 +3,28 @@
 - **Repo Name**: `NarcStudy_AndrewLeCody`
 - **Local User**: `mrhavens`
 - **Remote URL**: `file:///home/mrhavens/git-local-repos/git-sigil.git`
-- **Local Repo Path**: `/home/mrhavens/fieldcraft/NarcStudy_AndrewLeCody`
+- **Local Repo Path**: `/mnt/c/fieldcraft/NarcStudy_AndrewLeCody`
 - **Remote Label**: `local`
 - **Default Branch**: `master`
-- **Repo Created**: `2025-06-09 14:37:34`
+- **Repo Created**: `2025-06-16 04:05:43`
 
 ---
 
 ## 📦 Commit Info
 
-- **This Commit Timestamp**: `2025-06-09 14:37:34`
-- **Last Commit SHA**: `2c7ca37c4c98c60fde75efb583f176d02050b267`
-- **Last Commit Message**: `Post-GitHub sync at 2025-06-09 14:24:20`
+- **This Commit Timestamp**: `2025-06-16 04:05:43`
+- **Last Commit SHA**: `a30dee44b28ff7e5ba662e49719b89d469f81b72`
+- **Last Commit Message**: `Signed /mnt/c/fieldcraft/NarcStudy_AndrewLeCody/docs/integrity.sha256 with GPG key 4E27D37C358872BF at 2025-06-16T09:02:55Z`
 - **Last Commit Author**: `Mark Randall Havens <mark.r.havens@gmail.com>`
-- **Last Commit Date**: `Mon Jun 9 14:37:34 2025 -0500`
+- **Last Commit Date**: `Mon Jun 16 04:05:35 2025 -0500`
 - **This Commit URL**: `file:///home/mrhavens/git-local-repos/git-sigil.git`
 
 ---
 
 ## 📊 Repo Status
 
-- **Total Commits**: `1345`
-- **Tracked Files**: `225`
+- **Total Commits**: `1389`
+- **Tracked Files**: `258`
 - **Uncommitted Changes**: `No`
 - **Latest Tag**: `None`
 
@@ -48,8 +48,8 @@
 - **Running in Docker**: `No`
 - **Running in WSL**: `Yes`
 - **Virtual Machine**: `wsl`
-- **System Uptime**: `up 18 minutes`
-- **MAC Address**: `00:15:5d:70:e2:68`
+- **System Uptime**: `up 1 hour, 8 minutes`
+- **MAC Address**: `00:15:5d:1b:bf:e4`
 - **Local IP**: `172.18.207.124`
 - **CPU Model**: `AMD A6-3420M APU with Radeon(tm) HD Graphics`
 - **Total RAM (GB)**: `3.63`

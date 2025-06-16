@@ -3,28 +3,28 @@
 - **Repo Name**: `NarcStudy_AndrewLeCody`
 - **GitHub User**: `mrhavens`
 - **Remote URL**: [https://github.com/mrhavens/NarcStudy_AndrewLeCody](https://github.com/mrhavens/NarcStudy_AndrewLeCody)
-- **Local Repo Path**: `/home/mrhavens/fieldcraft/NarcStudy_AndrewLeCody`
+- **Local Repo Path**: `/mnt/c/fieldcraft/NarcStudy_AndrewLeCody`
 - **Remote Label**: `github`
 - **Default Branch**: `master`
-- **This Commit Date**: `2025-06-09 14:37:33`
+- **This Commit Date**: `2025-06-16 04:11:30`
 
 ---
 
 ## 📦 Commit Info
 
-- **This Commit Timestamp**: `2025-06-09 14:37:33`
-- **Last Commit SHA**: `ffb2c7f8e87e6a6b8cc76c81d754141cc8d4decf`
-- **Last Commit Message**: `Post-Bitbucket sync at 2025-06-09 14:24:20`
+- **This Commit Timestamp**: `2025-06-16 04:11:30`
+- **Last Commit SHA**: `ed3d85471f4bf27987233e6952cf18d140528aea`
+- **Last Commit Message**: `Post-Bitbucket sync at 2025-06-16T09:02:55Z`
 - **Last Commit Author**: `Mark Randall Havens <mark.r.havens@gmail.com>`
-- **Last Commit Date**: `Mon Jun 9 14:36:58 2025 -0500`
-- **This Commit URL**: [https://github.com/mrhavens/NarcStudy_AndrewLeCody/commit/ffb2c7f8e87e6a6b8cc76c81d754141cc8d4decf](https://github.com/mrhavens/NarcStudy_AndrewLeCody/commit/ffb2c7f8e87e6a6b8cc76c81d754141cc8d4decf)
+- **Last Commit Date**: `Mon Jun 16 04:11:14 2025 -0500`
+- **This Commit URL**: [https://github.com/mrhavens/NarcStudy_AndrewLeCody/commit/ed3d85471f4bf27987233e6952cf18d140528aea](https://github.com/mrhavens/NarcStudy_AndrewLeCody/commit/ed3d85471f4bf27987233e6952cf18d140528aea)
 
 ---
 
 ## 📊 Repo Status
 
-- **Total Commits**: `1343`
-- **Tracked Files**: `225`
+- **Total Commits**: `1401`
+- **Tracked Files**: `268`
 - **Uncommitted Changes**: `No`
 - **Latest Tag**: `None`
 
@@ -48,8 +48,8 @@
 - **Running in Docker**: `No`
 - **Running in WSL**: `Yes`
 - **Virtual Machine**: `wsl`
-- **System Uptime**: `up 18 minutes`
-- **MAC Address**: `00:15:5d:70:e2:68`
+- **System Uptime**: `up 1 hour, 14 minutes`
+- **MAC Address**: `00:15:5d:1b:bf:e4`
 - **Local IP**: `172.18.207.124`
 - **CPU Model**: `AMD A6-3420M APU with Radeon(tm) HD Graphics`
 - **Total RAM (GB)**: `3.63`
